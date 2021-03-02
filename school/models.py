@@ -40,19 +40,6 @@ class Course(models.Model):
         return f'{self.course_name}(ID:{self.id})'
 
 
-class Lecture(models.Model):
-    lecture_title = models.CharField(max_length=150, blank=True)
-    course = models.ForeignKey(Course, on_delete=models.CASCADE)
-    due_date = models.DateTimeField()
-    lecture_number = models.PositiveIntegerField()
-
-    class Meta:
-        unique_together = ['course', 'lecture_number']
-
-    def __str__(self):
-        return f'Lecture {self.lecture_number} of {self.course}'
-
-
 class EnrolledIn(models.Model):
     GRADE_CHOICES = [
         ('A+', 'A+'),
@@ -90,3 +77,28 @@ class AssistsIn(models.Model):
 
     def __str__(self):
         return f'{self.student} in {self.course}'
+
+
+class Lecture(models.Model):
+    lecture_title = models.CharField(max_length=150, blank=True)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    due_date = models.DateTimeField()
+    lecture_number = models.PositiveIntegerField()
+
+    class Meta:
+        unique_together = ['course', 'lecture_number']
+
+    def __str__(self):
+        return f'Lecture {self.lecture_number} of {self.course}'
+
+
+class Assignment(models.Model):
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    due_date = models.DateTimeField()
+    assignment_number = models.PositiveIntegerField()
+
+    class Meta:
+        unique_together = ['course', 'assignment_number']
+
+    def __str__(self):
+        return f'Assignment {self.assignment_number} of {self.course}'
