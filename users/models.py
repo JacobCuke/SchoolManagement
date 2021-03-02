@@ -44,3 +44,6 @@ class ExtraCurricular(models.Model):
 
     class Meta:
         unique_together = ['user', 'activity_name']
+
+    def __str__(self):
+        return f'{activity_name}'
