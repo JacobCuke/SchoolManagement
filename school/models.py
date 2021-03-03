@@ -84,6 +84,7 @@ class Lecture(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     due_date = models.DateTimeField()
     lecture_number = models.PositiveIntegerField()
+    content = models.FileField(upload_to='file_uploads', null=True)
 
     class Meta:
         unique_together = ['course', 'lecture_number']
@@ -96,9 +97,21 @@ class Assignment(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     due_date = models.DateTimeField()
     assignment_number = models.PositiveIntegerField()
+    content = models.FileField(upload_to='file_uploads', null=True)
 
     class Meta:
         unique_together = ['course', 'assignment_number']
 
     def __str__(self):
         return f'Assignment {self.assignment_number} of {self.course}'
+
+
+class ExtraCurricular(models.Model):
+    user = models.ForeignKey(Student, on_delete=models.CASCADE)
+    activity_name = models.CharField(max_length=100)
+
+    class Meta:
+        unique_together = ['user', 'activity_name']
+
+    def __str__(self):
+        return f'{self.activity_name}'

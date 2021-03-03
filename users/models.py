@@ -36,14 +36,3 @@ class Instructor(models.Model):
 
     def __str__(self):
         return f'{self.user.first_name} {self.user.last_name}'
-
-
-class ExtraCurricular(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    activity_name = models.CharField(max_length=100)
-
-    class Meta:
-        unique_together = ['user', 'activity_name']
-
-    def __str__(self):
-        return f'{activity_name}'

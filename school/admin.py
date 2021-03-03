@@ -4,7 +4,8 @@ from .models import (
   Lecture,
   Assignment,
   EnrolledIn,
-  AssistsIn
+  AssistsIn,
+  ExtraCurricular
 )
 
 class CourseAdmin(admin.ModelAdmin):
@@ -21,14 +22,19 @@ class AssistsInAdmin(admin.ModelAdmin):
 
 class LectureAdmin(admin.ModelAdmin):
     model = Lecture
-    list_display = ('id', 'lecture_title', 'course', 'due_date', 'lecture_number')
+    list_display = ('id', 'lecture_title', 'course', 'due_date', 'lecture_number', 'content')
 
 class AssignmentAdmin(admin.ModelAdmin):
     model = Assignment
-    list_display = ('id', 'course', 'due_date', 'assignment_number')
+    list_display = ('id', 'course', 'due_date', 'assignment_number', 'content')
+
+class ExtraCurricularAdmin(admin.ModelAdmin):
+    model = ExtraCurricular
+    list_display = ('user', 'activity_name')
 
 admin.site.register(Course, CourseAdmin)
 admin.site.register(EnrolledIn, EnrolledInAdmin)
 admin.site.register(AssistsIn, AssistsInAdmin)
 admin.site.register(Lecture, LectureAdmin)
 admin.site.register(Assignment, AssignmentAdmin)
+admin.site.register(ExtraCurricular, ExtraCurricularAdmin)
