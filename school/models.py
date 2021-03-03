@@ -31,7 +31,7 @@ class Course(models.Model):
         (FRIDAY, 'Friday')
     ]
 
-    course_name = models.CharField(max_length=150)
+    course_name = models.CharField(max_length=255)
     instructor = models.ForeignKey(Instructor, null=True, on_delete=models.SET_NULL)
     time = models.CharField(max_length=1, blank=True, choices=TIME_CHOICES)
     day = models.CharField(max_length=2, blank=True, choices=DAY_CHOICES)
@@ -80,7 +80,7 @@ class AssistsIn(models.Model):
 
 
 class Lecture(models.Model):
-    lecture_title = models.CharField(max_length=150, blank=True)
+    lecture_title = models.CharField(max_length=255, blank=True)
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     due_date = models.DateTimeField()
     lecture_number = models.PositiveIntegerField()
@@ -107,11 +107,26 @@ class Assignment(models.Model):
 
 
 class ExtraCurricular(models.Model):
-    user = models.ForeignKey(Student, on_delete=models.CASCADE)
+    student = models.ForeignKey(Student, on_delete=models.CASCADE)
     activity_name = models.CharField(max_length=100)
 
     class Meta:
-        unique_together = ['user', 'activity_name']
+        unique_together = ['student', 'activity_name']
 
     def __str__(self):
         return f'{self.activity_name}'
+
+
+class Guardian(models.Model):
+    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    first_name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255)
+    phone_number = models.CharField(max_length=20)
+    address = models.CharField(max_length=255)
+    relation = models.CharField(max_length=255)
+
+    class Meta:
+        unique_together = ['student', 'first_name', 'last_name']
+
+    def __str__(self):
+        return f'{self.first_name} {self.last_name} guardian of {self.student}'

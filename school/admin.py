@@ -5,7 +5,8 @@ from .models import (
   Assignment,
   EnrolledIn,
   AssistsIn,
-  ExtraCurricular
+  ExtraCurricular,
+  Guardian
 )
 
 class CourseAdmin(admin.ModelAdmin):
@@ -30,7 +31,11 @@ class AssignmentAdmin(admin.ModelAdmin):
 
 class ExtraCurricularAdmin(admin.ModelAdmin):
     model = ExtraCurricular
-    list_display = ('user', 'activity_name')
+    list_display = ('student', 'activity_name')
+
+class GuardianAdmin(admin.ModelAdmin):
+    model = Guardian
+    list_display = ('student', 'first_name', 'last_name', 'phone_number', 'address', 'relation')
 
 admin.site.register(Course, CourseAdmin)
 admin.site.register(EnrolledIn, EnrolledInAdmin)
@@ -38,3 +43,4 @@ admin.site.register(AssistsIn, AssistsInAdmin)
 admin.site.register(Lecture, LectureAdmin)
 admin.site.register(Assignment, AssignmentAdmin)
 admin.site.register(ExtraCurricular, ExtraCurricularAdmin)
+admin.site.register(Guardian, GuardianAdmin)
