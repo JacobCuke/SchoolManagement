@@ -38,7 +38,7 @@ class Course(models.Model):
     day = models.CharField(max_length=2, blank=True, choices=DAY_CHOICES)
 
     def __str__(self):
-        return f'{self.course_name}(ID:{self.id})'
+        return f'{self.course_name} (ID:{self.id})'
 
 
 class EnrolledIn(models.Model):
@@ -91,7 +91,7 @@ class Lecture(models.Model):
         unique_together = ['course', 'lecture_number']
 
     def __str__(self):
-        return f'Lecture {self.lecture_number} of {self.course}'
+        return f'Lecture {self.lecture_number}'
 
 
 class Assignment(models.Model):
@@ -104,7 +104,7 @@ class Assignment(models.Model):
         unique_together = ['course', 'assignment_number']
 
     def __str__(self):
-        return f'Assignment {self.assignment_number} of {self.course}'
+        return f'Assignment {self.assignment_number}'
 
 
 class Submission(models.Model):
@@ -160,4 +160,4 @@ class Guardian(models.Model):
         unique_together = ['student', 'first_name', 'last_name']
 
     def __str__(self):
-        return f'{self.first_name} {self.last_name} guardian of {self.student}'
+        return f'{self.first_name} {self.last_name}'
