@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 from users.models import Instructor, Student
 
 class Course(models.Model):
@@ -104,6 +105,36 @@ class Assignment(models.Model):
 
     def __str__(self):
         return f'Assignment {self.assignment_number} of {self.course}'
+
+
+class Submission(models.Model):
+    GRADE_CHOICES = [
+        ('A+', 'A+'),
+        ('A', 'A'),
+        ('A-', 'A-'),
+        ('B+', 'B+'),
+        ('B', 'B'),
+        ('B-', 'B-'),
+        ('C+', 'C+'),
+        ('C', 'C'),
+        ('C-', 'C-'),
+        ('D+', 'D+'),
+        ('D', 'D'),
+        ('F', 'F')
+    ]
+
+    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    assignment = models.ForeignKey(Assignment, on_delete=models.CASCADE)
+    grade_report = models.CharField(max_length=2, choices=GRADE_CHOICES, blank=True)
+    feedback = models.TextField(blank=True)
+    submission_time = models.DateTimeField(default=timezone.now)
+    content = models.FileField(upload_to='submissions', null=True)
+
+    class Meta:
+        unique_together = ['student', 'assignment']
+
+    def __str__(self):
+        return f'{self.student} submission for {self.assignment}'
 
 
 class ExtraCurricular(models.Model):

@@ -1,10 +1,11 @@
 from django.contrib import admin
 from .models import (
   Course,
-  Lecture,
-  Assignment,
   EnrolledIn,
   AssistsIn,
+  Lecture,
+  Assignment,
+  Submission,
   ExtraCurricular,
   Guardian
 )
@@ -29,6 +30,10 @@ class AssignmentAdmin(admin.ModelAdmin):
     model = Assignment
     list_display = ('id', 'course', 'due_date', 'assignment_number', 'content')
 
+class SubmissionAdmin(admin.ModelAdmin):
+    model = Submission
+    list_display = ('student', 'assignment', 'grade_report', 'feedback', 'submission_time', 'content')
+
 class ExtraCurricularAdmin(admin.ModelAdmin):
     model = ExtraCurricular
     list_display = ('student', 'activity_name')
@@ -42,5 +47,6 @@ admin.site.register(EnrolledIn, EnrolledInAdmin)
 admin.site.register(AssistsIn, AssistsInAdmin)
 admin.site.register(Lecture, LectureAdmin)
 admin.site.register(Assignment, AssignmentAdmin)
+admin.site.register(Submission, SubmissionAdmin)
 admin.site.register(ExtraCurricular, ExtraCurricularAdmin)
 admin.site.register(Guardian, GuardianAdmin)
