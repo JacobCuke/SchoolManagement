@@ -1,0 +1,27 @@
+body {
+  background: #ebebeb;
+  color: #333333;
+  margin-top: 5rem;
+  font-family: 'Arvo', serif;
+}
+
+.navbar {
+  background-color: #800000;
+}
+
+.navbar-brand {
+  font-weight: 700;
+}
+
+.dropdown-item:hover {
+  background-color: #ebebeb;
+}
+
+.dropdown-item:active {
+  background-color: #800000;
+}
+
+.main-body {
+  margin-top: 100px;
+  margin-bottom: 60px;
+}
