@@ -19,6 +19,11 @@
         <button class="btn btn-outline-custom" type="submit">Confirm</button>
       </div>
     </form>
+    <div class="border-top pt-2">
+      <small class="text-muted">
+        Already have an account? <a class="ml-2" href="{% url 'login' %}">Sign In</a>
+      </small>
+    </div>
     <script>
       $(function () {
         $(".date-picker").datepicker({
