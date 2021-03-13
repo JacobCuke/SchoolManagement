@@ -1,0 +1,22 @@
+{% extends "school/content.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+- Register
+{% endblock title %}
+
+{% block content %}
+  <div class="content-section">
+    <form method="POST">
+      {% csrf_token %}
+      <fieldset class="form-group">
+        <legend class="border-bottom mb-4">Create Student</legend>
+        {{ user_form|crispy }}
+        {{ student_form|crispy }}
+      </fieldset>
+      <div class="form-group">
+        <button class="btn btn-outline-custom" type="submit">Confirm</button>
+      </div>
+    </form>
+  </div>
+{% endblock content %}
