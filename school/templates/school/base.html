@@ -41,7 +41,7 @@
 
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <div class="navbar-nav mr-auto">
-            <a class="nav-item nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="#">Home</a>
+            <a class="nav-item nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">Home</a>
             <a class="nav-item nav-link" href="#">About</a>
             <a class="nav-item nav-link" href="#">Feature</a>
             <li class="nav-item dropdown">
@@ -61,7 +61,7 @@
 
           <div class="navbar-nav">
             {% if user.is_authenticated %}
-              <a class="nav-item nav-link" href="#">Logout</a>
+              <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
             {% else %}
               <a class="nav-item nav-link" href="{% url 'login' %}">Sign In</a>
             {% endif %}
