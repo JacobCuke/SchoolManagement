@@ -10,7 +10,7 @@
     <form method="POST">
       {% csrf_token %}
       <fieldset class="form-group">
-        <legend class="border-bottom mb-4">Create Instructor</legend>
+        <legend class="border-bottom mb-4">Register Instructor</legend>
         {{ user_form|crispy }}
         {{ profile_form|crispy }}
         {{ instructor_form|crispy }}

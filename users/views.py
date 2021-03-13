@@ -4,6 +4,11 @@ from .forms import UserRegisterForm, StudentRegisterForm, InstructorRegisterForm
 from django.contrib.auth.models import User
 
 def register(request):
+    if not (request.user.is_authenticated):
+        return redirect('login')
+    if not (request.user.is_superuser):
+        return redirect('access-denied')
+
     return render(request, 'users/register.html')
 
 
@@ -33,6 +38,11 @@ def register_student(request):
 
 
 def register_instructor(request):
+    if not (request.user.is_authenticated):
+        return redirect('login')
+    if not (request.user.is_superuser):
+        return redirect('access-denied')
+
     if request.method == 'POST':
         user_form = UserRegisterForm(request.POST, prefix='user')
         instructor_form = InstructorRegisterForm(request.POST, prefix='instructor')
@@ -55,3 +65,7 @@ def register_instructor(request):
         }
 
     return render(request, 'users/register_instructor.html', context)
+
+
+def access_denied(request):
+    return render(request, 'users/access_denied.html')

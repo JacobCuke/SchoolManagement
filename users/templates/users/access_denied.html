@@ -1,0 +1,15 @@
+{% extends "school/content.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+- Access Denied
+{% endblock title %}
+
+{% block content %}
+  <h2>Error: You do not have access to this page</h2>
+  <div class="border-top pt-1">
+    <small class="text-muted">
+      <a href="{% url 'login' %}">Sign in to a different account</a>
+    </small>
+  </div>
+{% endblock content %}
