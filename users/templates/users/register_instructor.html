@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 
 {% block title %}
-- Register Student
+- Register Instructor
 {% endblock title %}
 
 {% block content %}
@@ -10,10 +10,10 @@
     <form method="POST">
       {% csrf_token %}
       <fieldset class="form-group">
-        <legend class="border-bottom mb-4">Create Student</legend>
+        <legend class="border-bottom mb-4">Create Instructor</legend>
         {{ user_form|crispy }}
         {{ profile_form|crispy }}
-        {{ student_form|crispy }}
+        {{ instructor_form|crispy }}
       </fieldset>
       <div class="form-group">
         <button class="btn btn-outline-custom" type="submit">Confirm</button>

@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import Student, Profile
+from .models import Student, Instructor, Profile
 
 class UserRegisterForm(UserCreationForm):
     first_name = forms.CharField(max_length=150)
@@ -19,6 +19,18 @@ class StudentRegisterForm(forms.ModelForm):
     class Meta:
         model = Student
         fields = ['student_id_no', 'year']
+
+
+class InstructorRegisterForm(forms.ModelForm):
+    start_date = forms.DateField(
+                                    widget=forms.DateInput(attrs={'autocomplete':'off', 'class': 'date-picker'}, 
+                                    format='%Y/%m/%d'),
+                                    input_formats=['%Y/%m/%d'],
+                                )
+
+    class Meta:
+        model = Instructor
+        fields = ['start_date', 'office_number', 'office_phone_number']
 
 
 class ProfileRegisterForm(forms.ModelForm):
