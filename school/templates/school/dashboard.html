@@ -1,0 +1,31 @@
+{% extends "school/content.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+- Login
+{% endblock title %}
+
+{% block content %}
+  <h1 class="mb-4">Dashboard</h1>
+  {% if courses.enrolled_courses %}
+    <h2 class="mb-4">Enrolled Courses</h2>
+    {% for course in courses.enrolled_courses %}
+      <article class="content-section">
+        <h3 class="mb-4">{{ course.course_name }}</h3>
+        <p>Instructor: {{ course.instructor }}</p>
+        <p>Time: {{ course.get_time_display }}, {{ course.get_day_display }}</p>
+      </article>
+    {% endfor %}
+  {% endif %}
+
+  {% if courses.assisted_courses %}
+    <h2 class="mb-4">Assisted Courses</h2>
+    {% for course in courses.assisted_courses %}
+      <article class="content-section">
+        <h3 class="mb-4">{{ course.course_name }}</h3>
+        <p>Instructor: {{ course.instructor }}</p>
+        <p>Time: {{ course.get_time_display }}, {{ course.get_day_display }}</p>
+      </article>
+    {% endfor %}
+  {% endif %}
+{% endblock content %}
