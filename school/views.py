@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
 from .models import Course, EnrolledIn, AssistsIn
 from users.models import Student
@@ -24,7 +25,7 @@ def dashboard(request):
         return render(request, 'login')
 
 
-class DashboardListView(ListView):
+class DashboardListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
     model = Course
     template_name = 'school/dashboard.html'
     context_object_name = 'courses'
@@ -42,3 +43,12 @@ class DashboardListView(ListView):
             queryset['assisted_courses'] = Course.objects.filter(id__in=assists)
 
         return queryset
+    
+    def test_func(self):
+        dashboard_user = self.kwargs.get('username')
+        if (self.request.user.username == dashboard_user):
+            return True
+        return False
+
+    def handle_no_permission(self):
+        return redirect('access-denied')
