@@ -22,7 +22,7 @@ def dashboard(request):
     if (request.user.is_authenticated):
         return redirect('user-dashboard', username=request.user.username)
     else:
-        return render(request, 'login')
+        return redirect('login')
 
 
 class DashboardListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
