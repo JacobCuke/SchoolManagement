@@ -43,3 +43,13 @@ body {
   color: #ffffff;
   background-color:#800000;
 }
+
+.btn-custom {
+  color: #ffffff;
+  background-color:#800000;
+}
+
+.btn-custom:hover {
+  color: #ffffff;
+  background-color: #6d0000;
+}
