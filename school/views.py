@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
 from .models import Course, EnrolledIn, AssistsIn
-from users.models import Student
+from users.models import Student, Instructor
 from django.views.generic import (
     ListView,
     DetailView,
@@ -42,6 +42,11 @@ class DashboardListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
             assists = AssistsIn.objects.filter(student=student).values('course')
             queryset['assisted_courses'] = Course.objects.filter(id__in=assists)
 
+        instructor = Instructor.objects.filter(user=user).first()
+        if instructor:
+            queryset['taught_courses'] = Course.objects.filter(instructor=instructor)
+
+        print(queryset)
         return queryset
     
     def test_func(self):

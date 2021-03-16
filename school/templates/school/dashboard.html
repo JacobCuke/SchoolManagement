@@ -28,4 +28,15 @@
       </article>
     {% endfor %}
   {% endif %}
+
+  {% if courses.taught_courses %}
+      <h2 class=mb-4>Taught Courses</h2>
+      {% for course in courses.taught_courses %}
+        <article class="content-section">
+          <h3 class="mb-4">{{ course.course_name }}</h3>
+          <p>Instructor: {{ course.instructor }}</p>
+          <p>Time: {{ course.get_time_display }}, {{ course.get_day_display }}</p>
+        </article>
+      {% endfor %}
+  {% endif %}
 {% endblock content %}
