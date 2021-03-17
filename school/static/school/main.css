@@ -30,7 +30,7 @@ body {
   background-color:#ffffff;
   border: 1px solid #bebebe;
   border-radius: 3px;
-  padding: 20px;
+  padding: 25px;
   margin-bottom: 50px;
 }
 
@@ -49,6 +49,10 @@ body {
   color: #007bff;
 }
 
+.content-table {
+  width: 90%;
+}
+
 .data-title {
   font-weight: 700;
   margin-right: 5px;
@@ -56,6 +60,20 @@ body {
 
 .data-content {
   display: inline-block;
+}
+
+.profile-list {
+  padding-inline-start: 5px;
+}
+
+.profile-list-item {
+  list-style: none;
+  margin: 0.5rem 0;
+}
+
+.profile-list-item::before {
+  content: "\25B9";
+  margin-right: 10px;
 }
 
 .btn-outline-custom {

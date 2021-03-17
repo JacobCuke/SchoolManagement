@@ -3,7 +3,7 @@ from django.contrib import messages
 from .forms import UserRegisterForm, StudentRegisterForm, InstructorRegisterForm, ProfileRegisterForm
 from django.contrib.auth.models import User
 from .models import Student, Instructor
-from school.models import EnrolledIn, AssistsIn, Course
+from school.models import EnrolledIn, AssistsIn, Course, ExtraCurricular, Guardian
 
 def register(request):
     if not (request.user.is_authenticated):
@@ -85,9 +85,26 @@ def profile(request, **kwargs):
     if not profile_user:
         return redirect('access-denied')
 
+    # Will be None if the profile does not belong to a student
+    temp_student = Student.objects.filter(user=profile_user).first()
+    extra_curriculars = ExtraCurricular.objects.filter(student=temp_student)
+    guardians = Guardian.objects.filter(student=temp_student)
+
+    # Will ne None if the profile does not belong to an instructor
+    temp_instructor = Instructor.objects.filter(user=profile_user).first()
+    taught_courses = Course.objects.filter(instructor=temp_instructor)
+
+    context = {
+        'kwargs': kwargs,
+        'profile_user': profile_user,
+        'extra_curriculars': extra_curriculars,
+        'guardians': guardians,
+        'taught_courses': taught_courses
+    }
+
     # Superusers can view anyone's profile
     if user.is_superuser:
-        return render(request, 'users/profile.html', context={'kwargs': kwargs, 'profile_user': profile_user})
+        return render(request, 'users/profile.html', context=context)
 
     # Users cannot view superuser's profile
     if (profile_user.is_superuser):
@@ -95,11 +112,11 @@ def profile(request, **kwargs):
 
     # Anyone can view their own profile
     if (user == profile_user):
-        return render(request, 'users/profile.html', context={'kwargs': kwargs, 'profile_user': profile_user})
+        return render(request, 'users/profile.html', context=context)
 
     # Anyone can view an instructor's profile
     if Instructor.objects.filter(user=profile_user).exists():
-        return render(request, 'users/profile.html', context={'kwargs': kwargs, 'profile_user': profile_user})
+        return render(request, 'users/profile.html', context=context)
 
     # Students cannot view other students' profile
     student = Student.objects.filter(user=user).first()
@@ -116,7 +133,7 @@ def profile(request, **kwargs):
         student_instructors = Course.objects.filter(id__in=student_courses).values('instructor')
         print(student_instructors)
         if Instructor.objects.filter(user=instructor.user, user__in=student_instructors).exists():
-            return render(request, 'users/profile.html', context={'kwargs': kwargs, 'profile_user': profile_user})
+            return render(request, 'users/profile.html', context=context)
 
     return redirect('access-denied')
 

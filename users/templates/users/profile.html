@@ -32,6 +32,41 @@
         <span class="data-title">Student ID:</span>
         <span class="data-content">{{ profile_user.student.student_id_no }}</span>
       </p>
+      <h5 class="content-title mt-4">Extracurriculars</h5>
+      {% if extra_curriculars %}
+        <ul class="profile-list">
+        {% for extra_curricular in extra_curriculars %}
+          <li class="profile-list-item">{{ extra_curricular.activity_name }}</li>
+        {% endfor %}
+        </ul>
+      {% else %}
+        <p>No extracurricular activities</p>
+      {% endif %}
+      <h5 class="content-title mt-4">Guardians</h5>
+      {% if guardians %}
+        <table class="table content-table">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Relation</th>
+              <th scope="col">Phone #</th>
+              <th scope="col">Address</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for guardian in guardians %}
+              <tr>
+                <td scope="row">{{ guardian.first_name }} {{ guardian.last_name }}</th>
+                <td>{{ guardian.relation }}</td>
+                <td>{{ guardian.phone_number }}</td>
+                <td>{{ guardian.address }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% else %}
+        <p>No guardians</p>
+      {% endif %}
     {% endif %}
     {% if profile_user.instructor %}
       <p>
@@ -42,6 +77,29 @@
         <span class="data-title">Office Phone Number:</span>
         <span class="data-content">{{ profile_user.instructor.office_phone_number }}</span>
       </p>
+      <h5 class="content-title mt-4">Courses Taught</h5>
+      {% if taught_courses %}
+        <table class="table content-table">
+          <thead>
+            <tr>
+              <th scope="col">Course Name</th>
+              <th scope="col">Time</th>
+              <th scope="col">Day</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for course in taught_courses %}
+              <tr>
+                <td scope="row">{{ course.course_name }}</td>
+                <td>{{ course.get_time_display }}</td>
+                <td>{{ course.get_day_display }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% else %}
+        <p>No guardians</p>
+      {% endif %}
     {% endif %}
   </div>
 {% endblock content %}
