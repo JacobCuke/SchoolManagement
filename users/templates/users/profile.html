@@ -40,7 +40,7 @@
       <div class="content-title mt-4">
         <h5 class="profile-title">Extracurriculars</h5>
         {% if user.username == kwargs.username %}
-          <a class="btn btn-primary sub-profile-button" href="#"><i class="fas fa-plus mr-2"></i>Add Item</a>
+          <a class="btn btn-primary sub-profile-button" href="{% url 'create-extra-curricular' %}"><i class="fas fa-plus mr-2"></i>Add Item</a>
         {% endif %}
       </div>
       {% if extra_curriculars %}

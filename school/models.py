@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.contrib.auth.models import User
 from django.utils import timezone
 from users.models import Instructor, Student
@@ -143,6 +144,9 @@ class ExtraCurricular(models.Model):
 
     class Meta:
         unique_together = ['student', 'activity_name']
+
+    def get_absolute_url(self):
+        return reverse('profile', kwargs={'username': self.student.user})
 
     def __str__(self):
         return f'{self.activity_name}'

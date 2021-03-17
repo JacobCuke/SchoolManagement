@@ -1,0 +1,14 @@
+{% extends "school/content.html" %}
+
+{% block title %}
+- Error
+{% endblock title %}
+
+{% block content %}
+  <p class="lead">Error: You have reached the max of 5 extracurricular activities</p>
+  <div class="border-top pt-1">
+    <p class="text-muted">
+      <a href="{% url 'profile' user.username %}">Back to profile</a>
+    </p>
+  </div>
+{% endblock content %}

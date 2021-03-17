@@ -139,7 +139,7 @@ def profile(request, **kwargs):
             return render(request, 'users/profile.html', context=context)
 
     return redirect('access-denied')
-    
+
 
 @login_required
 def update_profile(request, **kwargs):
