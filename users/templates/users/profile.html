@@ -6,7 +6,10 @@
 
 {% block content %}
   <div class="content-section">
-    <h3 class="content-title">{{ kwargs.username }}</h3>
+    <div class="content-title">
+      <h3 class="profile-title">{{ kwargs.username }}</h3>
+      <a class="btn btn-info profile-button" href="#"><i class="fas fa-pencil-alt mr-2"></i>Edit Profile</a>
+    </div>
     <p>
       <span class="data-title">Full Name:</span>
       <span class="data-content">{{ profile_user.first_name }} {{ profile_user.last_name }}</span>
@@ -32,38 +35,59 @@
         <span class="data-title">Student ID:</span>
         <span class="data-content">{{ profile_user.student.student_id_no }}</span>
       </p>
-      <h5 class="content-title mt-4">Extracurriculars</h5>
+      <div class="content-title mt-4">
+        <h5 class="profile-title">Extracurriculars</h5>
+        <a class="btn btn-primary sub-profile-button" href="#"><i class="fas fa-plus mr-2"></i>Add Item</a>
+      </div>
       {% if extra_curriculars %}
         <ul class="profile-list">
         {% for extra_curricular in extra_curriculars %}
-          <li class="profile-list-item">{{ extra_curricular.activity_name }}</li>
+          <li class="profile-list-item">
+            {{ extra_curricular.activity_name }}
+            <span class="inline-row-buttons">
+              <a class="edit-link" href="#"><i class="fas fa-pencil-alt ml-2"></i></a>
+              <a class="delete-link" href="#"><i class="fas fa-trash-alt ml-2"></i></a>
+            </span>
+          </li>
         {% endfor %}
         </ul>
       {% else %}
         <p>No extracurricular activities</p>
       {% endif %}
-      <h5 class="content-title mt-4">Guardians</h5>
+      <div class="content-title mt-4">
+        <h5 class="profile-title">Guardians</h5>
+        <a class="btn btn-primary sub-profile-button" href="#"><i class="fas fa-plus mr-2"></i>Add Item</a>
+      </div>
       {% if guardians %}
-        <table class="table content-table">
-          <thead>
-            <tr>
-              <th scope="col">Name</th>
-              <th scope="col">Relation</th>
-              <th scope="col">Phone #</th>
-              <th scope="col">Address</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for guardian in guardians %}
+        <div class="table-responsive">
+          <table class="table content-table">
+            <thead>
               <tr>
-                <td scope="row">{{ guardian.first_name }} {{ guardian.last_name }}</th>
-                <td>{{ guardian.relation }}</td>
-                <td>{{ guardian.phone_number }}</td>
-                <td>{{ guardian.address }}</td>
+                <th scope="col">Name</th>
+                <th scope="col">Relation</th>
+                <th scope="col">Phone #</th>
+                <th scope="col">Address</th>
+                <th scope="col">Actions</th>
               </tr>
-            {% endfor %}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {% for guardian in guardians %}
+                <tr>
+                  <td scope="row">{{ guardian.first_name }} {{ guardian.last_name }}</th>
+                  <td>{{ guardian.relation }}</td>
+                  <td>{{ guardian.phone_number }}</td>
+                  <td>{{ guardian.address }}</td>
+                  <td>
+                    <span class="inline-row-buttons">
+                      <a class="edit-link" href="#"><i class="fas fa-pencil-alt ml-2"></i></a>
+                      <a class="delete-link" href="#"><i class="fas fa-trash-alt ml-2"></i></a>
+                    </span>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
       {% else %}
         <p>No guardians</p>
       {% endif %}

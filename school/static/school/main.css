@@ -41,12 +41,49 @@ body {
   width: 90%;
 }
 
-.content-title a {
+.title-link {
   color: #333333;
 }
 
-.content-title a:hover {
+.title-link:hover {
   color: #007bff;
+}
+
+.profile-title {
+  display: inline-block;
+}
+
+.profile-button {
+  margin-left: 20px;
+  vertical-align: top;
+  padding: .23rem .65rem;
+}
+
+.sub-profile-button {
+  margin-left: 15px;
+  font-size: smaller;
+  vertical-align: top;
+  padding: .2rem .6rem;
+}
+
+.inline-row-buttons a {
+  color: #333333;
+}
+
+.inline-row-buttons a.edit-link {
+  color: #17a2b8;
+}
+
+.inline-row-buttons a.delete-link {
+  color: #ff0000;
+}
+
+.inline-row-buttons a.edit-link:hover {
+  color: #138496;
+}
+
+.inline-row-buttons a.delete-link:hover {
+  color: #c82333;
 }
 
 .content-table {
