@@ -44,3 +44,9 @@ class ProfileRegisterForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['birth_date', 'address']
+
+
+class InstructorUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Instructor
+        fields = ['office_number', 'office_phone_number']

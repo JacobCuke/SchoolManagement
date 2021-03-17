@@ -1,0 +1,31 @@
+{% extends "school/content.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+- Edit Profile
+{% endblock title %}
+
+{% block content %}
+  <div class="content-section">
+    <form method="POST">
+      {% csrf_token %}
+      <fieldset class="form-group">
+        <legend class="border-bottom mb-4">Edit Profile</legend>
+        {{ profile_form|crispy }}
+        {% if instructor_update_form %}
+          {{ instructor_update_form|crispy }}
+        {% endif %}
+      </fieldset>
+      <div class="form-group">
+        <button class="btn btn-outline-info" type="submit">Update</button>
+      </div>
+    </form>
+    <script>
+      $(function () {
+        $(".date-picker").datepicker({
+          format:'yyyy/mm/dd',
+        });
+      });
+    </script>
+  </div>
+{% endblock content %}

@@ -1,9 +1,12 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .forms import UserRegisterForm, StudentRegisterForm, InstructorRegisterForm, ProfileRegisterForm
+from .forms import UserRegisterForm, StudentRegisterForm, InstructorRegisterForm, ProfileRegisterForm, InstructorUpdateForm
 from django.contrib.auth.models import User
-from .models import Student, Instructor
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.decorators import login_required
+from .models import Student, Instructor, Profile
 from school.models import EnrolledIn, AssistsIn, Course, ExtraCurricular, Guardian
+from django.views.generic import CreateView, UpdateView, DeleteView
 
 def register(request):
     if not (request.user.is_authenticated):
@@ -136,6 +139,34 @@ def profile(request, **kwargs):
             return render(request, 'users/profile.html', context=context)
 
     return redirect('access-denied')
+    
+
+@login_required
+def update_profile(request, **kwargs):
+    profile = Profile.objects.filter(user=kwargs.get('pk')).first()
+    if request.user != profile.user:
+        return redirect('access-denied')
+
+    instructor = Instructor.objects.filter(user=profile.user).first()
+
+    if request.method == 'POST':
+        profile_form = ProfileRegisterForm(request.POST, instance=request.user.profile)
+        if profile_form.is_valid():
+            profile_form.save()
+        if instructor:
+            instructor_update_form = InstructorUpdateForm(request.POST, instance=request.user.instructor)
+            if instructor_update_form.is_valid():
+                instructor_update_form.save()
+
+        messages.success(request, f'Your account has been updated!')
+        return redirect('profile', username=request.user.username)
+    else:
+        context = {}
+        context['profile_form'] = ProfileRegisterForm(instance=request.user.profile)
+        if instructor:
+            context['instructor_update_form'] = InstructorUpdateForm(instance=request.user.instructor)
+
+        return render(request, 'users/profile_form.html', context)
 
 
 def access_denied(request):

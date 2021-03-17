@@ -9,7 +9,7 @@
     <div class="content-title">
       <h3 class="profile-title">{{ kwargs.username }}</h3>
       {% if user.username == kwargs.username %}
-        <a class="btn btn-info profile-button" href="#"><i class="fas fa-pencil-alt mr-2"></i>Edit Profile</a>
+        <a class="btn btn-info profile-button" href="{% url 'update-profile' user.profile.id %}"><i class="fas fa-pencil-alt mr-2"></i>Edit Profile</a>
       {% endif %}
     </div>
     <p>

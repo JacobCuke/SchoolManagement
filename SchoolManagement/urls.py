@@ -26,6 +26,7 @@ urlpatterns = [
     path('register/student/', user_views.register_student, name='register-student'),
     path('register/instructor/', user_views.register_instructor, name='register-instructor'),
     path('profile/<str:username>/', user_views.profile, name='profile'),
+    path('profile/<int:pk>/update/', user_views.update_profile, name='update-profile'),
     path('access_denied/', user_views.access_denied, name='access-denied'),
     path('', include('school.urls')),
 ]
