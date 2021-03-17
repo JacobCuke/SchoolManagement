@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
-from .models import Course, EnrolledIn, AssistsIn, ExtraCurricular
-from .forms import ExtraCurricularForm
+from .models import Course, EnrolledIn, AssistsIn, ExtraCurricular, Guardian
+from .forms import ExtraCurricularForm, GuardianForm
 from users.models import Student, Instructor
 from django.views.generic import (
     ListView,
@@ -84,7 +84,7 @@ class CourseDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
         return redirect('access-denied')
 
 
-class CreateExtraCurricular(LoginRequiredMixin, UserPassesTestMixin, CreateView):
+class CreateExtraCurricularView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     form_class = ExtraCurricularForm
     template_name = 'school/extra_curricular_form.html'
     is_student = False
@@ -112,5 +112,33 @@ class CreateExtraCurricular(LoginRequiredMixin, UserPassesTestMixin, CreateView)
             return render(self.request, 'school/max_extra_curriculars.html')
         else:
             return redirect('access-denied')
-        
 
+
+class CreateGuardianView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
+    form_class = GuardianForm
+    template_name = 'school/guardian_form.html'
+    is_student = False
+
+    def form_valid(self, form):
+        student = Student.objects.filter(user=self.request.user).first()
+        form.instance.student = student
+        return super().form_valid(form)
+
+    # User must be a Student and can only have a max of 2 guardians
+    def test_func(self):
+        user = self.request.user
+        student = Student.objects.filter(user=user).first()
+        if student:
+            self.is_student = True
+            if (Guardian.objects.filter(student=student).count() >= 2):
+                return False
+            return True
+        else:
+            return False
+
+
+    def handle_no_permission(self):
+        if self.is_student:
+            return render(self.request, 'school/max_guardians.html')
+        else:
+            return redirect('access-denied')

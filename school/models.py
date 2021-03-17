@@ -145,11 +145,11 @@ class ExtraCurricular(models.Model):
     class Meta:
         unique_together = ['student', 'activity_name']
 
-    def get_absolute_url(self):
-        return reverse('profile', kwargs={'username': self.student.user})
-
     def __str__(self):
         return f'{self.activity_name}'
+
+    def get_absolute_url(self):
+        return reverse('profile', kwargs={'username': self.student.user})
 
 
 class Guardian(models.Model):
@@ -165,3 +165,6 @@ class Guardian(models.Model):
 
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
+
+    def get_absolute_url(self):
+        return reverse('profile', kwargs={'username': self.student.user})
