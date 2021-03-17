@@ -2,18 +2,28 @@
 {% load crispy_forms_tags %}
 
 {% block title %}
-- Login
+- Dashboard
 {% endblock title %}
 
 {% block content %}
-  <h1 class="mb-4">Dashboard</h1>
+  <h1 class="mb-4">{{ view.kwargs.username }}'s Dashboard</h1>
   {% if courses.enrolled_courses %}
     <h2 class="mb-4">Enrolled Courses</h2>
     {% for course in courses.enrolled_courses %}
       <article class="content-section">
-        <h3 class="mb-4">{{ course.course_name }}</h3>
-        <p>Instructor: {{ course.instructor }}</p>
-        <p>Time: {{ course.get_time_display }}, {{ course.get_day_display }}</p>
+        <h3 class="content-title"><a href="#">{{ course.course_name }}</a></h3>
+        <p>
+          <span class="data-title">Instructor:</span>
+          <span class="data-content">{{ course.instructor }}</span>
+        </p>
+        <p>
+          <span class="data-title">Time:</span>
+          <span class="data-content">{{ course.get_time_display }}</span>
+        </p>
+        <p>
+          <span class="data-title">Day:</span>
+          <span class="data-content">{{ course.get_day_display }}</span>
+        </p>
       </article>
     {% endfor %}
   {% endif %}
@@ -22,9 +32,19 @@
     <h2 class="mb-4">Assisted Courses</h2>
     {% for course in courses.assisted_courses %}
       <article class="content-section">
-        <h3 class="mb-4">{{ course.course_name }}</h3>
-        <p>Instructor: {{ course.instructor }}</p>
-        <p>Time: {{ course.get_time_display }}, {{ course.get_day_display }}</p>
+        <h3 class="content-title"><a href="#">{{ course.course_name }}</a></h3>
+        <p>
+          <span class="data-title">Instructor:</span>
+          <span class="data-content">{{ course.instructor }}</span>
+        </p>
+        <p>
+          <span class="data-title">Time:</span>
+          <span class="data-content">{{ course.get_time_display }}</span>
+        </p>
+        <p>
+          <span class="data-title">Day:</span>
+          <span class="data-content">{{ course.get_day_display }}</span>
+        </p>
       </article>
     {% endfor %}
   {% endif %}
@@ -33,9 +53,19 @@
       <h2 class=mb-4>Taught Courses</h2>
       {% for course in courses.taught_courses %}
         <article class="content-section">
-          <h3 class="mb-4">{{ course.course_name }}</h3>
-          <p>Instructor: {{ course.instructor }}</p>
-          <p>Time: {{ course.get_time_display }}, {{ course.get_day_display }}</p>
+          <h3 class="content-title"><a href="#">{{ course.course_name }}</a></h3>
+          <p>
+            <span class="data-title">Instructor:</span>
+            <span class="data-content">{{ course.instructor }}</span>
+          </p>
+          <p>
+            <span class="data-title">Time:</span>
+            <span class="data-content">{{ course.get_time_display }}</span>
+          </p>
+          <p>
+            <span class="data-title">Day:</span>
+            <span class="data-content">{{ course.get_day_display }}</span>
+          </p>
         </article>
       {% endfor %}
   {% endif %}

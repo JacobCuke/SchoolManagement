@@ -34,6 +34,30 @@ body {
   margin-bottom: 50px;
 }
 
+.content-title {
+  border-bottom: 1px solid #cfcfcf;
+  padding-bottom: 7px;
+  margin-bottom: 17px;
+  width: 90%;
+}
+
+.content-title a {
+  color: #333333;
+}
+
+.content-title a:hover {
+  color: #007bff;
+}
+
+.data-title {
+  font-weight: 700;
+  margin-right: 5px;
+}
+
+.data-content {
+  display: inline-block;
+}
+
 .btn-outline-custom {
   color: #800000;
   border-color: #800000;
