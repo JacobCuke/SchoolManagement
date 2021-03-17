@@ -8,7 +8,9 @@
   <div class="content-section">
     <div class="content-title">
       <h3 class="profile-title">{{ kwargs.username }}</h3>
-      <a class="btn btn-info profile-button" href="#"><i class="fas fa-pencil-alt mr-2"></i>Edit Profile</a>
+      {% if user.username == kwargs.username %}
+        <a class="btn btn-info profile-button" href="#"><i class="fas fa-pencil-alt mr-2"></i>Edit Profile</a>
+      {% endif %}
     </div>
     <p>
       <span class="data-title">Full Name:</span>
@@ -37,17 +39,21 @@
       </p>
       <div class="content-title mt-4">
         <h5 class="profile-title">Extracurriculars</h5>
-        <a class="btn btn-primary sub-profile-button" href="#"><i class="fas fa-plus mr-2"></i>Add Item</a>
+        {% if user.username == kwargs.username %}
+          <a class="btn btn-primary sub-profile-button" href="#"><i class="fas fa-plus mr-2"></i>Add Item</a>
+        {% endif %}
       </div>
       {% if extra_curriculars %}
         <ul class="profile-list">
         {% for extra_curricular in extra_curriculars %}
           <li class="profile-list-item">
             {{ extra_curricular.activity_name }}
-            <span class="inline-row-buttons">
-              <a class="edit-link" href="#"><i class="fas fa-pencil-alt ml-2"></i></a>
-              <a class="delete-link" href="#"><i class="fas fa-trash-alt ml-2"></i></a>
-            </span>
+            {% if user.username == kwargs.username %}
+              <span class="inline-row-buttons">
+                <a class="edit-link" href="#"><i class="fas fa-pencil-alt ml-2"></i></a>
+                <a class="delete-link" href="#"><i class="fas fa-trash-alt ml-2"></i></a>
+              </span>
+            {% endif %}
           </li>
         {% endfor %}
         </ul>
@@ -56,7 +62,9 @@
       {% endif %}
       <div class="content-title mt-4">
         <h5 class="profile-title">Guardians</h5>
-        <a class="btn btn-primary sub-profile-button" href="#"><i class="fas fa-plus mr-2"></i>Add Item</a>
+        {% if user.username == kwargs.username %}
+          <a class="btn btn-primary sub-profile-button" href="#"><i class="fas fa-plus mr-2"></i>Add Item</a>
+        {% endif %}
       </div>
       {% if guardians %}
         <div class="table-responsive">
@@ -67,7 +75,9 @@
                 <th scope="col">Relation</th>
                 <th scope="col">Phone #</th>
                 <th scope="col">Address</th>
-                <th scope="col">Actions</th>
+                {% if user.username == kwargs.username %}
+                  <th scope="col">Actions</th>
+                {% endif %}
               </tr>
             </thead>
             <tbody>
@@ -77,12 +87,14 @@
                   <td>{{ guardian.relation }}</td>
                   <td>{{ guardian.phone_number }}</td>
                   <td>{{ guardian.address }}</td>
-                  <td>
-                    <span class="inline-row-buttons">
-                      <a class="edit-link" href="#"><i class="fas fa-pencil-alt ml-2"></i></a>
-                      <a class="delete-link" href="#"><i class="fas fa-trash-alt ml-2"></i></a>
-                    </span>
-                  </td>
+                  {% if user.username == kwargs.username %}
+                    <td>
+                      <span class="inline-row-buttons">
+                        <a class="edit-link" href="#"><i class="fas fa-pencil-alt ml-2"></i></a>
+                        <a class="delete-link" href="#"><i class="fas fa-trash-alt ml-2"></i></a>
+                      </span>
+                    </td>
+                  {% endif %}
                 </tr>
               {% endfor %}
             </tbody>
@@ -103,26 +115,28 @@
       </p>
       <h5 class="content-title mt-4">Courses Taught</h5>
       {% if taught_courses %}
-        <table class="table content-table">
-          <thead>
-            <tr>
-              <th scope="col">Course Name</th>
-              <th scope="col">Time</th>
-              <th scope="col">Day</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for course in taught_courses %}
+        <div class="table-responsive">
+          <table class="table content-table">
+            <thead>
               <tr>
-                <td scope="row">{{ course.course_name }}</td>
-                <td>{{ course.get_time_display }}</td>
-                <td>{{ course.get_day_display }}</td>
+                <th scope="col">Course Name</th>
+                <th scope="col">Time</th>
+                <th scope="col">Day</th>
               </tr>
-            {% endfor %}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {% for course in taught_courses %}
+                <tr>
+                  <td scope="row">{{ course.course_name }}</td>
+                  <td>{{ course.get_time_display }}</td>
+                  <td>{{ course.get_day_display }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
       {% else %}
-        <p>No guardians</p>
+        <p>No taught courses</p>
       {% endif %}
     {% endif %}
   </div>
