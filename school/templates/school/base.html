@@ -46,6 +46,7 @@
             {% else %}
               <a class="nav-item nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">Home</a>
             {% endif %}
+            {% block course_links %}{% endblock course_links %}
             <!-- <a class="nav-item nav-link" href="#">About</a> -->
             <!-- <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

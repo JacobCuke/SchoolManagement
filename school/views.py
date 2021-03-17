@@ -57,3 +57,30 @@ class DashboardListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
 
     def handle_no_permission(self):
         return redirect('access-denied')
+
+
+class CourseDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
+    model = Course
+
+    def test_func(self):
+        user = self.request.user
+        course = self.get_object()
+
+        student = Student.objects.filter(user=user).first()
+        if student:
+            if EnrolledIn.objects.filter(student=student, course=course).exists():
+                return True
+            if AssistsIn.objects.filter(student=student, course=course).exists():
+                return True
+        
+        instructor = Instructor.objects.filter(user=user).first()
+        if instructor:
+            if course.instructor == instructor:
+                return True
+
+        return False
+
+    def handle_no_permission(self):
+        return redirect('access-denied')
+        
+
