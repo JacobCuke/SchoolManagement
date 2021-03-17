@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import UserRegisterForm, StudentRegisterForm, InstructorRegisterForm, ProfileRegisterForm
 from django.contrib.auth.models import User
+from .models import Student, Instructor
+from school.models import EnrolledIn, AssistsIn, Course
 
 def register(request):
     if not (request.user.is_authenticated):
@@ -70,6 +72,53 @@ def register_instructor(request):
         }
 
     return render(request, 'users/register_instructor.html', context)
+
+
+def profile(request, **kwargs):
+    if not (request.user.is_authenticated):
+        return redirect('login')
+
+    user = request.user
+    profile_user = User.objects.filter(username=kwargs.get('username')).first()
+
+    # Profile does not exist
+    if not profile_user:
+        return redirect('access-denied')
+
+    # Superusers can view anyone's profile
+    if user.is_superuser:
+        return render(request, 'users/profile.html', context={'kwargs': kwargs})
+
+    # Users cannot view superuser's profile
+    if (profile_user.is_superuser):
+        return redirect('access-denied')
+
+    # Anyone can view their own profile
+    if (user == profile_user):
+        return render(request, 'users/profile.html', context={'kwargs': kwargs})
+
+    # Anyone can view an instructor's profile
+    if Instructor.objects.filter(user=profile_user).exists():
+        return render(request, 'users/profile.html', context={'kwargs': kwargs})
+
+    # Students cannot view other students' profile
+    student = Student.objects.filter(user=user).first()
+    if student:
+        return redirect('access-denied')
+
+    # Instructors can view profiles of students they teach
+    instructor = Instructor.objects.filter(user=user).first()
+    if instructor:
+        profile_student = Student.objects.filter(user=profile_user).first()
+        student_enrollments = EnrolledIn.objects.filter(student=profile_student).values('course')
+        student_assists = AssistsIn.objects.filter(student=profile_student).values('course')
+        student_courses = student_enrollments.union(student_assists)
+        student_instructors = Course.objects.filter(id__in=student_courses).values('instructor')
+        print(student_instructors)
+        if Instructor.objects.filter(user=instructor.user, user__in=student_instructors).exists():
+            return render(request, 'users/profile.html', context={'kwargs': kwargs})
+
+    return redirect('access-denied')
 
 
 def access_denied(request):

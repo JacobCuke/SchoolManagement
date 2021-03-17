@@ -46,7 +46,6 @@ class DashboardListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
         if instructor:
             queryset['taught_courses'] = Course.objects.filter(instructor=instructor)
 
-        print(queryset)
         return queryset
     
     def test_func(self):
