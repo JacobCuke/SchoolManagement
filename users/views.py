@@ -13,6 +13,11 @@ def register(request):
 
 
 def register_student(request):
+    if not (request.user.is_authenticated):
+        return redirect('login')
+    if not (request.user.is_superuser):
+        return redirect('access-denied')
+
     if request.method == 'POST':
         user_form = UserRegisterForm(request.POST, prefix='user')
         student_form = StudentRegisterForm(request.POST, prefix='student')
