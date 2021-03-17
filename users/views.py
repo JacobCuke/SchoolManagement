@@ -87,7 +87,7 @@ def profile(request, **kwargs):
 
     # Superusers can view anyone's profile
     if user.is_superuser:
-        return render(request, 'users/profile.html', context={'kwargs': kwargs})
+        return render(request, 'users/profile.html', context={'kwargs': kwargs, 'profile_user': profile_user})
 
     # Users cannot view superuser's profile
     if (profile_user.is_superuser):
@@ -95,11 +95,11 @@ def profile(request, **kwargs):
 
     # Anyone can view their own profile
     if (user == profile_user):
-        return render(request, 'users/profile.html', context={'kwargs': kwargs})
+        return render(request, 'users/profile.html', context={'kwargs': kwargs, 'profile_user': profile_user})
 
     # Anyone can view an instructor's profile
     if Instructor.objects.filter(user=profile_user).exists():
-        return render(request, 'users/profile.html', context={'kwargs': kwargs})
+        return render(request, 'users/profile.html', context={'kwargs': kwargs, 'profile_user': profile_user})
 
     # Students cannot view other students' profile
     student = Student.objects.filter(user=user).first()
@@ -116,7 +116,7 @@ def profile(request, **kwargs):
         student_instructors = Course.objects.filter(id__in=student_courses).values('instructor')
         print(student_instructors)
         if Instructor.objects.filter(user=instructor.user, user__in=student_instructors).exists():
-            return render(request, 'users/profile.html', context={'kwargs': kwargs})
+            return render(request, 'users/profile.html', context={'kwargs': kwargs, 'profile_user': profile_user})
 
     return redirect('access-denied')
 

@@ -1,9 +1,47 @@
 {% extends "school/content.html" %}
 
 {% block title %}
-- {{kwargs.username}}'s Profile
+- {{ kwargs.username }}'s Profile
 {% endblock title %}
 
 {% block content %}
-  <h1>{{kwargs.username}}'s Profile</h1>
+  <div class="content-section">
+    <h3 class="content-title">{{ kwargs.username }}</h3>
+    <p>
+      <span class="data-title">Full Name:</span>
+      <span class="data-content">{{ profile_user.first_name }} {{ profile_user.last_name }}</span>
+    </p>
+    <p>
+      <span class="data-title">Email:</span>
+      <span class="data-content">{{ profile_user.email }}</span>
+    </p>
+    <p>
+      <span class="data-title">Birth Date:</span>
+      <span class="data-content">{{ profile_user.profile.birth_date }}</span>
+    </p>
+    <p>
+      <span class="data-title">Address:</span>
+      <span class="data-content">{{ profile_user.profile.address }}</span>
+    </p>
+    {% if profile_user.student %}
+      <p>
+        <span class="data-title">Year:</span>
+        <span class="data-content">{{ profile_user.student.get_year_display }}</span>
+      </p>
+      <p>
+        <span class="data-title">Student ID:</span>
+        <span class="data-content">{{ profile_user.student.student_id_no }}</span>
+      </p>
+    {% endif %}
+    {% if profile_user.instructor %}
+      <p>
+        <span class="data-title">Office Number:</span>
+        <span class="data-content">{{ profile_user.instructor.office_number }}</span>
+      </p>
+      <p>
+        <span class="data-title">Office Phone Number:</span>
+        <span class="data-content">{{ profile_user.instructor.office_phone_number }}</span>
+      </p>
+    {% endif %}
+  </div>
 {% endblock content %}
