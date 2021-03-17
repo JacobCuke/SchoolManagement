@@ -6,6 +6,10 @@
 
 {% block content %}
   <h1 class="mb-4">Dashboard</h1>
+  {% if not courses %}
+    <p class="lead">You are not part of any courses</p>
+  {% endif %}
+
   {% if courses.enrolled_courses %}
     <h2 class="mb-4">Enrolled Courses</h2>
     {% for course in courses.enrolled_courses %}
