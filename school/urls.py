@@ -5,6 +5,7 @@ from .views import (
     CourseDetailView,
     ExtraCurricularCreateView,
     ExtraCurricularUpdateView,
+    ExtraCurricularDeleteView,
     GuardianCreateView,
     GuardianUpdateView
 )
@@ -16,6 +17,7 @@ urlpatterns = [
     path('course/<int:pk>/', CourseDetailView.as_view(), name='course-detail'),
     path('extracurricular/new/', ExtraCurricularCreateView.as_view(), name='create-extra-curricular'),
     path('extracurricular/<int:pk>/update/', ExtraCurricularUpdateView.as_view(), name='update-extra-curricular'),
+    path('extracurricular/<int:pk>/delete/', ExtraCurricularDeleteView.as_view(), name='delete-extra-curricular'),
     path('guardian/new/', GuardianCreateView.as_view(), name='create-guardian'),
     path('guardian/<int:pk>/update/', GuardianUpdateView.as_view(), name='update-guardian')
 ]

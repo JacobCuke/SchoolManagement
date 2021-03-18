@@ -148,6 +148,20 @@ class ExtraCurricularUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateV
             return redirect('login')
 
 
+class ExtraCurricularDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = ExtraCurricular
+    success_url = '/profile/'
+    template_name = 'school/extra_curricular_confirm_delete.html'
+    
+    def test_func(self):
+        extra_curricular = self.get_object()
+        student = Student.objects.filter(user=self.request.user).first()
+        if student:
+            if student == extra_curricular.student:
+                return True
+        return False
+
+
 class GuardianCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     form_class = GuardianForm
     template_name = 'school/guardian_form.html'

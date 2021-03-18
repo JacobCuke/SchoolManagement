@@ -77,6 +77,13 @@ def register_instructor(request):
     return render(request, 'users/register_instructor.html', context)
 
 
+def profile_redirect(request):
+    if (request.user.is_authenticated):
+        return redirect('profile', username=request.user.username)
+    else:
+        return redirect('login')
+
+
 def profile(request, **kwargs):
     if not (request.user.is_authenticated):
         return redirect('login')
