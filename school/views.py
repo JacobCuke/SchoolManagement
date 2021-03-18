@@ -55,12 +55,6 @@ class DashboardListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
             return True
         return False
 
-    def handle_no_permission(self):
-        if self.request.user.is_authenticated:
-            return redirect('access-denied')
-        else:
-            return redirect('login')
-
 
 class CourseDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
     model = Course
@@ -82,12 +76,6 @@ class CourseDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
                 return True
 
         return False
-
-    def handle_no_permission(self):
-        if self.request.user.is_authenticated:
-            return redirect('access-denied')
-        else:
-            return redirect('login')
 
 
 class ExtraCurricularCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
@@ -140,12 +128,6 @@ class ExtraCurricularUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateV
             if student == extra_curricular.student:
                 return True
         return False
-
-    def handle_no_permission(self):
-        if self.request.user.is_authenticated:
-            return redirect('access-denied')
-        else:
-            return redirect('login')
 
 
 class ExtraCurricularDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
@@ -211,12 +193,6 @@ class GuardianUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
             if student == guardian.student:
                 return True
         return False
-
-    def handle_no_permission(self):
-        if self.request.user.is_authenticated:
-            return redirect('access-denied')
-        else:
-            return redirect('login')
 
 
 class GuardianDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):

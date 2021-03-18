@@ -165,7 +165,6 @@ def update_profile(request, **kwargs):
             if instructor_update_form.is_valid():
                 instructor_update_form.save()
 
-        messages.success(request, f'Your account has been updated!')
         return redirect('profile', username=request.user.username)
     else:
         context = {}
@@ -177,4 +176,4 @@ def update_profile(request, **kwargs):
 
 
 def access_denied(request):
-    return render(request, 'users/access_denied.html')
+    return render(request, '403.html')
