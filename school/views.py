@@ -170,12 +170,36 @@ class GuardianCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
         else:
             return False
 
-
     def handle_no_permission(self):
         if self.request.user.is_authenticated:
             if self.is_student:
                 return render(self.request, 'school/max_guardians.html')
             else:
                 return redirect('access-denied')
+        else:
+            return redirect('login')
+
+
+class GuardianUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Guardian
+    form_class = GuardianForm
+    template_name = 'school/guardian_update_form.html'
+
+    def form_valid(self, form):
+        student = Student.objects.filter(user=self.request.user).first()
+        form.instance.student = student
+        return super().form_valid(form)
+    
+    def test_func(self):
+        guardian = self.get_object()
+        student = Student.objects.filter(user=self.request.user).first()
+        if student:
+            if student == guardian.student:
+                return True
+        return False
+
+    def handle_no_permission(self):
+        if self.request.user.is_authenticated:
+            return redirect('access-denied')
         else:
             return redirect('login')
