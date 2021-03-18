@@ -56,7 +56,10 @@ class DashboardListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
         return False
 
     def handle_no_permission(self):
-        return redirect('access-denied')
+        if self.request.user.is_authenticated:
+            return redirect('access-denied')
+        else:
+            return redirect('login')
 
 
 class CourseDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
@@ -81,10 +84,13 @@ class CourseDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
         return False
 
     def handle_no_permission(self):
-        return redirect('access-denied')
+        if self.request.user.is_authenticated:
+            return redirect('access-denied')
+        else:
+            return redirect('login')
 
 
-class CreateExtraCurricularView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
+class ExtraCurricularCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     form_class = ExtraCurricularForm
     template_name = 'school/extra_curricular_form.html'
     is_student = False
@@ -108,13 +114,41 @@ class CreateExtraCurricularView(LoginRequiredMixin, UserPassesTestMixin, CreateV
 
 
     def handle_no_permission(self):
-        if self.is_student:
-            return render(self.request, 'school/max_extra_curriculars.html')
+        if self.request.user.is_authenticated:
+            if self.is_student:
+                return render(self.request, 'school/max_extra_curriculars.html')
+            else:
+                return redirect('access-denied')
         else:
+            return redirect('login')
+
+
+class ExtraCurricularUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = ExtraCurricular
+    form_class = ExtraCurricularForm
+    template_name = 'school/extra_curricular_update_form.html'
+
+    def form_valid(self, form):
+        student = Student.objects.filter(user=self.request.user).first()
+        form.instance.student = student
+        return super().form_valid(form)
+    
+    def test_func(self):
+        extra_curricular = self.get_object()
+        student = Student.objects.filter(user=self.request.user).first()
+        if student:
+            if student == extra_curricular.student:
+                return True
+        return False
+
+    def handle_no_permission(self):
+        if self.request.user.is_authenticated:
             return redirect('access-denied')
+        else:
+            return redirect('login')
 
 
-class CreateGuardianView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
+class GuardianCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     form_class = GuardianForm
     template_name = 'school/guardian_form.html'
     is_student = False
@@ -138,7 +172,10 @@ class CreateGuardianView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
 
 
     def handle_no_permission(self):
-        if self.is_student:
-            return render(self.request, 'school/max_guardians.html')
+        if self.request.user.is_authenticated:
+            if self.is_student:
+                return render(self.request, 'school/max_guardians.html')
+            else:
+                return redirect('access-denied')
         else:
-            return redirect('access-denied')
+            return redirect('login')
