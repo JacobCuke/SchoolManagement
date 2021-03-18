@@ -1,0 +1,21 @@
+{% extends "school/content.html" %}
+
+{% block title %}
+- Delete Guardian
+{% endblock title %}
+
+{% block content %}
+  <div class="content-section">
+    <form method="POST">
+      {% csrf_token %}
+      <fieldset class="form-group">
+        <legend class="border-bottom mb-4">Delete Guardian</legend>
+        <p class="lead">Are you sure you want to delete the guardian "{{ object }}"?</p>
+      </fieldset>
+      <div class="form-group">
+        <button class="btn btn-outline-danger mr-2" type="submit">Delete</button>
+        <a class="btn btn-outline-info" href="{% url 'profile' user.username %}">Cancel</a>
+      </div>
+    </form>
+  </div>
+{% endblock content %}

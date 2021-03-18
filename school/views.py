@@ -217,3 +217,17 @@ class GuardianUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
             return redirect('access-denied')
         else:
             return redirect('login')
+
+
+class GuardianDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Guardian
+    success_url = '/profile/'
+    template_name = 'school/guardian_confirm_delete.html'
+    
+    def test_func(self):
+        guardian = self.get_object()
+        student = Student.objects.filter(user=self.request.user).first()
+        if student:
+            if student == guardian.student:
+                return True
+        return False
