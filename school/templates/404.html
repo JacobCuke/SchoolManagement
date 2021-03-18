@@ -1,0 +1,14 @@
+{% extends "school/content.html" %}
+
+{% block title %}
+- Not Found
+{% endblock title %}
+
+{% block content %}
+  <h2>Error: Page not found</h2>
+  <div class="border-top pt-1">
+    <small class="text-muted">
+      <a href="{% url 'home' %}">Back to home</a>
+    </small>
+  </div>
+{% endblock content %}
