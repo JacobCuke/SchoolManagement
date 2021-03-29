@@ -3,7 +3,7 @@ from school.models import Course
 from users.api.serializers import InstructorSerializer
 
 class CourseSerializer(serializers.ModelSerializer):
-    instructor = InstructorSerializer()
+    # instructor = InstructorSerializer()
 
     class Meta:
         model = Course

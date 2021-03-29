@@ -33,4 +33,5 @@ urlpatterns = [
 
     # Rest Framework URLs
     path('api/', include('school.api.urls')),
+    path('api/', include('users.api.urls')),
 ]

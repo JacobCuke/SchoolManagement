@@ -16,7 +16,6 @@ def course_list(request):
 
 @api_view(['GET'])
 def course_detail(request, pk):
-
     try:
         course = Course.objects.get(pk=pk)
     except Course.DoesNotExist:
