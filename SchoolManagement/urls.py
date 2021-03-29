@@ -30,4 +30,7 @@ urlpatterns = [
     path('profile/<int:pk>/update/', user_views.update_profile, name='update-profile'),
     path('access_denied/', user_views.access_denied, name='access-denied'),
     path('', include('school.urls')),
+
+    # Rest Framework URLs
+    path('api/', include('school.api.urls')),
 ]
