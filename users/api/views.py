@@ -1,5 +1,7 @@
+from rest_framework import status
 from rest_framework.response import Response
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated
 from django.http import HttpResponse, JsonResponse
 
 from django.contrib.auth.models import User
@@ -9,7 +11,12 @@ from school.models import Course, EnrolledIn, AssistsIn, Guardian, ExtraCurricul
 from school.api.serializers import CourseSerializer, GuardianSerializer, ExtraCurricularSerializer
 
 @api_view(['GET'])
+@permission_classes([IsAuthenticated])
 def student_list(request):
+    user = request.user
+    if not(user.is_superuser):
+        return Response({'message': "Error: you do not have access to this resource"})
+
     if request.method == 'GET':
         students = Student.objects.all()
         users = User.objects.filter(id__in=students)
