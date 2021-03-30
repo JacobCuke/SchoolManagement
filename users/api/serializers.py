@@ -10,16 +10,12 @@ class ProfileSerializer(serializers.ModelSerializer):
 
 
 class StudentSerializer(serializers.ModelSerializer):
-    # user = UserSerializer()
-
     class Meta:
         model = Student
         fields = ['year', 'student_id_no']
 
 
 class InstructorSerializer(serializers.ModelSerializer):
-    # user = UserSerializer()
-
     class Meta:
         model = Instructor
         fields = ['start_date', 'office_number', 'office_phone_number']

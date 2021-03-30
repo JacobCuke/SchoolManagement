@@ -141,7 +141,6 @@ def profile(request, **kwargs):
         student_assists = AssistsIn.objects.filter(student=profile_student).values('course')
         student_courses = student_enrollments.union(student_assists)
         student_instructors = Course.objects.filter(id__in=student_courses).values('instructor')
-        print(student_instructors)
         if Instructor.objects.filter(user=instructor.user, user__in=student_instructors).exists():
             return render(request, 'users/profile.html', context=context)
 
