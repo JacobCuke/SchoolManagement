@@ -16,7 +16,7 @@ def course_list(request):
     if request.method == 'GET':
         instructor = Instructor.objects.filter(user=user).first()
         if not instructor and not user.is_superuser:
-            return Response({'message': "Error: you do not have access to this resource"})
+            return Response({'message': "Error: you do not have access to this resource"}, status=status.HTTP_403_FORBIDDEN)
         
         courses = Course.objects.all()
         serializer = CourseSerializer(courses, many=True)
@@ -33,7 +33,7 @@ def course_list(request):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-@api_view(['GET'])
+@api_view(['GET', 'DELETE'])
 @permission_classes([IsAuthenticated])
 def course_detail(request, pk):
     try:
@@ -53,12 +53,25 @@ def course_detail(request, pk):
         if student:
             if (not EnrolledIn.objects.filter(student=student, course=course).exists() and
                 not AssistsIn.objects.filter(student=student, course=course).exists()):
-                return Response({'message': "Error: you do not have access to this resource"})
+                return Response({'message': "Error: you do not have access to this resource"}, status=status.HTTP_403_FORBIDDEN)
 
         # Instructors and superusers can access any single course
         else:
             if not instructor and not user.is_superuser:
-                return Response({'message': "Error: you do not have access to this resource"})
+                return Response({'message': "Error: you do not have access to this resource"}, status=status.HTTP_403_FORBIDDEN)
 
         serializer = CourseSerializer(course)
         return Response(serializer.data)
+
+    if request.method == 'DELETE':
+        if not user.is_superuser:
+            return Response({'message': "Error: you do not have access to this resource"}, status=status.HTTP_403_FORBIDDEN)
+
+        operation = course.delete()
+        data = {}
+        if operation:
+            data['success'] = "Course successfully deleted"
+        else:
+            data['failure'] = "Unable to delete course"
+
+        return Response(data=data)
