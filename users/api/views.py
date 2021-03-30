@@ -12,7 +12,7 @@ from school.api.serializers import CourseSerializer, GuardianSerializer, ExtraCu
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
-def user_admin(request):
+def create_user(request):
     user = request.user
     if not user.is_superuser:
         return Response({'message': "Error: you do not have access to this resource"}, status=status.HTTP_403_FORBIDDEN)
@@ -23,6 +23,29 @@ def user_admin(request):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['DELETE'])
+@permission_classes([IsAuthenticated])
+def delete_user(request, pk):
+    try:
+        requested_user = User.objects.get(pk=pk)
+    except User.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    user = request.user
+    if not user.is_superuser:
+        return Response({'message': "Error: you do not have access to this resource"}, status=status.HTTP_403_FORBIDDEN)
+    
+    if request.method == 'DELETE':
+        operation = requested_user.delete()
+        data = {}
+        if operation:
+            data['success'] = "User successfully deleted"
+        else:
+            data['failure'] = "Unable to delete user"
+
+        return Response(data=data)
 
 
 @api_view(['GET'])
@@ -44,7 +67,7 @@ def student_list(request):
 def student_detail(request, pk):
     try:
         requested_student = Student.objects.get(pk=pk)
-    except User.DoesNotExist:
+    except Student.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
     user = request.user
@@ -83,7 +106,7 @@ def student_detail(request, pk):
 def student_enrollments(request, pk):
     try:
         requested_student = Student.objects.get(pk=pk)
-    except User.DoesNotExist:
+    except Student.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
     user = request.user
@@ -102,7 +125,7 @@ def student_enrollments(request, pk):
 def student_assitances(request, pk):
     try:
         requested_student = Student.objects.get(pk=pk)
-    except User.DoesNotExist:
+    except Student.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
     user = request.user
@@ -121,7 +144,7 @@ def student_assitances(request, pk):
 def student_guardians(request, pk):
     try:
         requested_student = Student.objects.get(pk=pk)
-    except User.DoesNotExist:
+    except Student.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
     user = request.user
@@ -160,7 +183,7 @@ def student_guardians(request, pk):
 def student_extracurriculars(request, pk):
     try:
         requested_student = Student.objects.get(pk=pk)
-    except User.DoesNotExist:
+    except Student.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
     user = request.user
@@ -209,7 +232,7 @@ def instructor_list(request):
 def instructor_detail(request, pk):
     try:
         instructor = Instructor.objects.get(pk=pk)
-    except User.DoesNotExist:
+    except Instructor.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
     if request.method == 'GET':
@@ -223,7 +246,7 @@ def instructor_detail(request, pk):
 def instructor_courses(request, pk):
     try:
         instructor = Instructor.objects.get(pk=pk)
-    except User.DoesNotExist:
+    except Instructor.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
     if request.method == 'GET':
