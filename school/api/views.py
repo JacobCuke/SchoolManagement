@@ -8,19 +8,29 @@ from school.models import Course, EnrolledIn, AssistsIn
 from school.api.serializers import CourseSerializer
 from users.models import Student, Instructor
 
-@api_view(['GET'])
+@api_view(['GET', 'POST'])
 @permission_classes([IsAuthenticated])
 def course_list(request):
     user = request.user
-    instructor = Instructor.objects.filter(user=user).first()
-
-    if not instructor and not user.is_superuser:
-        return Response({'message': "Error: you do not have access to this resource"})
 
     if request.method == 'GET':
+        instructor = Instructor.objects.filter(user=user).first()
+        if not instructor and not user.is_superuser:
+            return Response({'message': "Error: you do not have access to this resource"})
+        
         courses = Course.objects.all()
         serializer = CourseSerializer(courses, many=True)
         return Response(serializer.data)
+
+    if request.method == 'POST':
+        if not user.is_superuser:
+            return Response({'message': "Error: you do not have access to this resource"}, status=status.HTTP_403_FORBIDDEN)
+
+        serializer = CourseSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 @api_view(['GET'])
