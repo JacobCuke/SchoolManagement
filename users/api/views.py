@@ -180,6 +180,7 @@ def student_extracurriculars(request, pk):
 
 
 @api_view(['GET'])
+@permission_classes([IsAuthenticated])
 def instructor_list(request):
     if request.method == 'GET':
         instructors = Instructor.objects.all()
@@ -189,6 +190,7 @@ def instructor_list(request):
 
 
 @api_view(['GET'])
+@permission_classes([IsAuthenticated])
 def instructor_detail(request, pk):
     try:
         instructor = Instructor.objects.get(pk=pk)
@@ -202,6 +204,7 @@ def instructor_detail(request, pk):
 
 
 @api_view(['GET'])
+@permission_classes([IsAuthenticated])
 def instructor_courses(request, pk):
     try:
         instructor = Instructor.objects.get(pk=pk)
