@@ -10,12 +10,27 @@ from users.api.serializers import UserSerializer
 from school.models import Course, EnrolledIn, AssistsIn, Guardian, ExtraCurricular
 from school.api.serializers import CourseSerializer, GuardianSerializer, ExtraCurricularSerializer
 
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def user_admin(request):
+    user = request.user
+    if not user.is_superuser:
+        return Response({'message': "Error: you do not have access to this resource"}, status=status.HTTP_403_FORBIDDEN)
+
+    if request.method == 'POST':
+        serializer = UserSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def student_list(request):
     user = request.user
-    if not(user.is_superuser):
-        return Response({'message': "Error: you do not have access to this resource"})
+    if not user.is_superuser:
+        return Response({'message': "Error: you do not have access to this resource"}, status=status.HTTP_403_FORBIDDEN)
 
     if request.method == 'GET':
         students = Student.objects.all()
@@ -42,7 +57,7 @@ def student_detail(request, pk):
         # Request by student
         if student:
             if student != requested_student:
-                return Response({'message': "Error: you do not have access to this resource"})
+                return Response({'message': "Error: you do not have access to this resource"}, status=status.HTTP_403_FORBIDDEN)
 
         # Request by instructor
         elif instructor:
@@ -56,7 +71,7 @@ def student_detail(request, pk):
         # Request by superuser
         else:
             if not user.is_superuser:
-                return Response({'message': "Error: you do not have access to this resource"})
+                return Response({'message': "Error: you do not have access to this resource"}, status=status.HTTP_403_FORBIDDEN)
 
         student_user = User.objects.get(pk=pk)
         serializer = UserSerializer(student_user)
@@ -73,7 +88,7 @@ def student_enrollments(request, pk):
 
     user = request.user
     if user != requested_student.user and not user.is_superuser:
-        return Response({'message': "Error: you do not have access to this resource"})
+        return Response({'message': "Error: you do not have access to this resource"}, status=status.HTTP_403_FORBIDDEN)
 
     if request.method == 'GET':
         enrollments = EnrolledIn.objects.filter(student=requested_student).values('course')
@@ -92,7 +107,7 @@ def student_assitances(request, pk):
 
     user = request.user
     if user != requested_student.user and not user.is_superuser:
-        return Response({'message': "Error: you do not have access to this resource"})
+        return Response({'message': "Error: you do not have access to this resource"}, status=status.HTTP_403_FORBIDDEN)
 
     if request.method == 'GET':
         assistances = AssistsIn.objects.filter(student=requested_student).values('course')
@@ -119,7 +134,7 @@ def student_guardians(request, pk):
         # Request by student
         if student:
             if student != requested_student:
-                return Response({'message': "Error: you do not have access to this resource"})
+                return Response({'message': "Error: you do not have access to this resource"}, status=status.HTTP_403_FORBIDDEN)
 
         # Request by instructor
         elif instructor:
@@ -133,7 +148,7 @@ def student_guardians(request, pk):
         # Request by superuser
         else:
             if not user.is_superuser:
-                return Response({'message': "Error: you do not have access to this resource"})
+                return Response({'message': "Error: you do not have access to this resource"}, status=status.HTTP_403_FORBIDDEN)
 
         guardians = Guardian.objects.filter(student=requested_student)
         serializer = GuardianSerializer(guardians, many=True)
@@ -158,7 +173,7 @@ def student_extracurriculars(request, pk):
         # Request by student
         if student:
             if student != requested_student:
-                return Response({'message': "Error: you do not have access to this resource"})
+                return Response({'message': "Error: you do not have access to this resource"}, status=status.HTTP_403_FORBIDDEN)
 
         # Request by instructor
         elif instructor:
@@ -167,12 +182,12 @@ def student_extracurriculars(request, pk):
             student_courses = student_enrollments.union(student_assists)
             student_instructors = Course.objects.filter(id__in=student_courses).values('instructor')
             if not Instructor.objects.filter(user=user, user__in=student_instructors).exists():
-                return Response({'message': "Error: you do not have access to this resource"})
+                return Response({'message': "Error: you do not have access to this resource"}, status=status.HTTP_403_FORBIDDEN)
 
         # Request by superuser
         else:
             if not user.is_superuser:
-                return Response({'message': "Error: you do not have access to this resource"})
+                return Response({'message': "Error: you do not have access to this resource"}, status=status.HTTP_403_FORBIDDEN)
 
         extracurriculars = ExtraCurricular.objects.filter(student=requested_student)
         serializer = ExtraCurricularSerializer(extracurriculars, many=True)
