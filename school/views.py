@@ -25,9 +25,9 @@ def dashboard(request):
     else:
         return redirect('login')
 
-def course(request):
+def course(request, **kwargs):
     if (request.user.is_authenticated):
-        return redirect('course-home', username=request.user.username)
+        return redirect('lecture-list', course_id = kwargs.get('pk'))
     else:
         return redirect('login')
 
@@ -67,13 +67,14 @@ class LectureListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
     context_object_name = 'lectures'
 
     def get_queryset(self):
-        course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
-        user = self.request.user
         queryset = {}
+        course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
+        
 
-        student = Student.objects.filter(user=user).first()
-        if student:
-            queryset['enrolled_lectures'] = Lecture.objects.filter(course=course)
+        queryset['lecture_list']= Lecture.objects.filter(course=course)
+        queryset['course'] = course 
+        return queryset
+    
     
     def test_func(self):
         user = self.request.user
@@ -91,6 +92,8 @@ class LectureListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
             if course.instructor == instructor:
                 return True
 
+        if user.is_superuser:
+            return True
         return False
 
 

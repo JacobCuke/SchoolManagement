@@ -5,26 +5,20 @@
 {% endblock title %}
 
 {% block content %}
-<h1 class="mb-4">Lectures</h1>
-  {% if not lectures %}
+<h1 class="mb-4">{{lectures.course.course_name}}</h1>
+  {% if not lectures.lecture_list %}
     <p class="lead">Lectures have not been posted</p>
-  {% endif %}
-
-  {% if lectures.enrolled_lectures %}
+    {% else %}
     <h2 class="mb-4">Lectures</h2>
-    {% for lecture in lectures.enrolled_lectures %}
+    {% for lecture in lectures.lecture_list %}
       <article class="content-section">
-        <h3 class="content-title"><a class="title-link" href="#"></a></h3>
+        <h3 class="content-title"><a class="title-link" href="#"></a>{{ lecture.lecture_title }}</h3>
         <p>
-          <span class="data-title">Title:</span>
-          <span class="data-content">{{ lecture.lecture_title }}</span>
-        </p>
-        <p>
-          <span class="data-title">Number:</span>
+          <span class="data-title">Lecture Number:</span>
           <span class="data-content">{{ lecture.lecture_number }}</span>
         </p>
         <p>
-          <span class="data-title">Date Posted:</span>
+          <span class="data-title">Due Date:</span>
           <span class="data-content">{{ lecture.due_date }}</span>
         </p>
       </article>
