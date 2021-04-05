@@ -1,0 +1,23 @@
+{% extends "school/course.html" %}
+
+{% block title %}
+- Assignment List
+{% endblock title %}
+
+{% block content %}
+<h1 class="mb-4">{{assignments.course.course_name}}</h1>
+  {% if not assignments.assignment_list %}
+    <p class="lead">Assignments have not been posted</p>
+    {% else %}
+    <h2 class="mb-4">Assignments</h2>
+    {% for assignment in assignments.assignment_list %}
+      <article class="content-section">
+        <h3 class="content-title"><a class="title-link" href="{% url 'assignment-detail' view.kwargs.course_id assignment.id %}">Assignment: {{ assignment.assignment_number }}</a></h3>
+        <p>
+          <span class="data-title">Due Date:</span>
+          <span class="data-content">{{ assignment.due_date }}</span>
+        </p>
+      </article>
+    {% endfor %}
+  {% endif %}
+{% endblock content %}

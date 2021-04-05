@@ -1,0 +1,19 @@
+{% extends "school/course.html" %}
+
+{% block title %}
+- Lecture Detail
+{% endblock title %}
+
+{% block content %}
+<h1 class="mb-4">{{lecture.lecture_title}}</h1>
+  {% if not lecture.content %}
+    <p class="lead">Lecture content has not been posted</p>
+    {% else %}
+    <h2 class="mb-4">Lecture Content</h2>
+    <article class="content-section">
+    <p>
+        <span class="data-content">{{ response }}</span>
+    </p>
+    </article>
+  {% endif %}
+{% endblock content %}

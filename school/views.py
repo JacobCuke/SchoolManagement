@@ -1,15 +1,17 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
-from .models import Course, EnrolledIn, AssistsIn, ExtraCurricular, Guardian, Lecture
+from .models import Course, EnrolledIn, AssistsIn, ExtraCurricular, Guardian, Lecture, Assignment
 from .forms import ExtraCurricularForm, GuardianForm
 from users.models import Student, Instructor
+from django.core.files.storage import FileSystemStorage
+from django.http import FileResponse, Http404, HttpResponse, HttpResponseNotFound
 from django.views.generic import (
     ListView,
     DetailView,
     CreateView,
     UpdateView,
-    DeleteView
+    DeleteView,
 )
 
 def home(request) :
@@ -96,7 +98,101 @@ class LectureListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
             return True
         return False
 
+class LectureDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
+    model = Lecture
+    context_object_name = 'lecture'
 
+    def pdf_view(request):
+        with open('media\file_uploads\471-W21-Q2-sample_YCjX27B.pdf', 'rb') as pdf:
+            response = HttpResponse(pdf.read(),content_type='application/pdf')
+            response['Content-Disposition'] = 'filename=some_file.pdf'
+            return response
+             
+    def test_func(self):
+        user = self.request.user
+        course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
+
+        student = Student.objects.filter(user=user).first()
+        if student:
+            if EnrolledIn.objects.filter(student=student, course=course).exists():
+                return True
+            if AssistsIn.objects.filter(student=student, course=course).exists():
+                return True
+        
+        instructor = Instructor.objects.filter(user=user).first()
+        if instructor:
+            if course.instructor == instructor:
+                return True
+
+        if user.is_superuser:
+            return True        
+        return False
+    
+class AssignmentListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
+    model = Assignment
+    template_name = 'school/assignment.html'
+    context_object_name = 'assignments'
+
+    def get_queryset(self):
+        queryset = {}
+        course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
+        
+
+        queryset['assignment_list']= Assignment.objects.filter(course=course)
+        queryset['course'] = course 
+        return queryset
+    
+    
+    def test_func(self):
+        user = self.request.user
+        student = Student.objects.filter(user=user).first()
+        course = self.kwargs.get('course_id')
+
+        if student:
+            if EnrolledIn.objects.filter(student=student, course=course).exists():
+                return True
+            if AssistsIn.objects.filter(student=student, course=course).exists():
+                return True
+        
+        instructor = Instructor.objects.filter(user=user).first()
+        if instructor:
+            if course.instructor == instructor:
+                return True
+
+        if user.is_superuser:
+            return True
+        return False
+
+class AssignmentDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
+    model = Assignment
+    context_object_name = 'assignment'
+
+    def pdf_view(request):
+        with open('media\file_uploads\471-W21-Q2-sample_YCjX27B.pdf', 'rb') as pdf:
+            response = HttpResponse(pdf.read(),content_type='application/pdf')
+            response['Content-Disposition'] = 'filename=some_file.pdf'
+            return response
+             
+    def test_func(self):
+        user = self.request.user
+        course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
+
+        student = Student.objects.filter(user=user).first()
+        if student:
+            if EnrolledIn.objects.filter(student=student, course=course).exists():
+                return True
+            if AssistsIn.objects.filter(student=student, course=course).exists():
+                return True
+        
+        instructor = Instructor.objects.filter(user=user).first()
+        if instructor:
+            if course.instructor == instructor:
+                return True
+
+        if user.is_superuser:
+            return True        
+        return False
+    
 class CourseDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
     model = Course
 
@@ -117,8 +213,6 @@ class CourseDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
                 return True
 
         return False
-
-    
 
 class ExtraCurricularCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     form_class = ExtraCurricularForm

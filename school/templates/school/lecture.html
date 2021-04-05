@@ -12,7 +12,7 @@
     <h2 class="mb-4">Lectures</h2>
     {% for lecture in lectures.lecture_list %}
       <article class="content-section">
-        <h3 class="content-title"><a class="title-link" href="#"></a>{{ lecture.lecture_title }}</h3>
+        <h3 class="content-title"><a class="title-link" href="{% url 'lecture-detail' view.kwargs.course_id lecture.id %}">{{ lecture.lecture_title }}</a></h3>
         <p>
           <span class="data-title">Lecture Number:</span>
           <span class="data-content">{{ lecture.lecture_number }}</span>

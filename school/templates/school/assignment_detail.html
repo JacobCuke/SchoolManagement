@@ -1,0 +1,18 @@
+{% extends "school/course.html" %}
+
+{% block title %}
+- Assignment Detail
+{% endblock title %}
+
+{% block content %}
+<h1 class="mb-4">Assignment {{assignment.assignment_number}}</h1>
+  {% if not assignment.content %}
+    <p class="lead">Assignment content has not been posted</p>
+    {% else %}
+    <article class="content-section">
+    <p>
+        <span class="data-content">{{ response }}</span>
+    </p>
+    </article>
+  {% endif %}
+{% endblock content %}

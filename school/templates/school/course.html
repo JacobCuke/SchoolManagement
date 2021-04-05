@@ -1,7 +1,7 @@
 {% extends "school/content.html" %}
 
 {% block course_links %}
-  <a class="nav-item nav-link {% if request.resolver_match.url_name == 'lecture-list' %}active{% endif %}" href="{% url 'lecture-list' view.kwargs.course_id%}">Lectures</a>
-  <a class="nav-item nav-link" href="#">Assignments</a>
+  <a class="nav-item nav-link {% if request.resolver_match.url_name == 'lecture-list' or request.resolver_match.url_name == 'lecture-detail' %}active{% endif %}" href="{% url 'lecture-list' view.kwargs.course_id%}">Lectures</a>
+  <a class="nav-item nav-link {% if request.resolver_match.url_name == 'assignment-list' or request.resolver_match.url_name == 'assignment-detail' %}active{% endif %}" href="{% url 'assignment-list' view.kwargs.course_id%}">Assignments</a>
   <a class="nav-item nav-link" href="#">Discussion</a>
 {% endblock course_links %}
