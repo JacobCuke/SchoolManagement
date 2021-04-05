@@ -8,7 +8,8 @@ from .views import (
     ExtraCurricularDeleteView,
     GuardianCreateView,
     GuardianUpdateView,
-    GuardianDeleteView
+    GuardianDeleteView,
+    LectureListView
 )
 
 urlpatterns = [
@@ -16,6 +17,7 @@ urlpatterns = [
     path('dashboard/', views.dashboard, name='dashboard'),
     path('dashboard/<str:username>/', DashboardListView.as_view(), name='user-dashboard'),
     path('course/<int:pk>/', CourseDetailView.as_view(), name='course-detail'),
+    path('course/<int:course_id>/lectures', LectureListView.as_view(), name='course-home'),
     path('extracurricular/new/', ExtraCurricularCreateView.as_view(), name='create-extra-curricular'),
     path('extracurricular/<int:pk>/update/', ExtraCurricularUpdateView.as_view(), name='update-extra-curricular'),
     path('extracurricular/<int:pk>/delete/', ExtraCurricularDeleteView.as_view(), name='delete-extra-curricular'),

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
-from .models import Course, EnrolledIn, AssistsIn, ExtraCurricular, Guardian
+from .models import Course, EnrolledIn, AssistsIn, ExtraCurricular, Guardian, Lecture
 from .forms import ExtraCurricularForm, GuardianForm
 from users.models import Student, Instructor
 from django.views.generic import (
@@ -25,6 +25,11 @@ def dashboard(request):
     else:
         return redirect('login')
 
+def course(request):
+    if (request.user.is_authenticated):
+        return redirect('course-home', username=request.user.username)
+    else:
+        return redirect('login')
 
 class DashboardListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
     model = Course
@@ -56,6 +61,39 @@ class DashboardListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
         return False
 
 
+class LectureListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
+    model = Lecture
+    template_name = 'school/lecture.html'
+    context_object_name = 'lectures'
+
+    def get_queryset(self):
+        course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
+        user = self.request.user
+        queryset = {}
+
+        student = Student.objects.filter(user=user).first()
+        if student:
+            queryset['enrolled_lectures'] = Lecture.objects.filter(course=course)
+    
+    def test_func(self):
+        user = self.request.user
+        student = Student.objects.filter(user=user).first()
+        course = self.kwargs.get('course_id')
+
+        if student:
+            if EnrolledIn.objects.filter(student=student, course=course).exists():
+                return True
+            if AssistsIn.objects.filter(student=student, course=course).exists():
+                return True
+        
+        instructor = Instructor.objects.filter(user=user).first()
+        if instructor:
+            if course.instructor == instructor:
+                return True
+
+        return False
+
+
 class CourseDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
     model = Course
 
@@ -77,6 +115,7 @@ class CourseDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
 
         return False
 
+    
 
 class ExtraCurricularCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     form_class = ExtraCurricularForm
