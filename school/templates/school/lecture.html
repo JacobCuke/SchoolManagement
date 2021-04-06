@@ -1,0 +1,27 @@
+{% extends "school/course.html" %}
+
+{% block title %}
+- Lecture List
+{% endblock title %}
+
+{% block content %}
+<h1 class="mb-4">{{lectures.course.course_name}}</h1>
+  {% if not lectures.lecture_list %}
+    <p class="lead">Lectures have not been posted</p>
+    {% else %}
+    <h2 class="mb-4">Lectures</h2>
+    {% for lecture in lectures.lecture_list %}
+      <article class="content-section">
+        <h3 class="content-title"><a class="title-link" href="{% url 'lecture-detail' view.kwargs.course_id lecture.id %}">{{ lecture.lecture_title }}</a></h3>
+        <p>
+          <span class="data-title">Lecture Number:</span>
+          <span class="data-content">{{ lecture.lecture_number }}</span>
+        </p>
+        <p>
+          <span class="data-title">Due Date:</span>
+          <span class="data-content">{{ lecture.due_date }}</span>
+        </p>
+      </article>
+    {% endfor %}
+  {% endif %}
+{% endblock content %}
