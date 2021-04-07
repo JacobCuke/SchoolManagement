@@ -142,13 +142,56 @@ class LectureCreateView(LoginRequiredMixin, CreateView):
     def test_func(self):
         user = self.request.user
         course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
+        lecture = get_object_or_404(Lecture, id=self.kwargs.get('lecture_id'))
 
         instructor = Instructor.objects.filter(user=user).first()
         if instructor:
             if course.instructor == instructor:
                 return True
 
-        return False    
+        return False  
+
+class LectureUpdateView(LoginRequiredMixin, UpdateView):
+    model = Lecture
+    fields = ['lecture_title', 'lecture_number', 'content', 'due_date']
+    template_name = 'school/lecture_update_form.html'
+
+    def form_valid(self, form):
+        user = self.request.user 
+        instructor = Instructor.objects.filter(user=user).first()
+        course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
+        form.instance.course = course
+        return super().form_valid(form)
+    
+    def get_success_url(self):
+        return (reverse('lecture-list', kwargs={'course_id': self.kwargs.get('course_id')}))
+
+    def test_func(self):
+        user = self.request.user
+        course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
+
+        instructor = Instructor.objects.filter(user=user).first()
+        if instructor:
+            if course.instructor == instructor:
+                return True
+        return False
+        
+class LectureDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Lecture
+    template_name = 'school/lecture_confirm_delete.html'
+    
+    def get_success_url(self):
+        return (reverse('lecture-list', kwargs={'course_id': self.kwargs.get('course_id')}))
+
+    def test_func(self):
+        user = self.request.user
+        course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
+
+        instructor = Instructor.objects.filter(user=user).first()
+        if instructor:
+            if course.instructor == instructor:
+                return True
+        return False
 
 class AssignmentListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
     model = Assignment

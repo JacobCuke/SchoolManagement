@@ -15,6 +15,8 @@ from .views import (
     AssignmentDetailView,
     SubmissionCreateView,
     LectureCreateView,
+    LectureUpdateView,
+    LectureDeleteView,
 )
 
 urlpatterns = [
@@ -24,6 +26,8 @@ urlpatterns = [
     path('course/<int:pk>/', views.course, name='course-detail'),
     path('course/<int:course_id>/lectures/', LectureListView.as_view(), name='lecture-list'),
     path('course/<int:course_id>/lectures/new/', LectureCreateView.as_view(), name='create-lecture'),
+    path('course/<int:course_id>/lectures/<int:pk>/update/', LectureUpdateView.as_view(), name='update-lecture'),
+    path('course/<int:course_id>/lectures/<int:pk>/delete/', LectureDeleteView.as_view(), name='delete-lecture'),
     path('course/<int:course_id>/lectures/<int:pk>/', LectureDetailView.as_view(), name='lecture-detail'),
     path('course/<int:course_id>/assignments/', AssignmentListView.as_view(), name='assignment-list'),
     path('course/<int:course_id>/assignments/<int:pk>/', AssignmentDetailView.as_view(), name='assignment-detail'),
