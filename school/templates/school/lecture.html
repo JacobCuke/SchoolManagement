@@ -23,5 +23,6 @@
         </p>
       </article>
     {% endfor %}
+    <a class="btn btn-primary sub-profile-button" href="{% url 'create-lecture' view.kwargs.course_id %}"><i class="fas fa-plus mr-2"></i>Add Lecture</a>
   {% endif %}
 {% endblock content %}

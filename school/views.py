@@ -1,10 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
-from .models import Course, EnrolledIn, AssistsIn, ExtraCurricular, Guardian, Lecture, Assignment
+from django.http import HttpResponseRedirect
+from django.contrib import messages
+from .models import Course, EnrolledIn, AssistsIn, ExtraCurricular, Guardian, Lecture, Assignment, Submission
 from .forms import ExtraCurricularForm, GuardianForm
 from users.models import Student, Instructor
 from django.core.files.storage import FileSystemStorage
+from django.urls import reverse
 from django.http import FileResponse, Http404, HttpResponse, HttpResponseNotFound
 from django.views.generic import (
     ListView,
@@ -71,7 +74,6 @@ class LectureListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
     def get_queryset(self):
         queryset = {}
         course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
-        
 
         queryset['lecture_list']= Lecture.objects.filter(course=course)
         queryset['course'] = course 
@@ -91,7 +93,7 @@ class LectureListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
         
         instructor = Instructor.objects.filter(user=user).first()
         if instructor:
-            if course.instructor == instructor:
+            if Course.objects.filter(instructor = instructor).exists():
                 return True
 
         if user.is_superuser:
@@ -101,12 +103,6 @@ class LectureListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
 class LectureDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
     model = Lecture
     context_object_name = 'lecture'
-
-    def pdf_view(request):
-        with open('media\file_uploads\471-W21-Q2-sample_YCjX27B.pdf', 'rb') as pdf:
-            response = HttpResponse(pdf.read(),content_type='application/pdf')
-            response['Content-Disposition'] = 'filename=some_file.pdf'
-            return response
              
     def test_func(self):
         user = self.request.user
@@ -121,13 +117,39 @@ class LectureDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
         
         instructor = Instructor.objects.filter(user=user).first()
         if instructor:
-            if course.instructor == instructor:
+            if Course.objects.filter(instructor = instructor).exists():
                 return True
 
         if user.is_superuser:
             return True        
         return False
+   
+class LectureCreateView(LoginRequiredMixin, CreateView):
+    model = Lecture
+    fields = ['lecture_title', 'lecture_number', 'content', 'due_date']
+    template_name = 'school/lecture_form.html'
+
+    def form_valid(self, form):
+        user = self.request.user 
+        instructor = Instructor.objects.filter(user=user).first()
+        course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
+        form.instance.course = course
+        return super().form_valid(form)
     
+    def get_success_url(self):
+        return (reverse('lecture-list', kwargs={'course_id': self.kwargs.get('course_id')}))
+
+    def test_func(self):
+        user = self.request.user
+        course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
+
+        instructor = Instructor.objects.filter(user=user).first()
+        if instructor:
+            if course.instructor == instructor:
+                return True
+
+        return False    
+
 class AssignmentListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
     model = Assignment
     template_name = 'school/assignment.html'
@@ -156,7 +178,7 @@ class AssignmentListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
         
         instructor = Instructor.objects.filter(user=user).first()
         if instructor:
-            if course.instructor == instructor:
+            if Course.objects.filter(instructor = instructor).exists():
                 return True
 
         if user.is_superuser:
@@ -166,12 +188,6 @@ class AssignmentListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
 class AssignmentDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
     model = Assignment
     context_object_name = 'assignment'
-
-    def pdf_view(request):
-        with open('media\file_uploads\471-W21-Q2-sample_YCjX27B.pdf', 'rb') as pdf:
-            response = HttpResponse(pdf.read(),content_type='application/pdf')
-            response['Content-Disposition'] = 'filename=some_file.pdf'
-            return response
              
     def test_func(self):
         user = self.request.user
@@ -186,13 +202,39 @@ class AssignmentDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
         
         instructor = Instructor.objects.filter(user=user).first()
         if instructor:
-            if course.instructor == instructor:
+            if Course.objects.filter(instructor = instructor).exists():
                 return True
 
         if user.is_superuser:
             return True        
         return False
+
+class SubmissionCreateView(LoginRequiredMixin, CreateView):
+    model = Submission
+    fields = ['content']
+    template_name = 'school/submission_form.html'
+
+    def form_valid(self, form):
+        user = self.request.user 
+        student = Student.objects.filter(user=user).first()
+        assignment = get_object_or_404(Assignment, id=self.kwargs.get('pk'))
+        form.instance.student = student
+        form.instance.assignment = assignment
+        return super().form_valid(form)
     
+    def get_success_url(self):
+        return (reverse('assignment-list', kwargs={'course_id': self.kwargs.get('course_id')}))
+
+    def test_func(self):
+        student = self.request.user
+        assignment = get_object_or_404(Assignment, id=self.kwargs.get('assignment_id'))
+
+        if student:
+            if Submission.objects.filter(student=student, assignment=assignment).exists():
+                return True
+
+        return False
+        
 class CourseDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
     model = Course
 
