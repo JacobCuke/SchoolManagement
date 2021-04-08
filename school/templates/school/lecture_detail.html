@@ -11,9 +11,9 @@
     {% else %}
     <h2 class="mb-4">Lecture Content</h2>
     <article class="content-section">
-    <p>
-        <span class="data-content">{{ response }}</span>
-    </p>
+        <p>
+          <iframe src="{{ lecture.content.url }}" width="100%" height="780px"></iframe>
+        </p>
     </article>
   {% endif %}
 {% endblock content %}

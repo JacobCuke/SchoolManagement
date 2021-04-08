@@ -21,7 +21,16 @@
           <span class="data-title">Due Date:</span>
           <span class="data-content">{{ lecture.due_date }}</span>
         </p>
+        {% if lectures.course.instructor == lectures.instructor %}
+        <span class="inline-row-buttons">
+          <a class="edit-link" href="{% url 'update-lecture' view.kwargs.course_id lecture.id %}"><i class="fas fa-pencil-alt ml-2"></i></a>
+          <a class="delete-link" href="{% url 'delete-lecture' view.kwargs.course_id lecture.id %}"><i class="fas fa-trash-alt ml-2"></i></a>
+        </span>
+        {% endif %}
       </article>
     {% endfor %}
   {% endif %}
-{% endblock content %}
+  {% if lectures.course.instructor == lectures.instructor %}
+    <a class="btn btn-primary sub-profile-button" href="{% url 'create-lecture' view.kwargs.course_id %}"><i class="fas fa-plus mr-2"></i>Add Lecture</a>
+  {% endif %}
+  {% endblock content %}

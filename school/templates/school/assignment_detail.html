@@ -5,14 +5,20 @@
 {% endblock title %}
 
 {% block content %}
-<h1 class="mb-4">Assignment {{assignment.assignment_number}}</h1>
+<h1 class="mb-4">{{assignment.course.course_name}}</h1>
   {% if not assignment.content %}
     <p class="lead">Assignment content has not been posted</p>
     {% else %}
+    <h2 class="mb-4">Assignment {{assignment.assignment_number}}</h2>
     <article class="content-section">
     <p>
-        <span class="data-content">{{ response }}</span>
+      <p>
+        <iframe src="{{ assignment.content.url }}" width="100%" height="780px"></iframe>
+      </p>
     </p>
     </article>
+    {% if not assignment.course.instructor == assignment.instructor %}
+      <a class="btn btn-primary sub-profile-button" href="{% url 'add-submission' view.kwargs.course_id assignment.id %}"><i class="fas fa-plus mr-2"></i>Submit Assignment</a>
+    {% endif %}
   {% endif %}
 {% endblock content %}

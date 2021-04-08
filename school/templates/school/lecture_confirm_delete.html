@@ -1,0 +1,21 @@
+{% extends "school/course.html" %}
+
+{% block title %}
+- Delete Lecture
+{% endblock title %}
+
+{% block content %}
+  <div class="content-section">
+    <form method="POST">
+      {% csrf_token %}
+      <fieldset class="form-group">
+        <legend class="border-bottom mb-4">Delete Lecture</legend>
+        <p class="lead">Are you sure you want to delete lecture "{{ object }}"?</p>
+      </fieldset>
+      <div class="form-group">
+        <button class="btn btn-outline-danger mr-2" type="submit">Delete</button>
+        <a class="btn btn-outline-info" href="{% url 'lecture-list' view.kwargs.course_id %}">Cancel</a>
+      </div>
+    </form>
+  </div>
+{% endblock content %}
