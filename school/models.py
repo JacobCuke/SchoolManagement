@@ -92,7 +92,7 @@ class Lecture(models.Model):
         unique_together = ['course', 'lecture_number']
 
     def __str__(self):
-        return f'Lecture {self.lecture_number}'
+        return self.lecture_title
 
 
 class Assignment(models.Model):
