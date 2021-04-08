@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 
 {% block title %}
-- Add Lecture
+- Add Assignment
 {% endblock title %}
 
 {% block content %}
@@ -10,7 +10,7 @@
     <form method="POST" enctype="multipart/form-data">
       {% csrf_token %}
       <fieldset class="form-group">
-        <legend class="border-bottom mb-4">Add Lecture</legend>
+        <legend class="border-bottom mb-4">Add Assignment</legend>
         {{ form|crispy }}
       </fieldset>
       <div class="form-group">

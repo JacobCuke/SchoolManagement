@@ -17,6 +17,9 @@ from .views import (
     LectureCreateView,
     LectureUpdateView,
     LectureDeleteView,
+    AssignmentCreateView,
+    AssignmentUpdateView,
+    AssignmentDeleteView,
 )
 
 urlpatterns = [
@@ -31,7 +34,10 @@ urlpatterns = [
     path('course/<int:course_id>/lectures/<int:pk>/', LectureDetailView.as_view(), name='lecture-detail'),
     path('course/<int:course_id>/assignments/', AssignmentListView.as_view(), name='assignment-list'),
     path('course/<int:course_id>/assignments/<int:pk>/', AssignmentDetailView.as_view(), name='assignment-detail'),
+    path('course/<int:course_id>/assignments/new/', AssignmentCreateView.as_view(), name='create-assignment'),
     path('course/<int:course_id>/assignments/<int:pk>/submit/', SubmissionCreateView.as_view(), name='add-submission'),
+    path('course/<int:course_id>/assignments/<int:pk>/update/', AssignmentUpdateView.as_view(), name='update-assignment'),
+    path('course/<int:course_id>/assignments/<int:pk>/delete/', AssignmentDeleteView.as_view(), name='delete-assignment'),
     path('extracurricular/new/', ExtraCurricularCreateView.as_view(), name='create-extra-curricular'),
     path('extracurricular/<int:pk>/update/', ExtraCurricularUpdateView.as_view(), name='update-extra-curricular'),
     path('extracurricular/<int:pk>/delete/', ExtraCurricularDeleteView.as_view(), name='delete-extra-curricular'),

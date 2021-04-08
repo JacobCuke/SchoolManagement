@@ -70,13 +70,17 @@ class LectureListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
     model = Lecture
     template_name = 'school/lecture.html'
     context_object_name = 'lectures'
+    
 
     def get_queryset(self):
+        user = self.request.user
         queryset = {}
         course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
+        instructor = Instructor.objects.filter(user=user).first()
 
         queryset['lecture_list']= Lecture.objects.filter(course=course)
         queryset['course'] = course 
+        queryset['instructor'] = instructor
         return queryset
     
     
@@ -124,7 +128,7 @@ class LectureDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
             return True        
         return False
    
-class LectureCreateView(LoginRequiredMixin, CreateView):
+class LectureCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     model = Lecture
     fields = ['lecture_title', 'lecture_number', 'content', 'due_date']
     template_name = 'school/lecture_form.html'
@@ -142,7 +146,6 @@ class LectureCreateView(LoginRequiredMixin, CreateView):
     def test_func(self):
         user = self.request.user
         course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
-        lecture = get_object_or_404(Lecture, id=self.kwargs.get('lecture_id'))
 
         instructor = Instructor.objects.filter(user=user).first()
         if instructor:
@@ -151,7 +154,7 @@ class LectureCreateView(LoginRequiredMixin, CreateView):
 
         return False  
 
-class LectureUpdateView(LoginRequiredMixin, UpdateView):
+class LectureUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Lecture
     fields = ['lecture_title', 'lecture_number', 'content', 'due_date']
     template_name = 'school/lecture_update_form.html'
@@ -199,12 +202,14 @@ class AssignmentListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
     context_object_name = 'assignments'
 
     def get_queryset(self):
+        user = self.request.user
         queryset = {}
         course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
-        
+        instructor = Instructor.objects.filter(user=user).first()
 
         queryset['assignment_list']= Assignment.objects.filter(course=course)
         queryset['course'] = course 
+        queryset['instructor'] = instructor
         return queryset
     
     
@@ -252,7 +257,75 @@ class AssignmentDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
             return True        
         return False
 
-class SubmissionCreateView(LoginRequiredMixin, CreateView):
+class AssignmentCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
+    model = Assignment
+    fields = ['assignment_number', 'content', 'due_date']
+    template_name = 'school/assignment_form.html'
+
+    def form_valid(self, form):
+        user = self.request.user 
+        instructor = Instructor.objects.filter(user=user).first()
+        course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
+        form.instance.course = course
+        return super().form_valid(form)
+    
+    def get_success_url(self):
+        return (reverse('assignment-list', kwargs={'course_id': self.kwargs.get('course_id')}))
+
+    def test_func(self):
+        user = self.request.user
+        course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
+
+        instructor = Instructor.objects.filter(user=user).first()
+        if instructor:
+            if course.instructor == instructor:
+                return True
+
+        return False  
+
+class AssignmentUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Assignment
+    fields = ['assignment_number', 'content', 'due_date']
+    template_name = 'school/assignment_update_form.html'
+
+    def form_valid(self, form):
+        user = self.request.user 
+        instructor = Instructor.objects.filter(user=user).first()
+        course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
+        form.instance.course = course
+        return super().form_valid(form)
+    
+    def get_success_url(self):
+        return (reverse('assignment-list', kwargs={'course_id': self.kwargs.get('course_id')}))
+
+    def test_func(self):
+        user = self.request.user
+        course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
+
+        instructor = Instructor.objects.filter(user=user).first()
+        if instructor:
+            if course.instructor == instructor:
+                return True
+        return False
+
+class AssignmentDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Assignment
+    template_name = 'school/assignment_confirm_delete.html'
+    
+    def get_success_url(self):
+        return (reverse('assignment-list', kwargs={'course_id': self.kwargs.get('course_id')}))
+
+    def test_func(self):
+        user = self.request.user
+        course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
+
+        instructor = Instructor.objects.filter(user=user).first()
+        if instructor:
+            if course.instructor == instructor:
+                return True
+        return False
+
+class SubmissionCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     model = Submission
     fields = ['content']
     template_name = 'school/submission_form.html'
@@ -269,11 +342,13 @@ class SubmissionCreateView(LoginRequiredMixin, CreateView):
         return (reverse('assignment-list', kwargs={'course_id': self.kwargs.get('course_id')}))
 
     def test_func(self):
-        student = self.request.user
-        assignment = get_object_or_404(Assignment, id=self.kwargs.get('assignment_id'))
+        user = self.request.user
+        student = Student.objects.filter(user=user).first()
+        assignment = get_object_or_404(Assignment, id=self.kwargs.get('pk'))
+        course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
 
         if student:
-            if Submission.objects.filter(student=student, assignment=assignment).exists():
+            if EnrolledIn.objects.filter(student=student, course=course).exists():
                 return True
 
         return False

@@ -17,6 +17,8 @@
       </p>
     </p>
     </article>
-    <a class="btn btn-primary sub-profile-button" href="{% url 'add-submission' view.kwargs.course_id assignment.id %}"><i class="fas fa-plus mr-2"></i>Submit Assignment</a>
+    {% if not assignment.course.instructor == assignment.instructor %}
+      <a class="btn btn-primary sub-profile-button" href="{% url 'add-submission' view.kwargs.course_id assignment.id %}"><i class="fas fa-plus mr-2"></i>Submit Assignment</a>
+    {% endif %}
   {% endif %}
 {% endblock content %}

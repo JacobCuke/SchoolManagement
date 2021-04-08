@@ -5,7 +5,7 @@
 {% endblock title %}
 
 {% block content %}
-<h1 class="mb-4">{{assignments.course.course_name}}</h1>
+<h1 class="mb-4">{{assignment.course.course_name}}</h1>
   {% if not assignments.assignment_list %}
     <p class="lead">Assignments have not been posted</p>
     {% else %}
@@ -17,7 +17,16 @@
           <span class="data-title">Due Date:</span>
           <span class="data-content">{{ assignment.due_date }}</span>
         </p>
+        {% if assignments.course.instructor == assignments.instructor %}
+          <span class="inline-row-buttons">
+            <a class="edit-link" href="{% url 'update-assignment' view.kwargs.course_id assignment.id %}"><i class="fas fa-pencil-alt ml-2"></i></a>
+            <a class="delete-link" href="{% url 'delete-assignment' view.kwargs.course_id assignment.id %}"><i class="fas fa-trash-alt ml-2"></i></a>
+          </span>
+        {% endif %}
       </article>
     {% endfor %}
+  {% endif %}
+  {% if assignments.course.instructor == assignments.instructor %}
+    <a class="btn btn-primary sub-profile-button" href="{% url 'create-assignment' view.kwargs.course_id %}"><i class="fas fa-plus mr-2"></i>Add Assignment</a>
   {% endif %}
 {% endblock content %}
