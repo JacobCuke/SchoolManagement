@@ -5,7 +5,7 @@
 {% endblock title %}
 
 {% block content %}
-<h1 class="mb-4">{{assignment.course.course_name}}</h1>
+<h1 class="mb-4">{{assignments.course.course_name}}</h1>
   {% if not assignments.assignment_list %}
     <p class="lead">Assignments have not been posted</p>
     {% else %}

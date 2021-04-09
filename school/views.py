@@ -87,17 +87,18 @@ class LectureListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
     def test_func(self):
         user = self.request.user
         student = Student.objects.filter(user=user).first()
-        course = self.kwargs.get('course_id')
+        course_id = self.kwargs.get('course_id')
+        course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
 
         if student:
-            if EnrolledIn.objects.filter(student=student, course=course).exists():
+            if EnrolledIn.objects.filter(student=student, course=course_id).exists():
                 return True
-            if AssistsIn.objects.filter(student=student, course=course).exists():
+            if AssistsIn.objects.filter(student=student, course=course_id).exists():
                 return True
         
         instructor = Instructor.objects.filter(user=user).first()
         if instructor:
-            if Course.objects.filter(instructor = instructor).exists():
+            if course.instructor == instructor:
                 return True
 
         if user.is_superuser:
@@ -121,7 +122,7 @@ class LectureDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
         
         instructor = Instructor.objects.filter(user=user).first()
         if instructor:
-            if Course.objects.filter(instructor = instructor).exists():
+            if course.instructor == instructor:
                 return True
 
         if user.is_superuser:
@@ -216,17 +217,18 @@ class AssignmentListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
     def test_func(self):
         user = self.request.user
         student = Student.objects.filter(user=user).first()
-        course = self.kwargs.get('course_id')
+        course_id = self.kwargs.get('course_id')
+        course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
 
         if student:
-            if EnrolledIn.objects.filter(student=student, course=course).exists():
+            if EnrolledIn.objects.filter(student=student, course=course_id).exists():
                 return True
-            if AssistsIn.objects.filter(student=student, course=course).exists():
+            if AssistsIn.objects.filter(student=student, course=course_id).exists():
                 return True
         
         instructor = Instructor.objects.filter(user=user).first()
         if instructor:
-            if Course.objects.filter(instructor = instructor).exists():
+            if course.instructor == instructor:
                 return True
 
         if user.is_superuser:
@@ -236,7 +238,7 @@ class AssignmentListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
 class AssignmentDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
     model = Assignment
     context_object_name = 'assignment'
-             
+ 
     def test_func(self):
         user = self.request.user
         course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
@@ -250,7 +252,7 @@ class AssignmentDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
         
         instructor = Instructor.objects.filter(user=user).first()
         if instructor:
-            if Course.objects.filter(instructor = instructor).exists():
+            if course.instructor == instructor:
                 return True
 
         if user.is_superuser:
