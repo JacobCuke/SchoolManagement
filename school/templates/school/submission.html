@@ -1,0 +1,32 @@
+{% extends "school/course.html" %}
+
+{% block title %}
+- Submissions
+{% endblock title %}
+
+{% block content %}
+<h1 class="mb-4">Assignment {{submissions.assignment.assignment_number}} Submissions</h1>
+    {% if not submissions.submission_list %}
+        <p class="lead">There are no submissions at the moment</p>
+        {% else %}
+        {% for submission in submissions.submission_list %}
+        <article class="content-section">
+            <p>
+                <span class="data-title">Student:</span>
+                <span class="data-content">{{submission.student.user.first_name}} {{submission.student.user.last_name}}</span>
+            </p>
+            <p>
+                <span class="data-title">File:</span>
+                <a class="title-link" href="{% url 'submission-detail' view.kwargs.course_id submission.assignment.id %}">assignment {{submissions.assignment.assignment_number}}</a>
+            </p>
+            <p>
+                <span class="data-title">Submitted On:</span>
+                <span class="data-content">{{submission.submission_time}}</span>
+            </p>
+            {% if user.instructor %}
+                <a class="btn btn-primary" href="#">Add Feedback</a>
+            {% endif %}
+        </article>
+        {% endfor %}
+    {% endif %}
+{% endblock content %}

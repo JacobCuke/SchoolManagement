@@ -20,6 +20,8 @@ from .views import (
     AssignmentCreateView,
     AssignmentUpdateView,
     AssignmentDeleteView,
+    SubmissionListView,
+    SubmissionDetailView,
 )
 
 urlpatterns = [
@@ -35,6 +37,8 @@ urlpatterns = [
     path('course/<int:course_id>/assignments/', AssignmentListView.as_view(), name='assignment-list'),
     path('course/<int:course_id>/assignments/<int:pk>/', AssignmentDetailView.as_view(), name='assignment-detail'),
     path('course/<int:course_id>/assignments/new/', AssignmentCreateView.as_view(), name='create-assignment'),
+    path('course/<int:course_id>/assignments/<int:pk>/submissions/', SubmissionListView.as_view(), name='view-submission'),
+    path('course/<int:course_id>/assignments/<int:pk>/detail/', SubmissionDetailView.as_view(), name='submission-detail'),
     path('course/<int:course_id>/assignments/<int:pk>/submit/', SubmissionCreateView.as_view(), name='add-submission'),
     path('course/<int:course_id>/assignments/<int:pk>/update/', AssignmentUpdateView.as_view(), name='update-assignment'),
     path('course/<int:course_id>/assignments/<int:pk>/delete/', AssignmentDeleteView.as_view(), name='delete-assignment'),

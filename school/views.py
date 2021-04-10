@@ -327,6 +327,52 @@ class AssignmentDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
                 return True
         return False
 
+class SubmissionListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
+    model = Submission
+    template_name = 'school/submission.html'
+    context_object_name = 'submissions'
+    
+
+    def get_queryset(self):
+        user = self.request.user
+        queryset = {}
+        assignment = get_object_or_404(Assignment, id=self.kwargs.get('pk'))
+
+        queryset['submission_list']= Submission.objects.filter(assignment=assignment)
+        queryset['assignment'] = assignment
+        return queryset
+    
+    
+    def test_func(self):
+        user = self.request.user
+        course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
+        
+        instructor = Instructor.objects.filter(user=user).first()
+        if instructor:
+            if course.instructor == instructor:
+                return True
+
+        if user.is_superuser:
+            return True
+        return False
+        
+class SubmissionDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
+    model = Submission
+    context_object_name = 'submission'
+ 
+    def test_func(self):
+        user = self.request.user
+        course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
+        
+        instructor = Instructor.objects.filter(user=user).first()
+        if instructor:
+            if course.instructor == instructor:
+                return True
+
+        if user.is_superuser:
+            return True        
+        return False
+
 class SubmissionCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     model = Submission
     fields = ['content']
