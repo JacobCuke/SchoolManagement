@@ -13,12 +13,11 @@
     <article class="content-section">
     <p>
       <p>
-        <iframe src="{{ submission.assignment.content.url }}" width="100%" height="780px"></iframe>
+        <iframe src="{{ submission.content.url }}" width="100%" height="780px"></iframe>
       </p>
     </p>
     </article>
     {% if user.instructor %}
-      <a class="btn btn-outline-info" href="{% url 'view-submission' view.kwargs.course_id submission.assignment.id %}">Back</a>
       <a class="btn btn-primary" href="#">Add Feedback</a>
     {% endif %}
   {% endif %}

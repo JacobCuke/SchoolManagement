@@ -355,7 +355,7 @@ class SubmissionListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
         if user.is_superuser:
             return True
         return False
-        
+"""        
 class SubmissionDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
     model = Submission
     context_object_name = 'submission'
@@ -372,7 +372,7 @@ class SubmissionDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
         if user.is_superuser:
             return True        
         return False
-
+"""
 class SubmissionCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     model = Submission
     fields = ['content']

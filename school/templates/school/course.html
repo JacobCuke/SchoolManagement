@@ -2,6 +2,6 @@
 
 {% block course_links %}
   <a class="nav-item nav-link {% if request.resolver_match.url_name == 'lecture-list' or request.resolver_match.url_name == 'lecture-detail' or request.resolver_match.url_name == 'create-lecture' or request.resolver_match.url_name == 'update-lecture' or request.resolver_match.url_name == 'delete-lecture'%}active{% endif %}" href="{% url 'lecture-list' view.kwargs.course_id%}">Lectures</a>
-  <a class="nav-item nav-link {% if request.resolver_match.url_name == 'assignment-list' or request.resolver_match.url_name == 'assignment-detail' or request.resolver_match.url_name == 'add-submission' or request.resolver_match.url_name == 'create-assignment' or request.resolver_match.url_name == 'update-assignment' or request.resolver_match.url_name == 'delete-assignment' %}active{% endif %}" href="{% url 'assignment-list' view.kwargs.course_id%}">Assignments</a>
+  <a class="nav-item nav-link {% if request.resolver_match.url_name == 'assignment-list' or request.resolver_match.url_name == 'assignment-detail' or request.resolver_match.url_name == 'add-submission' or request.resolver_match.url_name == 'create-assignment' or request.resolver_match.url_name == 'update-assignment' or request.resolver_match.url_name == 'delete-assignment' or request.resolver_match.url_name == 'view-submission' %}active{% endif %}" href="{% url 'assignment-list' view.kwargs.course_id%}">Assignments</a>
   <a class="nav-item nav-link" href="#">Discussion</a>
 {% endblock course_links %}

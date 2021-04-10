@@ -17,7 +17,7 @@
             </p>
             <p>
                 <span class="data-title">File:</span>
-                <a class="title-link" href="{% url 'submission-detail' view.kwargs.course_id submission.assignment.id %}">assignment {{submissions.assignment.assignment_number}}</a>
+                <a href="{{ submission.content.url }}">assignment {{submission.assignment.assignment_number}}</a>
             </p>
             <p>
                 <span class="data-title">Submitted On:</span>
