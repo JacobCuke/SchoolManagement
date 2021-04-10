@@ -1,0 +1,24 @@
+{% extends "school/course.html" %}
+
+{% block title %}
+- Submitted File
+{% endblock title %}
+
+{% block content %}
+<h1 class="mb-4">Assignment {{submission.assignment.assignment_number}}</h1>
+  {% if not submission.assignment.content %}
+    <p class="lead">Assignment content has not been posted</p>
+    {% else %}
+    <h2 class="mb-4">{{submission.student.user.first_name}} {{submission.student.user.last_name}}'s submission</h2>
+    <article class="content-section">
+    <p>
+      <p>
+        <iframe src="{{ submission.content.url }}" width="100%" height="780px"></iframe>
+      </p>
+    </p>
+    </article>
+    {% if user.instructor %}
+      <a class="btn btn-primary" href="#">Add Feedback</a>
+    {% endif %}
+  {% endif %}
+{% endblock content %}

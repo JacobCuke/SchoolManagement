@@ -17,8 +17,11 @@
       </p>
     </p>
     </article>
-    {% if not assignment.course.instructor == assignment.instructor %}
+    {% if user.student %}
       <a class="btn btn-primary sub-profile-button" href="{% url 'add-submission' view.kwargs.course_id assignment.id %}"><i class="fas fa-plus mr-2"></i>Submit Assignment</a>
+    {% endif %}
+    {% if user.instructor %}
+      <a class="btn btn-primary" href="{% url 'view-submission' view.kwargs.course_id assignment.id %}">View Submissions</a>
     {% endif %}
   {% endif %}
 {% endblock content %}

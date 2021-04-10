@@ -5,7 +5,7 @@
 {% endblock title %}
 
 {% block content %}
-<h1 class="mb-4">{{assignment.course.course_name}}</h1>
+<h1 class="mb-4">{{assignments.course.course_name}}</h1>
   {% if not assignments.assignment_list %}
     <p class="lead">Assignments have not been posted</p>
     {% else %}
@@ -21,6 +21,7 @@
           <span class="inline-row-buttons">
             <a class="edit-link" href="{% url 'update-assignment' view.kwargs.course_id assignment.id %}"><i class="fas fa-pencil-alt ml-2"></i></a>
             <a class="delete-link" href="{% url 'delete-assignment' view.kwargs.course_id assignment.id %}"><i class="fas fa-trash-alt ml-2"></i></a>
+            <a style="float: right;" class="btn btn-primary" href="{% url 'view-submission' view.kwargs.course_id assignment.id %}">View Submissions</a>
           </span>
         {% endif %}
       </article>
