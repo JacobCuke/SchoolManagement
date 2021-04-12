@@ -1,6 +1,5 @@
 from django.urls import path
 from . import views
-from forum import views as forum_views
 from .views import (
     DashboardListView,
     CourseDetailView,
