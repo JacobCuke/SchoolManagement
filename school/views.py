@@ -355,24 +355,7 @@ class SubmissionListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
         if user.is_superuser:
             return True
         return False
-"""        
-class SubmissionDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
-    model = Submission
-    context_object_name = 'submission'
- 
-    def test_func(self):
-        user = self.request.user
-        course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
-        
-        instructor = Instructor.objects.filter(user=user).first()
-        if instructor:
-            if course.instructor == instructor:
-                return True
 
-        if user.is_superuser:
-            return True        
-        return False
-"""
 class SubmissionCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     model = Submission
     fields = ['content']
@@ -392,7 +375,6 @@ class SubmissionCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     def test_func(self):
         user = self.request.user
         student = Student.objects.filter(user=user).first()
-        assignment = get_object_or_404(Assignment, id=self.kwargs.get('pk'))
         course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
 
         if student:
@@ -400,7 +382,26 @@ class SubmissionCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
                 return True
 
         return False
-        
+
+class SubmissionDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
+    model = Submission
+    context_object_name = 'submission'
+ 
+    def test_func(self):
+        user = self.request.user
+        course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
+
+        student = Student.objects.filter(user=user).first()
+        if student:
+            if EnrolledIn.objects.filter(student=student, course=course).exists():
+                return True
+            if AssistsIn.objects.filter(student=student, course=course).exists():
+                return True
+
+        if user.is_superuser:
+            return True        
+        return False 
+
 class CourseDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
     model = Course
 
@@ -420,6 +421,58 @@ class CourseDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
             if course.instructor == instructor:
                 return True
 
+        return False
+
+class SubmissionUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Submission
+    fields = ['grade_report', 'feedback']
+    template_name = 'school/submission_update_form.html'
+
+    def get_success_url(self):
+        submission = get_object_or_404(Submission, id=self.kwargs.get('pk'))
+        assignment = Assignment.objects.filter(id=submission.assignment.id).first()
+        return (reverse('view-submission', kwargs={'course_id': assignment.course.id, 'pk': assignment.id}))
+       
+    def test_func(self):
+        submission = get_object_or_404(Submission, id=self.kwargs.get('pk'))
+        assignment = Assignment.objects.filter(id=submission.assignment.id).first()
+        user = self.request.user
+        course = get_object_or_404(Course, id=assignment.course.id)
+
+        instructor = Instructor.objects.filter(user=user).first()
+        if instructor:
+            if course.instructor == instructor:
+                return True
+        return False 
+
+class EnrolledListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
+    model = Student
+    template_name = 'school/student_list.html'
+    context_object_name = 'enrolledStudents'
+    
+
+    def get_queryset(self):
+        queryset = {}
+        course_id = get_object_or_404(Course, id=self.kwargs.get('course_id'))
+        course = Course.objects.filter(id = course_id.id).first()
+
+        student = EnrolledIn.objects.filter(course=course).values('student')
+        queryset['enrolled_list']= Student.objects.filter(user__in=student)
+        queryset['course'] = course_id
+        return queryset
+    
+    
+    def test_func(self):
+        user = self.request.user
+        course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
+        
+        instructor = Instructor.objects.filter(user=user).first()
+        if instructor:
+            if course.instructor == instructor:
+                return True
+
+        if user.is_superuser:
+            return True
         return False
 
 class ExtraCurricularCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
