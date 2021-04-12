@@ -23,12 +23,23 @@
                 <span class="data-title">Submitted On:</span>
                 <span class="data-content">{{submission.submission_time}}</span>
             </p>
-            {% if user.instructor %}
-                {% if not submission.feedback %}
-                <a class="btn btn-primary" href="{% url 'update-feedback' view.kwargs.course_id submission.assignment.id submission.id %}">Add Feedback</a>
-                    {% else %}
-                    <a class="btn btn-primary" href="{% url 'update-feedback' view.kwargs.course_id submission.assignment.id submission.id %}">Update Feedback</a>
-                {% endif %}
+            {% if submission.grade_report %}
+            <p>
+                <span class="data-title">Grade:</span>
+                <span class="data-content">{{ submission.grade_report }}</span>
+            </p>
+            {% endif %}
+            {% if submission.feedback %}
+            <p>
+                <span class="data-title">Feedback:</span>
+                <span class="data-content">{{ submission.feedback }}</span>
+            </p>
+            {% endif %}
+
+            {% if not submission.grade_report %}
+                <a class="btn btn-primary" href="{% url 'update-feedback' view.kwargs.course_id submission.assignment.id submission.id %}">Add Grade</a>
+            {% else %}
+                <a class="btn btn-primary" href="{% url 'update-feedback' view.kwargs.course_id submission.assignment.id submission.id %}">Update Grade</a>
             {% endif %}
         </article>
         {% endfor %}
