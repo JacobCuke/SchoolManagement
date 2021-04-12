@@ -104,6 +104,10 @@ class Assignment(models.Model):
     class Meta:
         unique_together = ['course', 'assignment_number']
 
+    @property
+    def is_past_due(self):
+        return timezone.now() > self.due_date
+
     def __str__(self):
         return f'{self.course} Assignment {self.assignment_number}'
 

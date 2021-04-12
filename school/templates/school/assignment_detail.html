@@ -18,8 +18,10 @@
     </p>
     </article>
     {% if user.student %}
-      <a class="btn btn-primary" href="{% url 'add-submission' view.kwargs.course_id assignment.id %}"><i class="fas fa-plus mr-2"></i>Submit Assignment</a>
-      <a class="btn btn-primary" href="{% url 'submission-detail' view.kwargs.course_id assignment.id  %}">View Feedback</a>
+      {% if not assignment.is_past_due %}
+        <a class="btn btn-primary" href="{% url 'add-submission' view.kwargs.course_id assignment.id %}"><i class="fas fa-plus mr-2"></i>Submit Assignment</a>
+      {% endif %}
+      <a class="btn btn-primary ml-2" href="{% url 'submission-detail' view.kwargs.course_id assignment.id  %}">View Feedback</a>
     {% endif %}
     {% if user.instructor %}
       <a class="btn btn-outline-info" href="{% url 'assignment-list' view.kwargs.course_id %}">Back</a>
