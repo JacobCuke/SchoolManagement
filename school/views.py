@@ -8,6 +8,8 @@ from .forms import ExtraCurricularForm, GuardianForm
 from users.models import Student, Instructor
 from django.core.files.storage import FileSystemStorage
 from django.urls import reverse
+from django.utils import timezone
+from django.core.exceptions import ValidationError
 from django.http import FileResponse, Http404, HttpResponse, HttpResponseNotFound
 from django.views.generic import (
     ListView,
@@ -381,6 +383,9 @@ class SubmissionCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
         student = Student.objects.filter(user=user).first()
         assignment = get_object_or_404(Assignment, id=self.kwargs.get('pk'))
 
+        if timezone.now() > assignment.due_date:
+            raise ValidationError("Assignment due date has passed")
+
         previous_submission = Submission.objects.filter(student=student, assignment=assignment).first()
         if previous_submission:
             previous_submission.delete()
@@ -393,6 +398,10 @@ class SubmissionCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
         return (reverse('assignment-list', kwargs={'course_id': self.kwargs.get('course_id')}))
 
     def test_func(self):
+        assignment = get_object_or_404(Assignment, id=self.kwargs.get('pk'))
+        if timezone.now() > assignment.due_date:
+            return False
+
         user = self.request.user
         student = Student.objects.filter(user=user).first()
         course = get_object_or_404(Course, id=self.kwargs.get('course_id'))

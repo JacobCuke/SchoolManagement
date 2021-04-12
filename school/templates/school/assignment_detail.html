@@ -18,14 +18,14 @@
     </p>
     {% if user.student %}
       {% if submission %}
-        <p>Current submission: <a href="{{ submission.content.url }}">Download File</a></p>
+        <p class="mt-4">Current submission: <a href="{{ submission.content.url }}">Download File</a></p>
       {% endif %}
 
       {% if not assignment.is_past_due %}
         <a class="btn btn-primary" href="{% url 'add-submission' view.kwargs.course_id assignment.id %}"><i class="fas fa-plus mr-2"></i>Submit Assignment</a>
       {% endif %}
       
-      {% if submission.grade %}
+      {% if submission.grade_report %}
         <a class="btn btn-primary ml-2" href="{% url 'submission-detail' view.kwargs.course_id assignment.id  %}">View Feedback</a>
       {% endif %}
     {% endif %}
