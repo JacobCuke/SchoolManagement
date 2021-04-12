@@ -13,11 +13,11 @@
         <article class="content-section">
             <p>
                 <span class="data-title">Student:</span>
-                <span class="data-content">{{submission.student.user.first_name}} {{submission.student.user.last_name}}</span>
+                <span class="data-content"><a href="{% url 'profile' submission.student.user %}">{{submission.student.user.first_name}} {{submission.student.user.last_name}}</a></span>
             </p>
             <p>
                 <span class="data-title">File:</span>
-                <a href="{{ submission.content.url }}">assignment {{submission.assignment.assignment_number}}</a>
+                <a href="{{ submission.content.url }}">Download File</a>
             </p>
             <p>
                 <span class="data-title">Submitted On:</span>
@@ -44,5 +44,5 @@
         </article>
         {% endfor %}
     {% endif %}
-    <a class="btn btn-outline-info" href="{% url 'assignment-list' view.kwargs.course_id %}">Back</a>
+    <a class="btn btn-info" href="{% url 'assignment-list' view.kwargs.course_id %}">Back</a>
 {% endblock content %}
