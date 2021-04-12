@@ -15,5 +15,6 @@
           <iframe src="{{ lecture.content.url }}" width="100%" height="780px"></iframe>
         </p>
     </article>
+    <a class="btn btn-outline-info" href="{% url 'lecture-list' view.kwargs.course_id %}">Back</a>
   {% endif %}
 {% endblock content %}

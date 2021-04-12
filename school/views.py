@@ -206,9 +206,12 @@ class AssignmentListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
         user = self.request.user
         queryset = {}
         course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
+        print(course)
         instructor = Instructor.objects.filter(user=user).first()
+        print(instructor)
 
         queryset['assignment_list']= Assignment.objects.filter(course=course)
+        print(Assignment.objects.filter(course=course))
         queryset['course'] = course 
         queryset['instructor'] = instructor
         return queryset
@@ -383,9 +386,43 @@ class SubmissionCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
 
         return False
 
-class SubmissionDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
+class SubmissionUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Submission
-    context_object_name = 'submission'
+    fields = ['content']
+    template_name = 'school/submission_form.html'
+    
+    def get_success_url(self):
+        return (reverse('assignment-list', kwargs={'course_id': self.kwargs.get('course_id')}))
+
+    def test_func(self):
+        user = self.request.user
+        student = Student.objects.filter(user=user).first()
+        course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
+
+        if student:
+            if EnrolledIn.objects.filter(student=student, course=course).exists():
+                return True
+
+        return False
+
+class FeedbackListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
+    model = Submission
+    context_object_name = 'submissions'
+    template_name = 'school/submission_list.html'
+
+    def get_queryset(self):
+        user = self.request.user
+        queryset = {}
+        assignment = get_object_or_404(Assignment, id=self.kwargs.get('pk'))
+        print(assignment)
+        student = Student.objects.filter(user=user).first()
+        print(student)
+
+        queryset['feedback'] = Submission.objects.filter(assignment=assignment, student=student)
+        queryset['assignment_list'] = assignment
+        print(Submission.objects.filter(assignment=assignment, student=student))
+        return queryset
+    
  
     def test_func(self):
         user = self.request.user
@@ -423,7 +460,7 @@ class CourseDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
 
         return False
 
-class SubmissionUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+class FeedbackUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Submission
     fields = ['grade_report', 'feedback']
     template_name = 'school/submission_update_form.html'

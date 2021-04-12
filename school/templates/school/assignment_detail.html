@@ -18,10 +18,12 @@
     </p>
     </article>
     {% if user.student %}
-      <a class="btn btn-primary mr-2" href="{% url 'add-submission' view.kwargs.course_id assignment.id %}"><i class="fas fa-plus mr-2"></i>Submit Assignment</a>
+      <a class="btn btn-primary" href="{% url 'update-submission' view.kwargs.course_id assignment.id %}"><i class="fas fa-plus mr-2"></i>Update Submission</a>
+      <a class="btn btn-primary" href="{% url 'add-submission' view.kwargs.course_id assignment.id %}"><i class="fas fa-plus mr-2"></i>Submit Assignment</a>
       <a class="btn btn-primary" href="{% url 'submission-detail' view.kwargs.course_id assignment.id  %}">View Feedback</a>
     {% endif %}
     {% if user.instructor %}
+      <a class="btn btn-outline-info" href="{% url 'assignment-list' view.kwargs.course_id %}">Back</a>
       <a class="btn btn-primary" href="{% url 'view-submission' view.kwargs.course_id assignment.id %}">View Submissions</a>
     {% endif %}
   {% endif %}
