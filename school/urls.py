@@ -47,7 +47,6 @@ urlpatterns = [
     path('course/<int:course_id>/assignments/<int:pk>/update/', AssignmentUpdateView.as_view(), name='update-assignment'),
     path('course/<int:course_id>/assignments/<int:pk>/delete/', AssignmentDeleteView.as_view(), name='delete-assignment'),
     path('course/<int:course_id>/students/', EnrolledListView.as_view(), name='enrolled-list'),
-    path('course/<int:course_id>/forum/create/', forum_views.create_thread, name='create-thread'),
     path('extracurricular/new/', ExtraCurricularCreateView.as_view(), name='create-extra-curricular'),
     path('extracurricular/<int:pk>/update/', ExtraCurricularUpdateView.as_view(), name='update-extra-curricular'),
     path('extracurricular/<int:pk>/delete/', ExtraCurricularDeleteView.as_view(), name='delete-extra-curricular'),
