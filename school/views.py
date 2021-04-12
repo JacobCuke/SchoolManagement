@@ -241,6 +241,18 @@ class AssignmentListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
 class AssignmentDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
     model = Assignment
     context_object_name = 'assignment'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = self.request.user
+
+        student = Student.objects.filter(user=user).first()
+        if student:
+            submission = Submission.objects.filter(student=student, assignment=self.get_object()).first()
+            if submission:
+                context['submission'] = submission
+        
+        return context
  
     def test_func(self):
         user = self.request.user
