@@ -28,6 +28,6 @@
     {% endfor %}
   {% endif %}
   {% if assignments.course.instructor == assignments.instructor %}
-    <a class="btn btn-primary sub-profile-button" href="{% url 'create-assignment' view.kwargs.course_id %}"><i class="fas fa-plus mr-2"></i>Add Assignment</a>
+    <a class="btn btn-primary" href="{% url 'create-assignment' view.kwargs.course_id %}"><i class="fas fa-plus mr-2"></i>Add Assignment</a>
   {% endif %}
 {% endblock content %}

@@ -1,0 +1,36 @@
+{% extends "school/course.html" %}
+
+{% block title %}
+- Feedback
+{% endblock title %}
+
+{% block content %}
+  {% if not submissions.feedback%}
+      <h1 class="mb-4">{{submissions.assignment_list.course.course_name}}</h1>
+      <h2 class="mb-4">Assignment {{submissions.assignment_list.assignment_number}}</h2>
+      <p class="lead">Feedback has not been posted</p>
+      <a class="btn btn-outline-info" href="{% url 'assignment-list' view.kwargs.course_id  %}">Back</a>
+    {% else %}
+    {% for submission in submissions.feedback %}
+      {% if not submission.feedback%}
+        <h1 class="mb-4">{{submission.assignment.course.course_name}}</h1>
+        <h1 class="mb-4">Assignment {{submission.assignment.assignment_number}}</h1>
+        <p class="lead">Feedback has not been posted</p>
+        {% else %}
+        <h1 class="mb-4">{{submission.assignment.course.course_name}}</h1>
+        <h2 class="mb-4">Assignment {{submission.assignment.assignment_number}} Feedback</h2>
+        <article class="content-section">
+          <p>
+            <span class="data-title">Grade:</span>
+            <span class="data-content">{{ submission.grade_report }}</span>
+          </p>
+          <p>
+            <span class="data-title">Feedback:</span>
+            <span class="data-content">{{submission.feedback}}</span>
+          </p>
+          </article>
+      {% endif %}
+      <a class="btn btn-outline-info" href="{% url 'assignment-list' view.kwargs.course_id  %}">Back</a>
+    {% endfor %}
+  {% endif %}
+{% endblock content %}
