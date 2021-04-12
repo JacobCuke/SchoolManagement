@@ -30,7 +30,7 @@
           </p>
           </article>
       {% endif %}
-      <a class="btn btn-outline-info" href="{% url 'assignment-list' view.kwargs.course_id  %}">Back</a>
+      <a class="btn btn-outline-info" href="{% url 'assignment-detail' view.kwargs.course_id view.kwargs.pk %}">Back</a>
     {% endfor %}
   {% endif %}
 {% endblock content %}

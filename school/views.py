@@ -395,7 +395,7 @@ class SubmissionCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
         return super().form_valid(form)
     
     def get_success_url(self):
-        return (reverse('assignment-list', kwargs={'course_id': self.kwargs.get('course_id')}))
+        return (reverse('assignment-detail', kwargs={'course_id': self.kwargs.get('course_id'), 'pk': self.kwargs.get('pk')}))
 
     def test_func(self):
         assignment = get_object_or_404(Assignment, id=self.kwargs.get('pk'))
