@@ -24,7 +24,11 @@
                 <span class="data-content">{{submission.submission_time}}</span>
             </p>
             {% if user.instructor %}
-                <a class="btn btn-primary" href="#">Add Feedback</a>
+                {% if not submission.feedback %}
+                <a class="btn btn-primary" href="{% url 'update-feedback' view.kwargs.course_id submission.assignment.id submission.id %}">Add Feedback</a>
+                    {% else %}
+                    <a class="btn btn-primary" href="{% url 'update-feedback' view.kwargs.course_id submission.assignment.id submission.id %}">Update Feedback</a>
+                {% endif %}
             {% endif %}
         </article>
         {% endfor %}

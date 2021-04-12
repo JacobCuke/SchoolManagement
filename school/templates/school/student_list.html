@@ -1,0 +1,30 @@
+{% extends "school/course.html" %}
+
+{% block title %}
+- Enrolled Students
+{% endblock title %}
+
+{% block content %}
+<h1 class="mb-4">{{enrolledStudents.course.course_name}}</h1>
+  {% if not enrolledStudents.enrolled_list %}
+    <p class="lead">No student has been enrolled in this course yet</p>
+    {% else %}
+    <h2 class="mb-4">Enrolled Students</h2>
+    {% for enrolledStudent in enrolledStudents.enrolled_list %}
+      <article class="content-section">
+        <p>
+          <span class="data-title">Student Name:</span>
+          <span class="data-content">{{ enrolledStudent.user.first_name }} {{ enrolledStudent.user.last_name }}</span>
+        </p>
+        <p>
+            <span class="data-title">Student ID:</span>
+            <span class="data-content">{{ enrolledStudent.student_id_no }}</span>
+        </p>
+        <p>
+            <span class="data-title">email:</span>
+            <span class="data-content">{{ enrolledStudent.user.email}}</span>
+        </p>
+      </article>
+    {% endfor %}
+  {% endif %}
+{% endblock content %}
