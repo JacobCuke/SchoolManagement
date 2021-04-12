@@ -17,7 +17,7 @@
         <h3 class="content-title"><a class="title-link" href="{% url 'course-detail' course.id %}">{{ course.course_name }}</a></h3>
         <p>
           <span class="data-title">Instructor:</span>
-          <span class="data-content">{{ course.instructor }}</span>
+          <span class="data-content"><a href="{% url 'profile' course.instructor.user %}">{{ course.instructor }}</a></span>
         </p>
         <p>
           <span class="data-title">Time:</span>
@@ -38,7 +38,7 @@
         <h3 class="content-title"><a class="title-link" href="{% url 'course-detail' course.id %}">{{ course.course_name }}</a></h3>
         <p>
           <span class="data-title">Instructor:</span>
-          <span class="data-content">{{ course.instructor }}</span>
+          <span class="data-content"><a href="{% url 'profile' course.instructor.user %}">{{ course.instructor }}</a></span>
         </p>
         <p>
           <span class="data-title">Time:</span>
@@ -59,7 +59,7 @@
           <h3 class="content-title"><a class="title-link" href="{% url 'course-detail' course.id %}">{{ course.course_name }}</a></h3>
           <p>
             <span class="data-title">Instructor:</span>
-            <span class="data-content">{{ course.instructor }}</span>
+            <span class="data-content"><a href="{% url 'profile' course.instructor.user %}">{{ course.instructor }}</a></span>
           </p>
           <p>
             <span class="data-title">Time:</span>
