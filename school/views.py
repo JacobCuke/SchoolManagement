@@ -368,28 +368,14 @@ class SubmissionCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
         user = self.request.user 
         student = Student.objects.filter(user=user).first()
         assignment = get_object_or_404(Assignment, id=self.kwargs.get('pk'))
+
+        previous_submission = Submission.objects.filter(student=student, assignment=assignment).first()
+        if previous_submission:
+            previous_submission.delete()
+
         form.instance.student = student
         form.instance.assignment = assignment
         return super().form_valid(form)
-    
-    def get_success_url(self):
-        return (reverse('assignment-list', kwargs={'course_id': self.kwargs.get('course_id')}))
-
-    def test_func(self):
-        user = self.request.user
-        student = Student.objects.filter(user=user).first()
-        course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
-
-        if student:
-            if EnrolledIn.objects.filter(student=student, course=course).exists():
-                return True
-
-        return False
-
-class SubmissionUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
-    model = Submission
-    fields = ['content']
-    template_name = 'school/submission_form.html'
     
     def get_success_url(self):
         return (reverse('assignment-list', kwargs={'course_id': self.kwargs.get('course_id')}))

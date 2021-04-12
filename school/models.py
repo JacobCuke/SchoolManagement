@@ -105,7 +105,7 @@ class Assignment(models.Model):
         unique_together = ['course', 'assignment_number']
 
     def __str__(self):
-        return f'Assignment {self.assignment_number}'
+        return f'{self.course} Assignment {self.assignment_number}'
 
 
 class Submission(models.Model):
