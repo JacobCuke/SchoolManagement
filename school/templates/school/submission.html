@@ -33,4 +33,5 @@
         </article>
         {% endfor %}
     {% endif %}
+    <a class="btn btn-outline-info" href="{% url 'assignment-list' view.kwargs.course_id %}">Back</a>
 {% endblock content %}
