@@ -472,7 +472,7 @@ class FeedbackUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 class EnrolledListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
     model = Student
     template_name = 'school/student_list.html'
-    context_object_name = 'enrolledStudents'
+    context_object_name = 'student_list'
     
 
     def get_queryset(self):
@@ -480,8 +480,10 @@ class EnrolledListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
         course_id = get_object_or_404(Course, id=self.kwargs.get('course_id'))
         course = Course.objects.filter(id = course_id.id).first()
 
-        student = EnrolledIn.objects.filter(course=course).values('student')
-        queryset['enrolled_list']= Student.objects.filter(user__in=student)
+        enrolled_students = EnrolledIn.objects.filter(course=course).values('student')
+        assisting_students = AssistsIn.objects.filter(course=course).values('student')
+        queryset['enrolled_students']= Student.objects.filter(user__in=enrolled_students)
+        queryset['assisting_students']= Student.objects.filter(user__in=assisting_students)
         queryset['course'] = course_id
         return queryset
     
