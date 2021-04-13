@@ -208,12 +208,9 @@ class AssignmentListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
         user = self.request.user
         queryset = {}
         course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
-        print(course)
         instructor = Instructor.objects.filter(user=user).first()
-        print(instructor)
 
         queryset['assignment_list']= Assignment.objects.filter(course=course)
-        print(Assignment.objects.filter(course=course))
         queryset['course'] = course 
         queryset['instructor'] = instructor
         return queryset
@@ -421,13 +418,10 @@ class FeedbackListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
         user = self.request.user
         queryset = {}
         assignment = get_object_or_404(Assignment, id=self.kwargs.get('pk'))
-        print(assignment)
         student = Student.objects.filter(user=user).first()
-        print(student)
 
         queryset['feedback'] = Submission.objects.filter(assignment=assignment, student=student)
         queryset['assignment_list'] = assignment
-        print(Submission.objects.filter(assignment=assignment, student=student))
         return queryset
     
  
