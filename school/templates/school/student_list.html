@@ -14,14 +14,16 @@
       <article class="content-section">
         <p>
           <span class="data-title">Student Name:</span>
-          <span class="data-content">{{ enrolledStudent.user.first_name }} {{ enrolledStudent.user.last_name }}</span>
+          <span class="data-content">
+            <a href="{% url 'profile' enrolledStudent.user %}">{{ enrolledStudent.user.first_name }} {{ enrolledStudent.user.last_name }}</a>
+          </span>
         </p>
         <p>
             <span class="data-title">Student ID:</span>
             <span class="data-content">{{ enrolledStudent.student_id_no }}</span>
         </p>
         <p>
-            <span class="data-title">email:</span>
+            <span class="data-title">Email:</span>
             <span class="data-content">{{ enrolledStudent.user.email}}</span>
         </p>
       </article>

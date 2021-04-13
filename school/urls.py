@@ -24,7 +24,6 @@ from .views import (
     FeedbackUpdateView,
     EnrolledListView,
     FeedbackListView,
-    SubmissionUpdateView,
 )
 
 urlpatterns = [
@@ -42,9 +41,8 @@ urlpatterns = [
     path('course/<int:course_id>/assignments/new/', AssignmentCreateView.as_view(), name='create-assignment'),
     path('course/<int:course_id>/assignments/<int:pk>/submissions/', SubmissionListView.as_view(), name='view-submission'),
     path('course/<int:course_id>/assignments/<int:pk>/submit/', SubmissionCreateView.as_view(), name='add-submission'),
-    path('course/<int:course_id>/assignments/<int:pk>/resubmit/', SubmissionUpdateView.as_view(), name='update-submission'),
-    path('course/<int:course_id>/assignments/<int:pk>/feedback', FeedbackListView.as_view(), name='submission-detail'),
-    path('course/<int:course_id>/assignments/<int:assignment_id>/submission/<int:pk>/update', FeedbackUpdateView.as_view(), name='update-feedback'),
+    path('course/<int:course_id>/assignments/<int:pk>/feedback/', FeedbackListView.as_view(), name='submission-detail'),
+    path('course/<int:course_id>/assignments/<int:assignment_id>/submission/<int:pk>/update/', FeedbackUpdateView.as_view(), name='update-feedback'),
     path('course/<int:course_id>/assignments/<int:pk>/update/', AssignmentUpdateView.as_view(), name='update-assignment'),
     path('course/<int:course_id>/assignments/<int:pk>/delete/', AssignmentDeleteView.as_view(), name='delete-assignment'),
     path('course/<int:course_id>/students/', EnrolledListView.as_view(), name='enrolled-list'),

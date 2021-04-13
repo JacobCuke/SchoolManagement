@@ -8,6 +8,8 @@ from .forms import ExtraCurricularForm, GuardianForm
 from users.models import Student, Instructor
 from django.core.files.storage import FileSystemStorage
 from django.urls import reverse
+from django.utils import timezone
+from django.core.exceptions import ValidationError
 from django.http import FileResponse, Http404, HttpResponse, HttpResponseNotFound
 from django.views.generic import (
     ListView,
@@ -241,6 +243,18 @@ class AssignmentListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
 class AssignmentDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
     model = Assignment
     context_object_name = 'assignment'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = self.request.user
+
+        student = Student.objects.filter(user=user).first()
+        if student:
+            submission = Submission.objects.filter(student=student, assignment=self.get_object()).first()
+            if submission:
+                context['submission'] = submission
+        
+        return context
  
     def test_func(self):
         user = self.request.user
@@ -368,33 +382,26 @@ class SubmissionCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
         user = self.request.user 
         student = Student.objects.filter(user=user).first()
         assignment = get_object_or_404(Assignment, id=self.kwargs.get('pk'))
+
+        if timezone.now() > assignment.due_date:
+            raise ValidationError("Assignment due date has passed")
+
+        previous_submission = Submission.objects.filter(student=student, assignment=assignment).first()
+        if previous_submission:
+            previous_submission.delete()
+
         form.instance.student = student
         form.instance.assignment = assignment
         return super().form_valid(form)
     
     def get_success_url(self):
-        return (reverse('assignment-list', kwargs={'course_id': self.kwargs.get('course_id')}))
+        return (reverse('assignment-detail', kwargs={'course_id': self.kwargs.get('course_id'), 'pk': self.kwargs.get('pk')}))
 
     def test_func(self):
-        user = self.request.user
-        student = Student.objects.filter(user=user).first()
-        course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
+        assignment = get_object_or_404(Assignment, id=self.kwargs.get('pk'))
+        if timezone.now() > assignment.due_date:
+            return False
 
-        if student:
-            if EnrolledIn.objects.filter(student=student, course=course).exists():
-                return True
-
-        return False
-
-class SubmissionUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
-    model = Submission
-    fields = ['content']
-    template_name = 'school/submission_form.html'
-    
-    def get_success_url(self):
-        return (reverse('assignment-list', kwargs={'course_id': self.kwargs.get('course_id')}))
-
-    def test_func(self):
         user = self.request.user
         student = Student.objects.filter(user=user).first()
         course = get_object_or_404(Course, id=self.kwargs.get('course_id'))

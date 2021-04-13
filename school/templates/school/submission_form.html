@@ -10,11 +10,16 @@
     <form method="POST" enctype="multipart/form-data">
       {% csrf_token %}
       <fieldset class="form-group">
-        <legend class="border-bottom mb-4">Add Assignment</legend>
+        <legend class="border-bottom mb-4">Submit Assignment</legend>
         {{ form|crispy }}
       </fieldset>
       <div class="form-group">
         <button class="btn btn-outline-primary" type="submit">Submit</button>
+      </div>
+      <div class="border-top pt-3">
+        <small class="text-danger">
+          Caution: any previous submission will be overwritten
+        </small>
       </div>
     </form>
   </div>

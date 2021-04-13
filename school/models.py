@@ -92,7 +92,7 @@ class Lecture(models.Model):
         unique_together = ['course', 'lecture_number']
 
     def __str__(self):
-        return f'Lecture {self.lecture_number}'
+        return self.lecture_title
 
 
 class Assignment(models.Model):
@@ -104,8 +104,12 @@ class Assignment(models.Model):
     class Meta:
         unique_together = ['course', 'assignment_number']
 
+    @property
+    def is_past_due(self):
+        return timezone.now() > self.due_date
+
     def __str__(self):
-        return f'Assignment {self.assignment_number}'
+        return f'{self.course} Assignment {self.assignment_number}'
 
 
 class Submission(models.Model):
