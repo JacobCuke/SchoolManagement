@@ -161,13 +161,6 @@ class LectureUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Lecture
     fields = ['lecture_title', 'lecture_number', 'content', 'due_date']
     template_name = 'school/lecture_update_form.html'
-
-    def form_valid(self, form):
-        user = self.request.user 
-        instructor = Instructor.objects.filter(user=user).first()
-        course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
-        form.instance.course = course
-        return super().form_valid(form)
     
     def get_success_url(self):
         return (reverse('lecture-list', kwargs={'course_id': self.kwargs.get('course_id')}))
@@ -303,13 +296,6 @@ class AssignmentUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Assignment
     fields = ['assignment_number', 'content', 'due_date']
     template_name = 'school/assignment_update_form.html'
-
-    def form_valid(self, form):
-        user = self.request.user 
-        instructor = Instructor.objects.filter(user=user).first()
-        course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
-        form.instance.course = course
-        return super().form_valid(form)
     
     def get_success_url(self):
         return (reverse('assignment-list', kwargs={'course_id': self.kwargs.get('course_id')}))
@@ -550,11 +536,6 @@ class ExtraCurricularUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateV
     model = ExtraCurricular
     form_class = ExtraCurricularForm
     template_name = 'school/extra_curricular_update_form.html'
-
-    def form_valid(self, form):
-        student = Student.objects.filter(user=self.request.user).first()
-        form.instance.student = student
-        return super().form_valid(form)
     
     def test_func(self):
         extra_curricular = self.get_object()
@@ -615,11 +596,6 @@ class GuardianUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Guardian
     form_class = GuardianForm
     template_name = 'school/guardian_update_form.html'
-
-    def form_valid(self, form):
-        student = Student.objects.filter(user=self.request.user).first()
-        form.instance.student = student
-        return super().form_valid(form)
     
     def test_func(self):
         guardian = self.get_object()
