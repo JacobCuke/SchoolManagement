@@ -25,10 +25,12 @@ class UserSerializer(serializers.ModelSerializer):
     profile = ProfileSerializer(required=False)
     student = StudentSerializer(required=False)
     instructor = InstructorSerializer(required=False)
+    password = serializers.CharField(required=False, write_only=True)
 
     class Meta:
         model = User
-        fields = ['id', 'username', 'first_name', 'last_name', 'email', 'profile', 'student', 'instructor']
+        fields = ['id', 'username', 'password', 'first_name', 'last_name', 'email', 'profile', 'student', 'instructor']
+        extra_kwargs = {'password': {'write_only': True}}
 
     def to_representation(self, value):
         representation = super(UserSerializer, self).to_representation(value)
@@ -45,6 +47,7 @@ class UserSerializer(serializers.ModelSerializer):
         profile_data = None
         student_data = None
         instructor_data = None
+        password = None
 
         if validated_data.get('profile', None):
             profile_data = validated_data.pop('profile')
@@ -53,7 +56,15 @@ class UserSerializer(serializers.ModelSerializer):
         if validated_data.get('instructor', None):
             instructor_data = validated_data.pop('instructor')
 
+        # Set password to default 'testing321' if none provided
+        if validated_data.get('password', None):
+            password = validated_data.pop('password')
+        else:
+            password = 'testing321'
+
         user = User.objects.create(**validated_data)
+        user.set_password(password)
+        user.save()
 
         if profile_data:
             if profile_data.get('birth_date', None):
