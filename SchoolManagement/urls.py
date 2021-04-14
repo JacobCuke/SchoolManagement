@@ -37,6 +37,7 @@ urlpatterns = [
     # Rest Framework URLs
     path('api/', include('school.api.urls')),
     path('api/', include('users.api.urls')),
+    path('api/', include('forum.api.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
