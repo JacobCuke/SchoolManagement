@@ -10,13 +10,13 @@ from school.models import Course
 
 @api_view(['GET', 'POST'])
 @permission_classes([IsAuthenticated])
-def thread_list(request):
+def thread_list(request, course_id):
     # TO DO
     return Response({'message': "TO DO"}, status=status.HTTP_200_OK)
 
 
 @api_view(['GET', 'POST'])
 @permission_classes([IsAuthenticated])
-def post_list(request):
+def post_list(request, course_id, pk):
     # TO DO
     return Response({'message': "TO DO"}, status=status.HTTP_200_OK)
