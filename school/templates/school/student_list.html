@@ -27,7 +27,7 @@
             <span class="data-content">{{ enrolledStudent.student.user.email}}</span>
         </p>
         {% if not enrolledStudent.received_grade %}
-          <a class="btn btn-primary" href="{% url 'create-grade' view.kwargs.course_id enrolledStudent.student.user.id %}">Add Final Grade</a>
+          <a class="btn btn-primary" href="{% url 'update-grade' view.kwargs.course_id enrolledStudent.student.user.id %}">Add Final Grade</a>
         {% else %}
           <a class="btn btn-primary" href="{% url 'update-grade' view.kwargs.course_id enrolledStudent.student.user.id %}">Update Final Grade</a>
         {% endif %}

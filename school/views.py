@@ -538,37 +538,17 @@ class EnrolledListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
             return True
         return False
 
-class EnrolledCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
-    model = EnrolledIn
-    fields = ['received_grade']
-    template_name = 'school/final_grade_form.html'
-    
-    def form_valid(self, form): 
-        student = get_object_or_404(Student, id=self.kwargs.get('pk'))
-        course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
-
-        form.instance.student = student
-        form.instance.course = course
-        return super().form_valid(form)
-
-    def get_success_url(self):
-        return (reverse('enrolled-list', kwargs={'course_id': self.kwargs.get('course_id')}))
-
-    def test_func(self):
-        user = self.request.user
-        course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
-
-        instructor = Instructor.objects.filter(user=user).first()
-        if instructor:
-            if course.instructor == instructor:
-                return True
-
-        return False  
-
 class EnrolledUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = EnrolledIn
     fields = ['received_grade']
     template_name = 'school/final_grade_update.html'
+
+    def get_object(self):
+        user = get_object_or_404(User, id=self.kwargs.get('pk'))
+        course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
+        student = Student.objects.filter(user=user).first()
+        enrolledin = EnrolledIn.objects.filter(course=course, student=student).first()
+        return enrolledin
     
     def get_success_url(self):
         return (reverse('enrolled-list', kwargs={'course_id': self.kwargs.get('course_id')}))
