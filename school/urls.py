@@ -24,6 +24,9 @@ from .views import (
     FeedbackUpdateView,
     EnrolledListView,
     FeedbackListView,
+    EnrolledUpdateView,
+    EnrolledCreateView,
+    FinalGradeListView
 )
 
 urlpatterns = [
@@ -31,6 +34,7 @@ urlpatterns = [
     path('dashboard/', views.dashboard, name='dashboard'),
     path('dashboard/<str:username>/', DashboardListView.as_view(), name='user-dashboard'),
     path('course/<int:pk>/', views.course, name='course-detail'),
+    path('course/<int:course_id>/grades/', FinalGradeListView.as_view(), name='final-grade'),
     path('course/<int:course_id>/lectures/', LectureListView.as_view(), name='lecture-list'),
     path('course/<int:course_id>/lectures/new/', LectureCreateView.as_view(), name='create-lecture'),
     path('course/<int:course_id>/lectures/<int:pk>/update/', LectureUpdateView.as_view(), name='update-lecture'),
@@ -46,6 +50,8 @@ urlpatterns = [
     path('course/<int:course_id>/assignments/<int:pk>/update/', AssignmentUpdateView.as_view(), name='update-assignment'),
     path('course/<int:course_id>/assignments/<int:pk>/delete/', AssignmentDeleteView.as_view(), name='delete-assignment'),
     path('course/<int:course_id>/students/', EnrolledListView.as_view(), name='enrolled-list'),
+    path('course/<int:course_id>/students/<int:pk>/grade', EnrolledCreateView.as_view(), name='create-grade'),
+    path('course/<int:course_id>/students/<int:pk>/update', EnrolledUpdateView.as_view(), name='update-grade'),
     path('extracurricular/new/', ExtraCurricularCreateView.as_view(), name='create-extra-curricular'),
     path('extracurricular/<int:pk>/update/', ExtraCurricularUpdateView.as_view(), name='update-extra-curricular'),
     path('extracurricular/<int:pk>/delete/', ExtraCurricularDeleteView.as_view(), name='delete-extra-curricular'),
