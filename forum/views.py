@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.urls import reverse
 from .forms import ThreadForm, PostForm
 from .models import DiscussionThread, DiscussionPost
 from school.models import Course, EnrolledIn, AssistsIn
@@ -15,14 +16,109 @@ from django.views.generic import (
 class DiscussionThreadListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
     # TO DO
     model = DiscussionThread
+    template_name = 'forum/thread_list.html'
+    context_object_name = 'threads'
+
+    def get_queryset(self):
+        queryset = {}
+        course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
+
+        queryset['thread_list']= DiscussionThread.objects.filter(course=course)
+        queryset['course'] = course
+        return queryset
+
+    def test_func(self):
+        user = self.request.user
+        student = Student.objects.filter(user=user).first()
+        course_id = self.kwargs.get('course_id')
+        course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
+
+        if student:
+            if EnrolledIn.objects.filter(student=student, course=course_id).exists():
+                return True
+            if AssistsIn.objects.filter(student=student, course=course_id).exists():
+                return True
+        
+        instructor = Instructor.objects.filter(user=user).first()
+        if instructor:
+            if course.instructor == instructor:
+                return True
+
+        if user.is_superuser:
+            return True
+        return False
 
 class DiscussionPostListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
     # TO DO
     model = DiscussionPost
+    template_name = 'forum/post_list.html'
+    context_object_name = 'posts'
+
+    def get_queryset(self):
+        queryset = {}
+        course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
+        thread = get_object_or_404(DiscussionThread, id=self.kwargs.get('pk'), course=course)
+
+        queryset['post_list']= DiscussionPost.objects.filter(thread=thread)
+        queryset['course'] = course 
+        queryset['thread'] = thread
+        return queryset
+
+    def test_func(self):
+        user = self.request.user
+        student = Student.objects.filter(user=user).first()
+        course_id = self.kwargs.get('course_id')
+        course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
+
+        if student:
+            if EnrolledIn.objects.filter(student=student, course=course_id).exists():
+                return True
+            if AssistsIn.objects.filter(student=student, course=course_id).exists():
+                return True
+        
+        instructor = Instructor.objects.filter(user=user).first()
+        if instructor:
+            if course.instructor == instructor:
+                return True
+
+        if user.is_superuser:
+            return True
+        return False
 
 class DiscussionPostCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     # TO DO
     model = DiscussionPost
+    fields = ['content']
+    template_name = 'forum/create_post.html'
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        form.instance.thread = get_object_or_404(DiscussionThread, pk=self.kwargs.get('pk'), course=self.kwargs.get('course_id'))
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse('post-list', kwargs={'course_id': self.kwargs.get('course_id'), 'pk': self.kwargs.get('pk')})
+
+    def test_func(self):
+        user = self.request.user
+        student = Student.objects.filter(user=user).first()
+        course_id = self.kwargs.get('course_id')
+        course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
+
+        if student:
+            if EnrolledIn.objects.filter(student=student, course=course_id).exists():
+                return True
+            if AssistsIn.objects.filter(student=student, course=course_id).exists():
+                return True
+        
+        instructor = Instructor.objects.filter(user=user).first()
+        if instructor:
+            if course.instructor == instructor:
+                return True
+
+        if user.is_superuser:
+            return True
+        return False
 
 
 @login_required
@@ -56,9 +152,7 @@ def create_thread(request, **kwargs):
             post_form.save()
 
             messages.success(request, f'Thread successfully created!')
-
-            # NEEDS TO BE CHANGED TO NEWLY CREATED THREAD PAGE (POST LIST)
-            return redirect('dashboard')
+            return redirect('thread-list', course_id=kwargs.get('course_id'))
 
     else:
         view = {

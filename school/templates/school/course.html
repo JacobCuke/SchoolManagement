@@ -6,5 +6,5 @@
   {% if user.instructor %}
   <a class="nav-item nav-link {% if request.resolver_match.url_name == 'enrolled-list'%}active{% endif %}" href="{% url 'enrolled-list' view.kwargs.course_id %}">Students</a>
   {% endif %}
-  <a class="nav-item nav-link" href="#">Discussion</a>
+  <a class="nav-item nav-link {% if request.resolver_match.url_name == 'thread-list' or request.resolver_match.url_name == 'post-list' or request.resolver_match.url_name == 'create-thread' or request.resolver_match.url_name == 'create-post' %}active{% endif %}" href="{% url 'thread-list' view.kwargs.course_id %}">Discussion</a>
 {% endblock course_links %}

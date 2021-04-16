@@ -8,7 +8,7 @@
 <h1 class="mb-4">{{lectures.course.course_name}}</h1>
   {% if not lectures.lecture_list %}
     <p class="lead">Lectures have not been posted</p>
-    {% else %}
+  {% else %}
     <h2 class="mb-4">Lectures</h2>
     {% for lecture in lectures.lecture_list %}
       <article class="content-section">

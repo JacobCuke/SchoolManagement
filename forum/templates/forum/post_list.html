@@ -1,0 +1,26 @@
+{% extends "school/course.html" %}
+
+{% block title %}
+- Discussions
+{% endblock title %}
+
+{% block content %}
+<h1 class="mb-4">{{ posts.course.course_name }}</h1>
+  {% if not posts.post_list %}
+    <p class="lead">There are no posts yet</p>
+  {% else %}
+    <h2 class="mb-4">{{ posts.thread.title }}</h2>
+    {% for post in posts.post_list %}
+      <article class="content-section">
+        <h4 class="content-title">{{ post.author }}</h4>
+        <p>
+          <span class="data-content">{{ post.content }}</span>
+        </p>
+        <small>
+          <p class="mt-4">{{ post.creation_date_time }}</p>
+        </small>
+      </article>
+    {% endfor %}
+  {% endif %}
+  <a class="btn btn-primary" href="{% url 'create-post' view.kwargs.course_id view.kwargs.pk %}"><i class="fas fa-plus mr-2"></i>New Post</a>
+{% endblock content %}

@@ -1,0 +1,28 @@
+{% extends "school/course.html" %}
+
+{% block title %}
+- Discussions
+{% endblock title %}
+
+{% block content %}
+<h1 class="mb-4">{{ threads.course.course_name }}</h1>
+  {% if not threads.thread_list %}
+    <p class="lead">There are no threads yet</p>
+  {% else %}
+    <h2 class="mb-4">Discussions</h2>
+    {% for thread in threads.thread_list %}
+      <article class="content-section">
+        <h3 class="content-title"><a class="title-link" href="{% url 'post-list' view.kwargs.course_id thread.id %}">{{ thread.title }}</a></h3>
+        <p>
+          <span class="data-title">Created On:</span>
+          <span class="data-content">{{ thread.creation_date_time }}</span>
+        </p>
+        <p>
+          <span class="data-title">Author:</span>
+          <span class="data-content">{{ thread.author }}</span>
+        </p>
+      </article>
+    {% endfor %}
+  {% endif %}
+  <a class="btn btn-primary" href="{% url 'create-thread' view.kwargs.course_id %}"><i class="fas fa-plus mr-2"></i>New Thread</a>
+{% endblock content %}
