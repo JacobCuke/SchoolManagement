@@ -25,7 +25,7 @@ class SubmissionSerializer(serializers.ModelSerializer):
 class EnrolledInSerializer(serializers.ModelSerializer):
     class Meta:
         model = EnrolledIn
-        fields = ['student', 'course', 'received_grade']
+        fields = ['student', 'course']
 
 class AssistsInSerializer(serializers.ModelSerializer):
     class Meta:
