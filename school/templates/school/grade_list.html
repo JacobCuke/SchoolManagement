@@ -1,0 +1,26 @@
+{% extends "school/course.html" %}
+
+{% block title %}
+- Final Grade
+{% endblock title %}
+
+{% block content %}
+    {% for grade in enrolledIn.grade %}
+        {% if not grade.received_grade%}
+            <h1 class="mb-4">{{grade.course.course_name}}</h1>
+            <h2 class="mb-4">Final Grade</h2>
+            <p class="lead">Final Grade has not been posted</p>
+            <a class="btn btn-outline-info" href="{% url 'dashboard' %}">Back</a>
+        {% else %}
+        <h1 class="mb-4">{{grade.course.course_name}}</h1>
+        <h1 class="mb-4">Final Grade</h1>
+        <article class="content-section">
+          <p>
+            <span class="data-title">Final Grade:</span>
+            <span class="data-content">{{grade.received_grade }}</span>
+          </p>
+          </article>
+         <a class="btn btn-info" href="{% url 'dashboard' %}">Back</a>
+        {% endif %}
+    {% endfor %}
+{% endblock content %}

@@ -27,6 +27,7 @@
           <span class="data-title">Day:</span>
           <span class="data-content">{{ course.get_day_display }}</span>
         </p>
+        <a class="btn btn-primary" href="{% url 'final-grade' course.id %}">View Final Grade</a>
       </article>
     {% endfor %}
   {% endif %}
