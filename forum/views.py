@@ -1,9 +1,29 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import ThreadForm, PostForm
+from .models import DiscussionThread, DiscussionPost
 from school.models import Course, EnrolledIn, AssistsIn
 from users.models import Student, Instructor
+from django.views.generic import (
+    ListView,
+    CreateView,
+    DeleteView,
+)
+
+class DiscussionThreadListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
+    # TO DO
+    model = DiscussionThread
+
+class DiscussionPostListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
+    # TO DO
+    model = DiscussionPost
+
+class DiscussionPostCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
+    # TO DO
+    model = DiscussionPost
+
 
 @login_required
 def create_thread(request, **kwargs):
