@@ -29,7 +29,7 @@ class EnrolledInSerializer(serializers.ModelSerializer):
 
 class AssistsInSerializer(serializers.ModelSerializer):
     class Meta:
-        model = EnrolledIn
+        model = AssistsIn
         fields = ['student', 'course']
 
 class GuardianSerializer(serializers.ModelSerializer):
