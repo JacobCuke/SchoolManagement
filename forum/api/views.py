@@ -49,6 +49,7 @@ def thread_list(request, **kwargs):
 
     if request.method == 'POST':
         request.data['course'] = kwargs.get('course_id')
+        request.data['author'] = user.id
         serializer = DiscussionThreadSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
