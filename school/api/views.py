@@ -159,10 +159,8 @@ def enrollment_list(request, **kwargs):
         if not user.is_superuser:
             return Response({'message': "Error: you do not have access to this resource"}, status=status.HTTP_403_FORBIDDEN)
 
-        print(request.data)
         request.data['student'] = 2
         request.data['course'] = kwargs.get('course_id')
-        print(request.data)
         serializer = EnrolledInSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
