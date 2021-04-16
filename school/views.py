@@ -202,7 +202,6 @@ class AssignmentListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
         queryset = {}
         course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
         instructor = Instructor.objects.filter(user=user).first()
-
         queryset['assignment_list']= Assignment.objects.filter(course=course)
         queryset['course'] = course 
         queryset['instructor'] = instructor
@@ -469,12 +468,38 @@ class FeedbackUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
                 return True
         return False 
 
+class FinalGradeListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
+    model = EnrolledIn
+    context_object_name = 'enrolledIn'
+    template_name = 'school/grade_list.html'
+
+    def get_queryset(self):
+        user = self.request.user
+        queryset = {}
+        course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
+        student = Student.objects.filter(user=user).first()
+   
+        queryset['grade'] = EnrolledIn.objects.filter(course=course, student=student)
+        grade = (EnrolledIn.objects.filter(course=course, student=student))
+        return queryset
+    
+ 
+    def test_func(self):
+        user = self.request.user
+        course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
+
+        student = Student.objects.filter(user=user).first()
+        if student:
+            if EnrolledIn.objects.filter(student=student, course=course).exists():
+                return True
+      
+        return False 
+
 class EnrolledListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
-    model = Student
+    model = EnrolledIn
     template_name = 'school/student_list.html'
     context_object_name = 'student_list'
     
-
     def get_queryset(self):
         queryset = {}
         course_id = get_object_or_404(Course, id=self.kwargs.get('course_id'))
@@ -486,8 +511,7 @@ class EnrolledListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
         queryset['assisting_students']= Student.objects.filter(user__in=assisting_students)
         queryset['course'] = course_id
         return queryset
-    
-    
+       
     def test_func(self):
         user = self.request.user
         course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
@@ -500,6 +524,32 @@ class EnrolledListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
         if user.is_superuser:
             return True
         return False
+
+class EnrolledUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = EnrolledIn
+    fields = ['received_grade']
+    template_name = 'school/final_grade_update.html'
+
+    def get_object(self):
+        user = get_object_or_404(User, id=self.kwargs.get('pk'))
+        course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
+        student = Student.objects.filter(user=user).first()
+        enrolledin = EnrolledIn.objects.filter(course=course, student=student).first()
+        return enrolledin
+    
+    def get_success_url(self):
+        return (reverse('enrolled-list', kwargs={'course_id': self.kwargs.get('course_id')}))
+
+    def test_func(self):
+        user = self.request.user
+        course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
+
+        instructor = Instructor.objects.filter(user=user).first()
+        if instructor:
+            if course.instructor == instructor:
+                return True
+
+        return False  
 
 class ExtraCurricularCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     form_class = ExtraCurricularForm
