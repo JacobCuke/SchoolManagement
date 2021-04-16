@@ -32,6 +32,48 @@ def course_list(request):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+@api_view(['GET', 'POST'])
+@permission_classes([IsAuthenticated])
+def lecture_list(request, course_id):
+    try:
+        course = Course.objects.get(pk=course_id)
+    except Course.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    user = request.user
+
+    if request.method == 'GET':
+        # Determine if request was made by a student or an instructor
+        student = Student.objects.filter(user=user).first()
+        instructor = Instructor.objects.filter(user=user).first()
+
+        # Request by student
+        # Student can't access course unless they are enrolled in or assist in it
+        if student:
+            if (not EnrolledIn.objects.filter(student=student, course=course).exists() and
+                not AssistsIn.objects.filter(student=student, course=course).exists()):
+                return Response({'message': "Error: you do not have access to this resource"}, status=status.HTTP_403_FORBIDDEN)
+
+        # Instructors and superusers can access any single course
+        else:
+            if not instructor and not user.is_superuser:
+                return Response({'message': "Error: you do not have access to this resource"}, status=status.HTTP_403_FORBIDDEN)
+
+        serializer = LectureSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    if request.method == 'POST':
+        if not user.is_superuser:
+            return Response({'message': "Error: you do not have access to this resource"}, status=status.HTTP_403_FORBIDDEN)
+
+        serializer = LectureSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET', 'DELETE'])
 @permission_classes([IsAuthenticated])
