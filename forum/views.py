@@ -23,7 +23,7 @@ class DiscussionThreadListView(LoginRequiredMixin, UserPassesTestMixin, ListView
         queryset = {}
         course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
 
-        queryset['thread_list']= DiscussionThread.objects.filter(course=course)
+        queryset['thread_list']= DiscussionThread.objects.filter(course=course).order_by('-creation_date_time')
         queryset['course'] = course
         return queryset
 
@@ -59,7 +59,7 @@ class DiscussionPostListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
         course = get_object_or_404(Course, id=self.kwargs.get('course_id'))
         thread = get_object_or_404(DiscussionThread, id=self.kwargs.get('pk'), course=course)
 
-        queryset['post_list']= DiscussionPost.objects.filter(thread=thread)
+        queryset['post_list']= DiscussionPost.objects.filter(thread=thread).order_by('creation_date_time')
         queryset['course'] = course 
         queryset['thread'] = thread
         return queryset

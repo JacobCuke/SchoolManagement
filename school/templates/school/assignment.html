@@ -12,7 +12,7 @@
     <h2 class="mb-4">Assignments</h2>
     {% for assignment in assignments.assignment_list %}
       <article class="content-section">
-        <h3 class="content-title"><a class="title-link" href="{% url 'assignment-detail' view.kwargs.course_id assignment.id %}">Assignment: {{ assignment.assignment_number }}</a></h3>
+        <h3 class="content-title"><a class="title-link" href="{% url 'assignment-detail' view.kwargs.course_id assignment.id %}">Assignment {{ assignment.assignment_number }}</a></h3>
         <p>
           <span class="data-title">Due Date:</span>
           <span class="data-content">{{ assignment.due_date }}</span>
