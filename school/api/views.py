@@ -221,7 +221,7 @@ def ta_list(request, **kwargs):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-@api_view(['GET', 'DELETE'])
+@api_view(['DELETE'])
 @permission_classes([IsAuthenticated])
 def enroll_detail(request, **kwargs):
     try:
@@ -254,7 +254,7 @@ def enroll_detail(request, **kwargs):
 
         return Response(data=data)
 
-@api_view(['GET', 'DELETE'])
+@api_view(['DELETE'])
 @permission_classes([IsAuthenticated])
 def ta_detail(request, **kwargs):
     try:
