@@ -1,6 +1,6 @@
 # SchoolManagement
 
-Web Application and API for the management of a school database. (Group Project, work in progress)
+Web Application and API for the management of a school database.
 
 ## Fork Instructions
 
