@@ -1,6 +1,10 @@
 # SchoolManagement
 
-Web Application and API for the management of a school database.
+Web Application and API for the management of a school database. Originally a group project for a Relational Database course at the U of C.
+
+## API Documentation
+
+View the full API documentation here: [Postman Documentation](https://documenter.getpostman.com/view/15328019/TzJrBeLq)
 
 ## Fork Instructions
 
