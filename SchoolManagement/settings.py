@@ -24,12 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ['SCHOOL_SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = (os.environ['DEBUG_VALUE'] == 'True')
 
-ALLOWED_HOSTS = ['kubernetes.docker.internal',
-    '127.0.0.1',
-    'localhost'
-]
+ALLOWED_HOSTS = ['cukeschoolmanagement.herokuapp.com']
 
 
 # Application definition
