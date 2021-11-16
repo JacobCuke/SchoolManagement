@@ -1,1 +1,4537 @@
-[{"model": "school.course", "pk": 1, "fields": {"course_name": "Database Management", "instructor": 3, "time": "3", "day": "WE"}}, {"model": "school.course", "pk": 2, "fields": {"course_name": "Django Web Development", "instructor": 34, "time": "6", "day": "FR"}}, {"model": "school.course", "pk": 3, "fields": {"course_name": "Linear Algebra", "instructor": 3, "time": "1", "day": "TU"}}, {"model": "school.course", "pk": 8, "fields": {"course_name": "20th Century History", "instructor": 63, "time": "2", "day": "WE"}}, {"model": "school.course", "pk": 9, "fields": {"course_name": "Organic Chemistry", "instructor": 64, "time": "4", "day": "TH"}}, {"model": "school.course", "pk": 10, "fields": {"course_name": "Intermediate Spanish", "instructor": 65, "time": "5", "day": "MO"}}, {"model": "school.enrolledin", "pk": 1, "fields": {"student": 2, "course": 1, "received_grade": "A+"}}, {"model": "school.enrolledin", "pk": 2, "fields": {"student": 2, "course": 2, "received_grade": ""}}, {"model": "school.enrolledin", "pk": 7, "fields": {"student": 4, "course": 3, "received_grade": ""}}, {"model": "school.enrolledin", "pk": 13, "fields": {"student": 4, "course": 2, "received_grade": ""}}, {"model": "school.enrolledin", "pk": 14, "fields": {"student": 5, "course": 8, "received_grade": ""}}, {"model": "school.enrolledin", "pk": 15, "fields": {"student": 5, "course": 9, "received_grade": ""}}, {"model": "school.enrolledin", "pk": 16, "fields": {"student": 58, "course": 10, "received_grade": ""}}, {"model": "school.enrolledin", "pk": 17, "fields": {"student": 58, "course": 9, "received_grade": ""}}, {"model": "school.enrolledin", "pk": 18, "fields": {"student": 59, "course": 2, "received_grade": ""}}, {"model": "school.enrolledin", "pk": 19, "fields": {"student": 59, "course": 1, "received_grade": "A"}}, {"model": "school.enrolledin", "pk": 20, "fields": {"student": 60, "course": 3, "received_grade": ""}}, {"model": "school.enrolledin", "pk": 21, "fields": {"student": 60, "course": 8, "received_grade": ""}}, {"model": "school.enrolledin", "pk": 22, "fields": {"student": 61, "course": 9, "received_grade": ""}}, {"model": "school.enrolledin", "pk": 23, "fields": {"student": 61, "course": 8, "received_grade": ""}}, {"model": "school.enrolledin", "pk": 24, "fields": {"student": 62, "course": 10, "received_grade": ""}}, {"model": "school.enrolledin", "pk": 25, "fields": {"student": 62, "course": 2, "received_grade": ""}}, {"model": "school.assistsin", "pk": 1, "fields": {"student": 4, "course": 1}}, {"model": "school.assistsin", "pk": 2, "fields": {"student": 2, "course": 3}}, {"model": "school.assistsin", "pk": 5, "fields": {"student": 5, "course": 10}}, {"model": "school.assistsin", "pk": 6, "fields": {"student": 58, "course": 2}}, {"model": "school.assistsin", "pk": 7, "fields": {"student": 62, "course": 8}}, {"model": "school.assistsin", "pk": 8, "fields": {"student": 60, "course": 9}}, {"model": "school.assistsin", "pk": 9, "fields": {"student": 59, "course": 8}}, {"model": "school.assistsin", "pk": 10, "fields": {"student": 61, "course": 10}}, {"model": "school.lecture", "pk": 1, "fields": {"lecture_title": "Relational Calculus", "course": 1, "due_date": "2021-03-05T18:00:00Z", "lecture_number": 1, "content": "file_uploads/471-W21-Q2-sample.pdf"}}, {"model": "school.lecture", "pk": 2, "fields": {"lecture_title": "ER Model", "course": 1, "due_date": "2021-03-23T14:30:00Z", "lecture_number": 2, "content": "file_uploads/L3_Topic_-__Documenting_Software_Architecture_-_Module_Views.pdf"}}, {"model": "school.lecture", "pk": 4, "fields": {"lecture_title": "Relational Calculus", "course": 1, "due_date": "2021-03-29T16:30:00Z", "lecture_number": 3, "content": "file_uploads/471_W21-exam-10-30_bDMh5XX.pdf"}}, {"model": "school.lecture", "pk": 5, "fields": {"lecture_title": "Matrix Multiplication", "course": 3, "due_date": "2021-03-22T14:30:00Z", "lecture_number": 1, "content": "file_uploads/471_W21-exam-10-30.pdf"}}, {"model": "school.lecture", "pk": 6, "fields": {"lecture_title": "Class Based Views", "course": 2, "due_date": "2021-05-02T23:59:59Z", "lecture_number": 1, "content": "file_uploads/lorem-ipsum.pdf"}}, {"model": "school.lecture", "pk": 7, "fields": {"lecture_title": "World War II", "course": 8, "due_date": "2021-04-23T18:00:00Z", "lecture_number": 1, "content": "file_uploads/lorem-ipsum_bSqrnOT.pdf"}}, {"model": "school.lecture", "pk": 8, "fields": {"lecture_title": "The Periodic Table", "course": 9, "due_date": "2021-04-28T12:00:00Z", "lecture_number": 1, "content": "file_uploads/lorem-ipsum_HnJKaKZ.pdf"}}, {"model": "school.lecture", "pk": 9, "fields": {"lecture_title": "Past Participle", "course": 10, "due_date": "2021-04-20T00:00:00Z", "lecture_number": 1, "content": "file_uploads/lorem-ipsum_yXS3jQc.pdf"}}, {"model": "school.assignment", "pk": 1, "fields": {"course": 1, "due_date": "2021-03-20T23:59:59Z", "assignment_number": 1, "content": "file_uploads/471-W21-Q2-sample_YCjX27B.pdf"}}, {"model": "school.assignment", "pk": 3, "fields": {"course": 1, "due_date": "2021-04-25T14:30:00Z", "assignment_number": 2, "content": "file_uploads/471_W21-exam-10-30_0ON4fnR.pdf"}}, {"model": "school.assignment", "pk": 4, "fields": {"course": 3, "due_date": "2021-04-15T14:30:00Z", "assignment_number": 1, "content": "file_uploads/Relation_Model.pdf"}}, {"model": "school.assignment", "pk": 5, "fields": {"course": 2, "due_date": "2021-04-17T18:00:00Z", "assignment_number": 1, "content": "file_uploads/lorem-ipsum_RjFknMo.pdf"}}, {"model": "school.assignment", "pk": 6, "fields": {"course": 8, "due_date": "2021-04-29T00:00:00Z", "assignment_number": 1, "content": "file_uploads/lorem-ipsum_shCWVDG.pdf"}}, {"model": "school.assignment", "pk": 7, "fields": {"course": 9, "due_date": "2021-05-12T00:00:00Z", "assignment_number": 1, "content": "file_uploads/lorem-ipsum_O8ZEhJt.pdf"}}, {"model": "school.assignment", "pk": 8, "fields": {"course": 10, "due_date": "2021-04-11T18:00:00Z", "assignment_number": 1, "content": "file_uploads/lorem-ipsum_EYHmzdY.pdf"}}, {"model": "school.submission", "pk": 8, "fields": {"student": 4, "assignment": 4, "grade_report": "", "feedback": "", "submission_time": "2021-04-10T12:32:28.453Z", "content": "submissions/L6_Topic_-__Documenting_Software_Architecture_-_CC_Views.pdf"}}, {"model": "school.submission", "pk": 9, "fields": {"student": 2, "assignment": 1, "grade_report": "A+", "feedback": "Awesome!", "submission_time": "2021-04-12T19:25:08.631Z", "content": "submissions/471W21-SampleQ3_1.pdf"}}, {"model": "school.submission", "pk": 15, "fields": {"student": 59, "assignment": 3, "grade_report": "A", "feedback": "Test", "submission_time": "2021-04-17T14:23:05.006Z", "content": "submissions/lorem-ipsum.pdf"}}, {"model": "school.submission", "pk": 16, "fields": {"student": 2, "assignment": 3, "grade_report": "", "feedback": "", "submission_time": "2021-04-17T16:12:23.455Z", "content": "submissions/lorem-ipsum_yDEcIPA.pdf"}}, {"model": "school.extracurricular", "pk": 3, "fields": {"student": 4, "activity_name": "Football"}}, {"model": "school.extracurricular", "pk": 5, "fields": {"student": 2, "activity_name": "Football"}}, {"model": "school.extracurricular", "pk": 6, "fields": {"student": 2, "activity_name": "Guitar"}}, {"model": "school.extracurricular", "pk": 9, "fields": {"student": 2, "activity_name": "Basketball"}}, {"model": "school.extracurricular", "pk": 13, "fields": {"student": 5, "activity_name": "Piano"}}, {"model": "school.extracurricular", "pk": 14, "fields": {"student": 58, "activity_name": "Running"}}, {"model": "school.extracurricular", "pk": 15, "fields": {"student": 59, "activity_name": "Karate"}}, {"model": "school.extracurricular", "pk": 16, "fields": {"student": 60, "activity_name": "Swimming"}}, {"model": "school.extracurricular", "pk": 17, "fields": {"student": 61, "activity_name": "Choir"}}, {"model": "school.extracurricular", "pk": 18, "fields": {"student": 62, "activity_name": "Soccer"}}, {"model": "school.guardian", "pk": 4, "fields": {"student": 2, "first_name": "Jessica", "last_name": "Smith", "phone_number": "5553455665", "address": "33 Real Street NW", "relation": "Mother"}}, {"model": "school.guardian", "pk": 5, "fields": {"student": 4, "first_name": "Diana", "last_name": "Judy", "phone_number": "4038498729", "address": "28 Road NW", "relation": "Mother"}}, {"model": "school.guardian", "pk": 6, "fields": {"student": 5, "first_name": "Tom", "last_name": "Greene", "phone_number": "4035559812", "address": "100 Another Street SW", "relation": "Father"}}, {"model": "school.guardian", "pk": 7, "fields": {"student": 58, "first_name": "Terrance", "last_name": "Bean", "phone_number": "4032890934", "address": "300 3rd Avenue NW", "relation": "Brother"}}, {"model": "school.guardian", "pk": 8, "fields": {"student": 59, "first_name": "Fernando", "last_name": "Macgregor", "phone_number": "4039082846", "address": "89 Harvest Way NE", "relation": "Father"}}, {"model": "school.guardian", "pk": 9, "fields": {"student": 60, "first_name": "Emily", "last_name": "Oneal", "phone_number": "4035820372", "address": "64 1st Street NW", "relation": "Mother"}}, {"model": "school.guardian", "pk": 10, "fields": {"student": 61, "first_name": "Francia", "last_name": "Irvine", "phone_number": "5879832018", "address": "44 Elizabeth Way SW", "relation": "Mother"}}, {"model": "school.guardian", "pk": 11, "fields": {"student": 62, "first_name": "Sam", "last_name": "Abbott", "phone_number": "5876380912", "address": "108 Rainbow Road SE", "relation": "Father"}}, {"model": "users.profile", "pk": 1, "fields": {"user": 1, "birth_date": "1997-08-06", "address": "123 House Street NW"}}, {"model": "users.profile", "pk": 2, "fields": {"user": 2, "birth_date": "2004-04-30", "address": "100 Real Street NW"}}, {"model": "users.profile", "pk": 3, "fields": {"user": 3, "birth_date": "1970-04-20", "address": "101 Another Street SW"}}, {"model": "users.profile", "pk": 4, "fields": {"user": 4, "birth_date": "2002-03-02", "address": "999 Address Lane NE"}}, {"model": "users.profile", "pk": 5, "fields": {"user": 5, "birth_date": "2000-08-21", "address": "54 Town Link NW"}}, {"model": "users.profile", "pk": 34, "fields": {"user": 34, "birth_date": "1984-07-21", "address": "190 Living Way SW"}}, {"model": "users.profile", "pk": 36, "fields": {"user": 36, "birth_date": null, "address": ""}}, {"model": "users.profile", "pk": 58, "fields": {"user": 58, "birth_date": "2002-03-04", "address": "100 5th Ave SE"}}, {"model": "users.profile", "pk": 59, "fields": {"user": 59, "birth_date": "2002-12-10", "address": "104 8th Ave NE"}}, {"model": "users.profile", "pk": 60, "fields": {"user": 60, "birth_date": "2001-01-20", "address": "34 Harvest Street NE"}}, {"model": "users.profile", "pk": 61, "fields": {"user": 61, "birth_date": "2003-07-23", "address": "29 Coventry Way NE"}}, {"model": "users.profile", "pk": 62, "fields": {"user": 62, "birth_date": "2003-09-07", "address": "77 Panamount Link NE"}}, {"model": "users.profile", "pk": 63, "fields": {"user": 63, "birth_date": "1985-04-23", "address": "28 Sunset Drive SE"}}, {"model": "users.profile", "pk": 64, "fields": {"user": 64, "birth_date": "1970-11-11", "address": "22 Acacia Ave SW"}}, {"model": "users.profile", "pk": 65, "fields": {"user": 65, "birth_date": "1978-10-10", "address": "87 Woodland Drive NW"}}, {"model": "users.student", "pk": 2, "fields": {"year": "12", "student_id_no": 12345678}}, {"model": "users.student", "pk": 4, "fields": {"year": "12", "student_id_no": 87654321}}, {"model": "users.student", "pk": 5, "fields": {"year": "11", "student_id_no": 55555555}}, {"model": "users.student", "pk": 58, "fields": {"year": "10", "student_id_no": 10034567}}, {"model": "users.student", "pk": 59, "fields": {"year": "11", "student_id_no": 80896572}}, {"model": "users.student", "pk": 60, "fields": {"year": "12", "student_id_no": 67852344}}, {"model": "users.student", "pk": 61, "fields": {"year": "10", "student_id_no": 55638211}}, {"model": "users.student", "pk": 62, "fields": {"year": "10", "student_id_no": 91283567}}, {"model": "users.instructor", "pk": 3, "fields": {"start_date": "2021-03-01", "office_number": "100A", "office_phone_number": "4035551234"}}, {"model": "users.instructor", "pk": 34, "fields": {"start_date": "2021-01-07", "office_number": "104B", "office_phone_number": "4035559804"}}, {"model": "users.instructor", "pk": 63, "fields": {"start_date": "2020-03-30", "office_number": "110A", "office_phone_number": "4035559932"}}, {"model": "users.instructor", "pk": 64, "fields": {"start_date": "2010-05-30", "office_number": "112C", "office_phone_number": "4035552017"}}, {"model": "users.instructor", "pk": 65, "fields": {"start_date": "2002-08-01", "office_number": "122C", "office_phone_number": "4035551988"}}, {"model": "forum.discussionthread", "pk": 1, "fields": {"title": "What is SQL?", "course": 1, "creation_date_time": "2021-03-04T00:55:08Z", "author": 2}}, {"model": "forum.discussionthread", "pk": 3, "fields": {"title": "How do foreign keys work?", "course": 1, "creation_date_time": "2021-04-17T00:15:03.314Z", "author": 59}}, {"model": "forum.discussionthread", "pk": 4, "fields": {"title": "HELP", "course": 1, "creation_date_time": "2021-04-17T16:12:56.290Z", "author": 2}}, {"model": "forum.discussionpost", "pk": 1, "fields": {"thread": 1, "creation_date_time": "2021-03-04T00:55:41Z", "author": 2, "content": "Someone help me please"}}, {"model": "forum.discussionpost", "pk": 2, "fields": {"thread": 1, "creation_date_time": "2021-04-17T00:12:24.147Z", "author": 3, "content": "SQL is a language. Hope this helps"}}, {"model": "forum.discussionpost", "pk": 3, "fields": {"thread": 1, "creation_date_time": "2021-04-17T00:13:34.214Z", "author": 2, "content": "Thank you! Everything is clear now"}}, {"model": "forum.discussionpost", "pk": 4, "fields": {"thread": 3, "creation_date_time": "2021-04-17T00:15:03.314Z", "author": 59, "content": "The concept is just so foreign to me"}}, {"model": "forum.discussionpost", "pk": 5, "fields": {"thread": 3, "creation_date_time": "2021-04-17T00:17:18.992Z", "author": 2, "content": "I also don't understand"}}, {"model": "forum.discussionpost", "pk": 6, "fields": {"thread": 3, "creation_date_time": "2021-04-17T00:17:58.323Z", "author": 3, "content": "It's like a primary key, but foreign"}}, {"model": "forum.discussionpost", "pk": 7, "fields": {"thread": 3, "creation_date_time": "2021-04-17T00:18:33.174Z", "author": 59, "content": "Ah yes of course! It all makes sense now. Thanks sir"}}, {"model": "forum.discussionpost", "pk": 10, "fields": {"thread": 4, "creation_date_time": "2021-04-17T16:12:56.291Z", "author": 2, "content": "Testing"}}, {"model": "forum.discussionpost", "pk": 11, "fields": {"thread": 4, "creation_date_time": "2021-04-17T16:13:08.931Z", "author": 2, "content": "I shall help you"}}, {"model": "forum.discussionpost", "pk": 12, "fields": {"thread": 4, "creation_date_time": "2021-04-17T16:18:46.918Z", "author": 3, "content": "Here is how you do it"}}, {"model": "admin.logentry", "pk": 1, "fields": {"action_time": "2021-03-01T22:12:01.169Z", "user": 1, "content_type": 7, "object_id": "1", "object_repr": "Profile object (1)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 2, "fields": {"action_time": "2021-03-01T22:12:42.929Z", "user": 1, "content_type": 4, "object_id": "1", "object_repr": "JacobCuke", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\"]}}]"}}, {"model": "admin.logentry", "pk": 3, "fields": {"action_time": "2021-03-01T22:46:15.985Z", "user": 1, "content_type": 4, "object_id": "2", "object_repr": "BobSmith", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 4, "fields": {"action_time": "2021-03-01T22:46:45.162Z", "user": 1, "content_type": 4, "object_id": "2", "object_repr": "BobSmith", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\", \"Email address\"]}}]"}}, {"model": "admin.logentry", "pk": 5, "fields": {"action_time": "2021-03-01T22:47:31.250Z", "user": 1, "content_type": 7, "object_id": "2", "object_repr": "BobSmith Profile", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Birth date\", \"Address\"]}}]"}}, {"model": "admin.logentry", "pk": 6, "fields": {"action_time": "2021-03-01T23:01:29.457Z", "user": 1, "content_type": 8, "object_id": "2", "object_repr": "Bob Smith (12345678)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 7, "fields": {"action_time": "2021-03-01T23:06:51.037Z", "user": 1, "content_type": 4, "object_id": "3", "object_repr": "TomJones", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 8, "fields": {"action_time": "2021-03-01T23:07:12.620Z", "user": 1, "content_type": 4, "object_id": "3", "object_repr": "TomJones", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\", \"Email address\"]}}]"}}, {"model": "admin.logentry", "pk": 9, "fields": {"action_time": "2021-03-01T23:07:56.524Z", "user": 1, "content_type": 7, "object_id": "3", "object_repr": "TomJones Profile", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Birth date\", \"Address\"]}}]"}}, {"model": "admin.logentry", "pk": 10, "fields": {"action_time": "2021-03-01T23:08:35.813Z", "user": 1, "content_type": 9, "object_id": "3", "object_repr": "Tom Jones", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 11, "fields": {"action_time": "2021-03-01T23:22:53.748Z", "user": 1, "content_type": 10, "object_id": "1", "object_repr": "ExtraCurricular object (1)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 12, "fields": {"action_time": "2021-03-01T23:23:05.172Z", "user": 1, "content_type": 10, "object_id": "2", "object_repr": "ExtraCurricular object (2)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 13, "fields": {"action_time": "2021-03-02T20:57:44.951Z", "user": 1, "content_type": 11, "object_id": "1", "object_repr": "Database Management at 3 on WE", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 14, "fields": {"action_time": "2021-03-02T21:04:18.147Z", "user": 1, "content_type": 12, "object_id": "1", "object_repr": "Lecture 1 of Database Management(ID:1)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 15, "fields": {"action_time": "2021-03-02T21:13:57.535Z", "user": 1, "content_type": 12, "object_id": "1", "object_repr": "Lecture 1 of Database Management(ID:1)", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Lecture title\"]}}]"}}, {"model": "admin.logentry", "pk": 16, "fields": {"action_time": "2021-03-02T21:29:37.897Z", "user": 1, "content_type": 13, "object_id": "1", "object_repr": "Bob Smith (12345678) in Database Management(ID:1)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 17, "fields": {"action_time": "2021-03-02T21:37:20.668Z", "user": 1, "content_type": 4, "object_id": "4", "object_repr": "DougJudy", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 18, "fields": {"action_time": "2021-03-02T21:37:44.404Z", "user": 1, "content_type": 4, "object_id": "4", "object_repr": "DougJudy", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\", \"Email address\"]}}]"}}, {"model": "admin.logentry", "pk": 19, "fields": {"action_time": "2021-03-02T21:38:39.777Z", "user": 1, "content_type": 7, "object_id": "4", "object_repr": "DougJudy Profile", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Birth date\", \"Address\"]}}]"}}, {"model": "admin.logentry", "pk": 20, "fields": {"action_time": "2021-03-02T21:39:04.717Z", "user": 1, "content_type": 8, "object_id": "4", "object_repr": "Doug Judy (87654321)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 21, "fields": {"action_time": "2021-03-02T21:39:16.446Z", "user": 1, "content_type": 14, "object_id": "1", "object_repr": "Doug Judy (87654321) in Database Management(ID:1)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 22, "fields": {"action_time": "2021-03-02T21:47:56.817Z", "user": 1, "content_type": 15, "object_id": "1", "object_repr": "Assignment 1 of Database Management(ID:1)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 23, "fields": {"action_time": "2021-03-03T20:18:54.706Z", "user": 1, "content_type": 15, "object_id": "1", "object_repr": "Assignment 1 of Database Management(ID:1)", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 24, "fields": {"action_time": "2021-03-03T20:18:59.946Z", "user": 1, "content_type": 12, "object_id": "1", "object_repr": "Lecture 1 of Database Management(ID:1)", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 25, "fields": {"action_time": "2021-03-03T20:23:19.388Z", "user": 1, "content_type": 12, "object_id": "1", "object_repr": "Lecture 1 of Database Management(ID:1)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 26, "fields": {"action_time": "2021-03-03T20:23:59.175Z", "user": 1, "content_type": 15, "object_id": "1", "object_repr": "Assignment 1 of Database Management(ID:1)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 27, "fields": {"action_time": "2021-03-03T23:30:26.559Z", "user": 1, "content_type": 16, "object_id": "1", "object_repr": "Basketball", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 28, "fields": {"action_time": "2021-03-03T23:30:31.962Z", "user": 1, "content_type": 16, "object_id": "2", "object_repr": "Hockey", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 29, "fields": {"action_time": "2021-03-03T23:30:44.403Z", "user": 1, "content_type": 16, "object_id": "3", "object_repr": "Football", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 30, "fields": {"action_time": "2021-03-03T23:47:35.195Z", "user": 1, "content_type": 17, "object_id": "1", "object_repr": "Jane Smith guardian of Bob Smith (12345678)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 31, "fields": {"action_time": "2021-03-04T00:24:55.161Z", "user": 1, "content_type": 18, "object_id": "1", "object_repr": "Bob Smith (12345678) submission for Assignment 1 of Database Management(ID:1)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 32, "fields": {"action_time": "2021-03-04T00:55:35.555Z", "user": 1, "content_type": 19, "object_id": "1", "object_repr": "What is SQL?", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 33, "fields": {"action_time": "2021-03-04T00:56:10.268Z", "user": 1, "content_type": 20, "object_id": "1", "object_repr": "Post ID: 1 in What is SQL?", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 34, "fields": {"action_time": "2021-03-13T01:33:25.136Z", "user": 1, "content_type": 4, "object_id": "6", "object_repr": "TestUser", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 35, "fields": {"action_time": "2021-03-13T01:36:03.192Z", "user": 1, "content_type": 4, "object_id": "7", "object_repr": "TestUser", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 36, "fields": {"action_time": "2021-03-13T01:43:01.724Z", "user": 1, "content_type": 4, "object_id": "8", "object_repr": "TestUser", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 37, "fields": {"action_time": "2021-03-13T01:45:29.750Z", "user": 1, "content_type": 4, "object_id": "9", "object_repr": "TestUser", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 38, "fields": {"action_time": "2021-03-13T01:51:46.213Z", "user": 1, "content_type": 4, "object_id": "10", "object_repr": "TestUser", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 39, "fields": {"action_time": "2021-03-13T01:53:46.765Z", "user": 1, "content_type": 4, "object_id": "11", "object_repr": "TestUser", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 40, "fields": {"action_time": "2021-03-13T01:57:53.293Z", "user": 1, "content_type": 4, "object_id": "12", "object_repr": "TestUser", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 41, "fields": {"action_time": "2021-03-13T01:59:13.954Z", "user": 1, "content_type": 4, "object_id": "13", "object_repr": "TestUser", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 42, "fields": {"action_time": "2021-03-13T02:01:29.219Z", "user": 1, "content_type": 4, "object_id": "14", "object_repr": "TestUser", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 43, "fields": {"action_time": "2021-03-13T02:02:35.967Z", "user": 1, "content_type": 4, "object_id": "15", "object_repr": "TestUser", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 44, "fields": {"action_time": "2021-03-13T02:03:55.843Z", "user": 1, "content_type": 4, "object_id": "16", "object_repr": "TestUser", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 45, "fields": {"action_time": "2021-03-13T02:04:54.407Z", "user": 1, "content_type": 4, "object_id": "17", "object_repr": "TestUser", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 46, "fields": {"action_time": "2021-03-13T02:10:24.630Z", "user": 1, "content_type": 4, "object_id": "18", "object_repr": "TestUser", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 47, "fields": {"action_time": "2021-03-13T02:12:00.990Z", "user": 1, "content_type": 4, "object_id": "19", "object_repr": "TestUser", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 48, "fields": {"action_time": "2021-03-13T02:13:39.501Z", "user": 1, "content_type": 4, "object_id": "20", "object_repr": "TestUser", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 49, "fields": {"action_time": "2021-03-13T02:14:57.151Z", "user": 1, "content_type": 4, "object_id": "21", "object_repr": "TestUser", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 50, "fields": {"action_time": "2021-03-13T02:16:46.695Z", "user": 1, "content_type": 4, "object_id": "22", "object_repr": "TestUser", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 51, "fields": {"action_time": "2021-03-13T02:17:34.835Z", "user": 1, "content_type": 4, "object_id": "23", "object_repr": "TestUser", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 52, "fields": {"action_time": "2021-03-13T02:19:42.201Z", "user": 1, "content_type": 4, "object_id": "24", "object_repr": "TestUser", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 53, "fields": {"action_time": "2021-03-13T02:21:47.415Z", "user": 1, "content_type": 4, "object_id": "25", "object_repr": "TestUser", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 54, "fields": {"action_time": "2021-03-13T02:35:15.659Z", "user": 1, "content_type": 4, "object_id": "26", "object_repr": "TestUser", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 55, "fields": {"action_time": "2021-03-13T02:36:46.064Z", "user": 1, "content_type": 4, "object_id": "27", "object_repr": "TestUser", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 56, "fields": {"action_time": "2021-03-13T02:39:58.583Z", "user": 1, "content_type": 4, "object_id": "28", "object_repr": "TestUser", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 57, "fields": {"action_time": "2021-03-13T02:46:25.911Z", "user": 1, "content_type": 4, "object_id": "29", "object_repr": "TestUser", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 58, "fields": {"action_time": "2021-03-13T02:47:41.042Z", "user": 1, "content_type": 4, "object_id": "30", "object_repr": "TestUser", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 59, "fields": {"action_time": "2021-03-13T02:48:17.669Z", "user": 1, "content_type": 4, "object_id": "31", "object_repr": "TestUser", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 60, "fields": {"action_time": "2021-03-13T02:51:26.633Z", "user": 1, "content_type": 4, "object_id": "32", "object_repr": "TestUser", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 61, "fields": {"action_time": "2021-03-13T03:42:27.004Z", "user": 1, "content_type": 7, "object_id": "5", "object_repr": "SarahGreene Profile", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Birth date\", \"Address\"]}}]"}}, {"model": "admin.logentry", "pk": 62, "fields": {"action_time": "2021-03-15T17:46:41.696Z", "user": 1, "content_type": 11, "object_id": "2", "object_repr": "Django Web Development (ID:2)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 63, "fields": {"action_time": "2021-03-15T17:47:02.081Z", "user": 1, "content_type": 13, "object_id": "2", "object_repr": "Bob Smith (12345678) in Django Web Development (ID:2)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 64, "fields": {"action_time": "2021-03-15T18:15:10.186Z", "user": 1, "content_type": 4, "object_id": "2", "object_repr": "BobSmith", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"}}, {"model": "admin.logentry", "pk": 65, "fields": {"action_time": "2021-03-15T18:39:07.800Z", "user": 1, "content_type": 11, "object_id": "3", "object_repr": "Linear Algebra (ID:3)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 66, "fields": {"action_time": "2021-03-15T18:39:27.685Z", "user": 1, "content_type": 14, "object_id": "2", "object_repr": "Bob Smith (12345678) in Linear Algebra (ID:3)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 67, "fields": {"action_time": "2021-03-18T00:41:25.225Z", "user": 1, "content_type": 16, "object_id": "8", "object_repr": "Tennis", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 68, "fields": {"action_time": "2021-03-18T00:41:25.233Z", "user": 1, "content_type": 16, "object_id": "7", "object_repr": "Baseball", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 69, "fields": {"action_time": "2021-03-29T23:25:23.828Z", "user": 1, "content_type": 4, "object_id": "36", "object_repr": "TestAdmin", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\"]}}]"}}, {"model": "admin.logentry", "pk": 70, "fields": {"action_time": "2021-03-30T17:23:00.987Z", "user": 1, "content_type": 4, "object_id": "37", "object_repr": "CreateInst", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 71, "fields": {"action_time": "2021-03-30T17:31:18.044Z", "user": 1, "content_type": 4, "object_id": "38", "object_repr": "CreateInst", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 72, "fields": {"action_time": "2021-03-30T17:47:28.529Z", "user": 1, "content_type": 4, "object_id": "41", "object_repr": "BadCreate", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 73, "fields": {"action_time": "2021-03-30T17:48:23.785Z", "user": 1, "content_type": 4, "object_id": "42", "object_repr": "BadCreate", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 74, "fields": {"action_time": "2021-03-30T17:50:23.437Z", "user": 1, "content_type": 4, "object_id": "43", "object_repr": "BadCreate", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 75, "fields": {"action_time": "2021-03-30T18:25:45.941Z", "user": 1, "content_type": 11, "object_id": "4", "object_repr": "Database Management (ID:4)", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 76, "fields": {"action_time": "2021-03-30T18:26:39.583Z", "user": 1, "content_type": 11, "object_id": "5", "object_repr": "The History of Cheese (ID:5)", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 77, "fields": {"action_time": "2021-04-01T17:56:39.591Z", "user": 36, "content_type": 4, "object_id": "46", "object_repr": "kenUser", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 78, "fields": {"action_time": "2021-04-01T17:57:34.500Z", "user": 36, "content_type": 4, "object_id": "46", "object_repr": "kenUser", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\", \"Email address\"]}}]"}}, {"model": "admin.logentry", "pk": 79, "fields": {"action_time": "2021-04-01T18:00:15.066Z", "user": 36, "content_type": 4, "object_id": "46", "object_repr": "kenUser", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"User permissions\"]}}]"}}, {"model": "admin.logentry", "pk": 80, "fields": {"action_time": "2021-04-01T18:01:40.551Z", "user": 36, "content_type": 8, "object_id": "46", "object_repr": "Ken User (123444)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 81, "fields": {"action_time": "2021-04-01T18:02:24.741Z", "user": 36, "content_type": 8, "object_id": "46", "object_repr": "Ken User (12342244)", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Student id no\"]}}]"}}, {"model": "admin.logentry", "pk": 82, "fields": {"action_time": "2021-04-01T18:02:50.185Z", "user": 36, "content_type": 13, "object_id": "3", "object_repr": "Ken User (12342244) in Django Web Development (ID:2)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 83, "fields": {"action_time": "2021-04-01T18:03:04.229Z", "user": 36, "content_type": 13, "object_id": "4", "object_repr": "Ken User (12342244) in Database Management (ID:1)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 84, "fields": {"action_time": "2021-04-01T18:03:10.889Z", "user": 36, "content_type": 13, "object_id": "5", "object_repr": "Ken User (12342244) in Linear Algebra (ID:3)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 85, "fields": {"action_time": "2021-04-01T18:03:29.324Z", "user": 36, "content_type": 14, "object_id": "3", "object_repr": "Ken User (12342244) in Django Web Development (ID:2)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 86, "fields": {"action_time": "2021-04-07T04:13:40.125Z", "user": 36, "content_type": 18, "object_id": "2", "object_repr": "Ken User (12342244) submission for Assignment 1", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 87, "fields": {"action_time": "2021-04-07T04:16:25.243Z", "user": 36, "content_type": 13, "object_id": "6", "object_repr": "Doug Judy (87654321) in Database Management (ID:1)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 88, "fields": {"action_time": "2021-04-10T12:31:55.629Z", "user": 36, "content_type": 13, "object_id": "7", "object_repr": "Doug Judy (87654321) in Linear Algebra (ID:3)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 89, "fields": {"action_time": "2021-04-13T21:21:34.061Z", "user": 1, "content_type": 13, "object_id": "3", "object_repr": "Ken User (12342244) in Django Web Development (ID:2)", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 90, "fields": {"action_time": "2021-04-13T21:22:03.386Z", "user": 1, "content_type": 13, "object_id": "6", "object_repr": "Doug Judy (87654321) in Database Management (ID:1)", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 91, "fields": {"action_time": "2021-04-13T21:24:26.565Z", "user": 36, "content_type": 14, "object_id": "3", "object_repr": "Ken User (12342244) in Django Web Development (ID:2)", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 92, "fields": {"action_time": "2021-04-14T17:34:59.935Z", "user": 1, "content_type": 4, "object_id": "47", "object_repr": "CreateStud2", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 93, "fields": {"action_time": "2021-04-14T17:39:46.431Z", "user": 1, "content_type": 4, "object_id": "48", "object_repr": "CreateStud2", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 94, "fields": {"action_time": "2021-04-14T17:43:04.584Z", "user": 1, "content_type": 4, "object_id": "49", "object_repr": "CreateStud2", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 95, "fields": {"action_time": "2021-04-14T17:43:59.260Z", "user": 1, "content_type": 4, "object_id": "50", "object_repr": "CreateStud2", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 96, "fields": {"action_time": "2021-04-14T17:46:15.599Z", "user": 1, "content_type": 4, "object_id": "51", "object_repr": "CreateStud2", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 97, "fields": {"action_time": "2021-04-14T17:47:18.955Z", "user": 1, "content_type": 4, "object_id": "52", "object_repr": "CreateStud2", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 98, "fields": {"action_time": "2021-04-14T17:50:36.333Z", "user": 1, "content_type": 4, "object_id": "53", "object_repr": "CreateStud2", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 99, "fields": {"action_time": "2021-04-14T17:51:18.844Z", "user": 1, "content_type": 4, "object_id": "54", "object_repr": "CreateStud2", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 100, "fields": {"action_time": "2021-04-14T17:52:18.245Z", "user": 1, "content_type": 4, "object_id": "55", "object_repr": "CreateStud2", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 101, "fields": {"action_time": "2021-04-16T05:57:40.239Z", "user": 36, "content_type": 13, "object_id": "8", "object_repr": "Bob Smith (12345678) in Linear Algebra (ID:3)", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 102, "fields": {"action_time": "2021-04-16T05:59:25.775Z", "user": 36, "content_type": 13, "object_id": "9", "object_repr": "Bob Smith (12345678) in Linear Algebra (ID:3)", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 103, "fields": {"action_time": "2021-04-16T06:08:29.615Z", "user": 36, "content_type": 13, "object_id": "10", "object_repr": "Bob Smith (12345678) in Linear Algebra (ID:3)", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 104, "fields": {"action_time": "2021-04-16T22:15:57.756Z", "user": 1, "content_type": 4, "object_id": "39", "object_repr": "CreateInst", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 105, "fields": {"action_time": "2021-04-16T22:15:57.760Z", "user": 1, "content_type": 4, "object_id": "40", "object_repr": "CreateStud", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 106, "fields": {"action_time": "2021-04-16T22:15:57.762Z", "user": 1, "content_type": 4, "object_id": "57", "object_repr": "NewInstructor", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 107, "fields": {"action_time": "2021-04-16T22:15:57.763Z", "user": 1, "content_type": 4, "object_id": "56", "object_repr": "NewStudent", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 108, "fields": {"action_time": "2021-04-16T22:15:57.764Z", "user": 1, "content_type": 4, "object_id": "33", "object_repr": "TestUser", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 109, "fields": {"action_time": "2021-04-16T22:15:57.766Z", "user": 1, "content_type": 4, "object_id": "46", "object_repr": "kenUser", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 110, "fields": {"action_time": "2021-04-16T22:17:28.997Z", "user": 1, "content_type": 4, "object_id": "35", "object_repr": "AuthTest", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 111, "fields": {"action_time": "2021-04-16T22:41:05.161Z", "user": 1, "content_type": 11, "object_id": "8", "object_repr": "20th Century History (ID:8)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 112, "fields": {"action_time": "2021-04-16T22:47:42.797Z", "user": 1, "content_type": 11, "object_id": "9", "object_repr": "Organic Chemistry (ID:9)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 113, "fields": {"action_time": "2021-04-16T22:51:47.162Z", "user": 1, "content_type": 11, "object_id": "10", "object_repr": "Intermediate Spanish (ID:10)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 114, "fields": {"action_time": "2021-04-16T22:54:20.338Z", "user": 1, "content_type": 11, "object_id": "10", "object_repr": "Intermediate Spanish (ID:10)", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Time\", \"Day\"]}}]"}}, {"model": "admin.logentry", "pk": 115, "fields": {"action_time": "2021-04-16T22:54:29.093Z", "user": 1, "content_type": 11, "object_id": "10", "object_repr": "Intermediate Spanish (ID:10)", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Time\"]}}]"}}, {"model": "admin.logentry", "pk": 116, "fields": {"action_time": "2021-04-16T23:02:39.522Z", "user": 1, "content_type": 13, "object_id": "12", "object_repr": "Doug Judy (87654321) in Database Management (ID:1)", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 117, "fields": {"action_time": "2021-04-16T23:03:51.622Z", "user": 1, "content_type": 13, "object_id": "14", "object_repr": "Sarah Greene (55555555) in 20th Century History (ID:8)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 118, "fields": {"action_time": "2021-04-16T23:03:57.988Z", "user": 1, "content_type": 13, "object_id": "15", "object_repr": "Sarah Greene (55555555) in Organic Chemistry (ID:9)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 119, "fields": {"action_time": "2021-04-16T23:04:05.998Z", "user": 1, "content_type": 13, "object_id": "16", "object_repr": "Tyla Bean (10034567) in Intermediate Spanish (ID:10)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 120, "fields": {"action_time": "2021-04-16T23:04:13.595Z", "user": 1, "content_type": 13, "object_id": "17", "object_repr": "Tyla Bean (10034567) in Organic Chemistry (ID:9)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 121, "fields": {"action_time": "2021-04-16T23:04:23.445Z", "user": 1, "content_type": 13, "object_id": "18", "object_repr": "Carlos Macgregor (80896572) in Django Web Development (ID:2)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 122, "fields": {"action_time": "2021-04-16T23:04:35.550Z", "user": 1, "content_type": 13, "object_id": "19", "object_repr": "Carlos Macgregor (80896572) in Database Management (ID:1)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 123, "fields": {"action_time": "2021-04-16T23:04:47.630Z", "user": 1, "content_type": 13, "object_id": "20", "object_repr": "Elsa Oneil (67852344) in Linear Algebra (ID:3)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 124, "fields": {"action_time": "2021-04-16T23:04:55.369Z", "user": 1, "content_type": 13, "object_id": "21", "object_repr": "Elsa Oneil (67852344) in 20th Century History (ID:8)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 125, "fields": {"action_time": "2021-04-16T23:05:05.336Z", "user": 1, "content_type": 13, "object_id": "22", "object_repr": "Freddie Irvine (55638211) in Organic Chemistry (ID:9)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 126, "fields": {"action_time": "2021-04-16T23:05:12.864Z", "user": 1, "content_type": 13, "object_id": "23", "object_repr": "Freddie Irvine (55638211) in 20th Century History (ID:8)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 127, "fields": {"action_time": "2021-04-16T23:05:22.173Z", "user": 1, "content_type": 13, "object_id": "24", "object_repr": "Sonya Abbott (91283567) in Intermediate Spanish (ID:10)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 128, "fields": {"action_time": "2021-04-16T23:05:31.947Z", "user": 1, "content_type": 13, "object_id": "25", "object_repr": "Sonya Abbott (91283567) in Django Web Development (ID:2)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 129, "fields": {"action_time": "2021-04-16T23:06:36.442Z", "user": 1, "content_type": 14, "object_id": "5", "object_repr": "Sarah Greene (55555555) in Linear Algebra (ID:3)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 130, "fields": {"action_time": "2021-04-16T23:06:43.758Z", "user": 1, "content_type": 14, "object_id": "5", "object_repr": "Sarah Greene (55555555) in Intermediate Spanish (ID:10)", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Course\"]}}]"}}, {"model": "admin.logentry", "pk": 131, "fields": {"action_time": "2021-04-16T23:07:34.401Z", "user": 1, "content_type": 14, "object_id": "6", "object_repr": "Tyla Bean (10034567) in Django Web Development (ID:2)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 132, "fields": {"action_time": "2021-04-16T23:07:56.966Z", "user": 1, "content_type": 14, "object_id": "7", "object_repr": "Sonya Abbott (91283567) in 20th Century History (ID:8)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 133, "fields": {"action_time": "2021-04-16T23:09:08.610Z", "user": 1, "content_type": 14, "object_id": "8", "object_repr": "Elsa Oneil (67852344) in Organic Chemistry (ID:9)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 134, "fields": {"action_time": "2021-04-16T23:10:21.765Z", "user": 1, "content_type": 14, "object_id": "9", "object_repr": "Carlos Macgregor (80896572) in 20th Century History (ID:8)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 135, "fields": {"action_time": "2021-04-16T23:10:45.967Z", "user": 1, "content_type": 14, "object_id": "10", "object_repr": "Freddie Irvine (55638211) in Intermediate Spanish (ID:10)", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 136, "fields": {"action_time": "2021-04-16T23:11:53.107Z", "user": 1, "content_type": 16, "object_id": "13", "object_repr": "Piano", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 137, "fields": {"action_time": "2021-04-16T23:12:01.005Z", "user": 1, "content_type": 16, "object_id": "14", "object_repr": "Running", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 138, "fields": {"action_time": "2021-04-16T23:12:15.018Z", "user": 1, "content_type": 16, "object_id": "15", "object_repr": "Karate", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 139, "fields": {"action_time": "2021-04-16T23:12:33.706Z", "user": 1, "content_type": 16, "object_id": "16", "object_repr": "Swimming", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 140, "fields": {"action_time": "2021-04-16T23:12:48.634Z", "user": 1, "content_type": 16, "object_id": "17", "object_repr": "Choir", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 141, "fields": {"action_time": "2021-04-16T23:13:04.465Z", "user": 1, "content_type": 16, "object_id": "18", "object_repr": "Soccer", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 142, "fields": {"action_time": "2021-04-16T23:13:22.904Z", "user": 1, "content_type": 17, "object_id": "4", "object_repr": "Jonathon Smith", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\"]}}]"}}, {"model": "admin.logentry", "pk": 143, "fields": {"action_time": "2021-04-16T23:13:56.765Z", "user": 1, "content_type": 17, "object_id": "4", "object_repr": "Jessica Smith", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Phone number\", \"Address\", \"Relation\"]}}]"}}, {"model": "admin.logentry", "pk": 144, "fields": {"action_time": "2021-04-16T23:15:18.807Z", "user": 1, "content_type": 17, "object_id": "5", "object_repr": "Diana Judy", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 145, "fields": {"action_time": "2021-04-16T23:15:50.461Z", "user": 1, "content_type": 17, "object_id": "6", "object_repr": "Tom Greene", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 146, "fields": {"action_time": "2021-04-16T23:16:24.425Z", "user": 1, "content_type": 17, "object_id": "7", "object_repr": "Terrance Bean", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 147, "fields": {"action_time": "2021-04-16T23:17:15.770Z", "user": 1, "content_type": 17, "object_id": "8", "object_repr": "Fernando Macgregor", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 148, "fields": {"action_time": "2021-04-16T23:17:55.231Z", "user": 1, "content_type": 17, "object_id": "9", "object_repr": "Emily Oneal", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 149, "fields": {"action_time": "2021-04-16T23:18:02.748Z", "user": 1, "content_type": 17, "object_id": "9", "object_repr": "Emily Oneal", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Address\"]}}]"}}, {"model": "admin.logentry", "pk": 150, "fields": {"action_time": "2021-04-16T23:19:30.067Z", "user": 1, "content_type": 17, "object_id": "10", "object_repr": "Francia Irvine", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 151, "fields": {"action_time": "2021-04-16T23:20:59.637Z", "user": 1, "content_type": 17, "object_id": "11", "object_repr": "Sam Abbott", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 152, "fields": {"action_time": "2021-04-16T23:23:31.989Z", "user": 1, "content_type": 12, "object_id": "6", "object_repr": "Class Based Views", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 153, "fields": {"action_time": "2021-04-16T23:23:59.688Z", "user": 1, "content_type": 12, "object_id": "2", "object_repr": "ER Model", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Due date\"]}}]"}}, {"model": "admin.logentry", "pk": 154, "fields": {"action_time": "2021-04-17T00:05:10.261Z", "user": 1, "content_type": 12, "object_id": "7", "object_repr": "World War II", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 155, "fields": {"action_time": "2021-04-17T00:05:38.655Z", "user": 1, "content_type": 12, "object_id": "8", "object_repr": "The Periodic Table", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 156, "fields": {"action_time": "2021-04-17T00:06:28.977Z", "user": 1, "content_type": 12, "object_id": "9", "object_repr": "Past Participle", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 157, "fields": {"action_time": "2021-04-17T00:08:45.275Z", "user": 1, "content_type": 15, "object_id": "5", "object_repr": "Django Web Development (ID:2) Assignment 1", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 158, "fields": {"action_time": "2021-04-17T00:09:04.521Z", "user": 1, "content_type": 15, "object_id": "6", "object_repr": "20th Century History (ID:8) Assignment 1", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 159, "fields": {"action_time": "2021-04-17T00:09:26.275Z", "user": 1, "content_type": 15, "object_id": "7", "object_repr": "Organic Chemistry (ID:9) Assignment 1", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 160, "fields": {"action_time": "2021-04-17T00:10:08.551Z", "user": 1, "content_type": 15, "object_id": "8", "object_repr": "Intermediate Spanish (ID:10) Assignment 1", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 161, "fields": {"action_time": "2021-04-17T00:10:58.333Z", "user": 1, "content_type": 19, "object_id": "2", "object_repr": "test", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 162, "fields": {"action_time": "2021-04-17T01:46:12.107Z", "user": 1, "content_type": 20, "object_id": "8", "object_repr": "Post ID: 8 in What is SQL?", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 163, "fields": {"action_time": "2021-04-17T02:06:11.675Z", "user": 1, "content_type": 13, "object_id": "27", "object_repr": "Bob Smith (12345678) in Linear Algebra (ID:3)", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 164, "fields": {"action_time": "2021-04-17T02:06:25.870Z", "user": 1, "content_type": 20, "object_id": "9", "object_repr": "Post ID: 9 in What is SQL?", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 165, "fields": {"action_time": "2021-04-17T14:22:40.639Z", "user": 1, "content_type": 18, "object_id": "3", "object_repr": "Doug Judy (87654321) submission for Database Management (ID:1) Assignment 1", "action_flag": 3, "change_message": ""}}, {"model": "auth.permission", "pk": 1, "fields": {"name": "Can add log entry", "content_type": 1, "codename": "add_logentry"}}, {"model": "auth.permission", "pk": 2, "fields": {"name": "Can change log entry", "content_type": 1, "codename": "change_logentry"}}, {"model": "auth.permission", "pk": 3, "fields": {"name": "Can delete log entry", "content_type": 1, "codename": "delete_logentry"}}, {"model": "auth.permission", "pk": 4, "fields": {"name": "Can view log entry", "content_type": 1, "codename": "view_logentry"}}, {"model": "auth.permission", "pk": 5, "fields": {"name": "Can add permission", "content_type": 2, "codename": "add_permission"}}, {"model": "auth.permission", "pk": 6, "fields": {"name": "Can change permission", "content_type": 2, "codename": "change_permission"}}, {"model": "auth.permission", "pk": 7, "fields": {"name": "Can delete permission", "content_type": 2, "codename": "delete_permission"}}, {"model": "auth.permission", "pk": 8, "fields": {"name": "Can view permission", "content_type": 2, "codename": "view_permission"}}, {"model": "auth.permission", "pk": 9, "fields": {"name": "Can add group", "content_type": 3, "codename": "add_group"}}, {"model": "auth.permission", "pk": 10, "fields": {"name": "Can change group", "content_type": 3, "codename": "change_group"}}, {"model": "auth.permission", "pk": 11, "fields": {"name": "Can delete group", "content_type": 3, "codename": "delete_group"}}, {"model": "auth.permission", "pk": 12, "fields": {"name": "Can view group", "content_type": 3, "codename": "view_group"}}, {"model": "auth.permission", "pk": 13, "fields": {"name": "Can add user", "content_type": 4, "codename": "add_user"}}, {"model": "auth.permission", "pk": 14, "fields": {"name": "Can change user", "content_type": 4, "codename": "change_user"}}, {"model": "auth.permission", "pk": 15, "fields": {"name": "Can delete user", "content_type": 4, "codename": "delete_user"}}, {"model": "auth.permission", "pk": 16, "fields": {"name": "Can view user", "content_type": 4, "codename": "view_user"}}, {"model": "auth.permission", "pk": 17, "fields": {"name": "Can add content type", "content_type": 5, "codename": "add_contenttype"}}, {"model": "auth.permission", "pk": 18, "fields": {"name": "Can change content type", "content_type": 5, "codename": "change_contenttype"}}, {"model": "auth.permission", "pk": 19, "fields": {"name": "Can delete content type", "content_type": 5, "codename": "delete_contenttype"}}, {"model": "auth.permission", "pk": 20, "fields": {"name": "Can view content type", "content_type": 5, "codename": "view_contenttype"}}, {"model": "auth.permission", "pk": 21, "fields": {"name": "Can add session", "content_type": 6, "codename": "add_session"}}, {"model": "auth.permission", "pk": 22, "fields": {"name": "Can change session", "content_type": 6, "codename": "change_session"}}, {"model": "auth.permission", "pk": 23, "fields": {"name": "Can delete session", "content_type": 6, "codename": "delete_session"}}, {"model": "auth.permission", "pk": 24, "fields": {"name": "Can view session", "content_type": 6, "codename": "view_session"}}, {"model": "auth.permission", "pk": 25, "fields": {"name": "Can add profile", "content_type": 7, "codename": "add_profile"}}, {"model": "auth.permission", "pk": 26, "fields": {"name": "Can change profile", "content_type": 7, "codename": "change_profile"}}, {"model": "auth.permission", "pk": 27, "fields": {"name": "Can delete profile", "content_type": 7, "codename": "delete_profile"}}, {"model": "auth.permission", "pk": 28, "fields": {"name": "Can view profile", "content_type": 7, "codename": "view_profile"}}, {"model": "auth.permission", "pk": 29, "fields": {"name": "Can add student", "content_type": 8, "codename": "add_student"}}, {"model": "auth.permission", "pk": 30, "fields": {"name": "Can change student", "content_type": 8, "codename": "change_student"}}, {"model": "auth.permission", "pk": 31, "fields": {"name": "Can delete student", "content_type": 8, "codename": "delete_student"}}, {"model": "auth.permission", "pk": 32, "fields": {"name": "Can view student", "content_type": 8, "codename": "view_student"}}, {"model": "auth.permission", "pk": 33, "fields": {"name": "Can add instructor", "content_type": 9, "codename": "add_instructor"}}, {"model": "auth.permission", "pk": 34, "fields": {"name": "Can change instructor", "content_type": 9, "codename": "change_instructor"}}, {"model": "auth.permission", "pk": 35, "fields": {"name": "Can delete instructor", "content_type": 9, "codename": "delete_instructor"}}, {"model": "auth.permission", "pk": 36, "fields": {"name": "Can view instructor", "content_type": 9, "codename": "view_instructor"}}, {"model": "auth.permission", "pk": 37, "fields": {"name": "Can add extra curricular", "content_type": 10, "codename": "add_extracurricular"}}, {"model": "auth.permission", "pk": 38, "fields": {"name": "Can change extra curricular", "content_type": 10, "codename": "change_extracurricular"}}, {"model": "auth.permission", "pk": 39, "fields": {"name": "Can delete extra curricular", "content_type": 10, "codename": "delete_extracurricular"}}, {"model": "auth.permission", "pk": 40, "fields": {"name": "Can view extra curricular", "content_type": 10, "codename": "view_extracurricular"}}, {"model": "auth.permission", "pk": 41, "fields": {"name": "Can add course", "content_type": 11, "codename": "add_course"}}, {"model": "auth.permission", "pk": 42, "fields": {"name": "Can change course", "content_type": 11, "codename": "change_course"}}, {"model": "auth.permission", "pk": 43, "fields": {"name": "Can delete course", "content_type": 11, "codename": "delete_course"}}, {"model": "auth.permission", "pk": 44, "fields": {"name": "Can view course", "content_type": 11, "codename": "view_course"}}, {"model": "auth.permission", "pk": 45, "fields": {"name": "Can add lecture", "content_type": 12, "codename": "add_lecture"}}, {"model": "auth.permission", "pk": 46, "fields": {"name": "Can change lecture", "content_type": 12, "codename": "change_lecture"}}, {"model": "auth.permission", "pk": 47, "fields": {"name": "Can delete lecture", "content_type": 12, "codename": "delete_lecture"}}, {"model": "auth.permission", "pk": 48, "fields": {"name": "Can view lecture", "content_type": 12, "codename": "view_lecture"}}, {"model": "auth.permission", "pk": 49, "fields": {"name": "Can add enrolled in", "content_type": 13, "codename": "add_enrolledin"}}, {"model": "auth.permission", "pk": 50, "fields": {"name": "Can change enrolled in", "content_type": 13, "codename": "change_enrolledin"}}, {"model": "auth.permission", "pk": 51, "fields": {"name": "Can delete enrolled in", "content_type": 13, "codename": "delete_enrolledin"}}, {"model": "auth.permission", "pk": 52, "fields": {"name": "Can view enrolled in", "content_type": 13, "codename": "view_enrolledin"}}, {"model": "auth.permission", "pk": 53, "fields": {"name": "Can add assists in", "content_type": 14, "codename": "add_assistsin"}}, {"model": "auth.permission", "pk": 54, "fields": {"name": "Can change assists in", "content_type": 14, "codename": "change_assistsin"}}, {"model": "auth.permission", "pk": 55, "fields": {"name": "Can delete assists in", "content_type": 14, "codename": "delete_assistsin"}}, {"model": "auth.permission", "pk": 56, "fields": {"name": "Can view assists in", "content_type": 14, "codename": "view_assistsin"}}, {"model": "auth.permission", "pk": 57, "fields": {"name": "Can add assignment", "content_type": 15, "codename": "add_assignment"}}, {"model": "auth.permission", "pk": 58, "fields": {"name": "Can change assignment", "content_type": 15, "codename": "change_assignment"}}, {"model": "auth.permission", "pk": 59, "fields": {"name": "Can delete assignment", "content_type": 15, "codename": "delete_assignment"}}, {"model": "auth.permission", "pk": 60, "fields": {"name": "Can view assignment", "content_type": 15, "codename": "view_assignment"}}, {"model": "auth.permission", "pk": 61, "fields": {"name": "Can add extra curricular", "content_type": 16, "codename": "add_extracurricular"}}, {"model": "auth.permission", "pk": 62, "fields": {"name": "Can change extra curricular", "content_type": 16, "codename": "change_extracurricular"}}, {"model": "auth.permission", "pk": 63, "fields": {"name": "Can delete extra curricular", "content_type": 16, "codename": "delete_extracurricular"}}, {"model": "auth.permission", "pk": 64, "fields": {"name": "Can view extra curricular", "content_type": 16, "codename": "view_extracurricular"}}, {"model": "auth.permission", "pk": 65, "fields": {"name": "Can add guardian", "content_type": 17, "codename": "add_guardian"}}, {"model": "auth.permission", "pk": 66, "fields": {"name": "Can change guardian", "content_type": 17, "codename": "change_guardian"}}, {"model": "auth.permission", "pk": 67, "fields": {"name": "Can delete guardian", "content_type": 17, "codename": "delete_guardian"}}, {"model": "auth.permission", "pk": 68, "fields": {"name": "Can view guardian", "content_type": 17, "codename": "view_guardian"}}, {"model": "auth.permission", "pk": 69, "fields": {"name": "Can add submission", "content_type": 18, "codename": "add_submission"}}, {"model": "auth.permission", "pk": 70, "fields": {"name": "Can change submission", "content_type": 18, "codename": "change_submission"}}, {"model": "auth.permission", "pk": 71, "fields": {"name": "Can delete submission", "content_type": 18, "codename": "delete_submission"}}, {"model": "auth.permission", "pk": 72, "fields": {"name": "Can view submission", "content_type": 18, "codename": "view_submission"}}, {"model": "auth.permission", "pk": 73, "fields": {"name": "Can add discussion thread", "content_type": 19, "codename": "add_discussionthread"}}, {"model": "auth.permission", "pk": 74, "fields": {"name": "Can change discussion thread", "content_type": 19, "codename": "change_discussionthread"}}, {"model": "auth.permission", "pk": 75, "fields": {"name": "Can delete discussion thread", "content_type": 19, "codename": "delete_discussionthread"}}, {"model": "auth.permission", "pk": 76, "fields": {"name": "Can view discussion thread", "content_type": 19, "codename": "view_discussionthread"}}, {"model": "auth.permission", "pk": 77, "fields": {"name": "Can add discussion post", "content_type": 20, "codename": "add_discussionpost"}}, {"model": "auth.permission", "pk": 78, "fields": {"name": "Can change discussion post", "content_type": 20, "codename": "change_discussionpost"}}, {"model": "auth.permission", "pk": 79, "fields": {"name": "Can delete discussion post", "content_type": 20, "codename": "delete_discussionpost"}}, {"model": "auth.permission", "pk": 80, "fields": {"name": "Can view discussion post", "content_type": 20, "codename": "view_discussionpost"}}, {"model": "auth.permission", "pk": 81, "fields": {"name": "Can add Token", "content_type": 21, "codename": "add_token"}}, {"model": "auth.permission", "pk": 82, "fields": {"name": "Can change Token", "content_type": 21, "codename": "change_token"}}, {"model": "auth.permission", "pk": 83, "fields": {"name": "Can delete Token", "content_type": 21, "codename": "delete_token"}}, {"model": "auth.permission", "pk": 84, "fields": {"name": "Can view Token", "content_type": 21, "codename": "view_token"}}, {"model": "auth.permission", "pk": 85, "fields": {"name": "Can add token", "content_type": 22, "codename": "add_tokenproxy"}}, {"model": "auth.permission", "pk": 86, "fields": {"name": "Can change token", "content_type": 22, "codename": "change_tokenproxy"}}, {"model": "auth.permission", "pk": 87, "fields": {"name": "Can delete token", "content_type": 22, "codename": "delete_tokenproxy"}}, {"model": "auth.permission", "pk": 88, "fields": {"name": "Can view token", "content_type": 22, "codename": "view_tokenproxy"}}, {"model": "auth.user", "pk": 1, "fields": {"password": "pbkdf2_sha256$216000$hxKg2B53z6yB$AKbNo21l6A6Uof2zUlR1/psexoXW/nhOQsASsx2YR3w=", "last_login": "2021-11-15T23:41:27.418Z", "is_superuser": true, "username": "JacobCuke", "first_name": "Jacob", "last_name": "Cuke", "email": "jacobcuke@gmail.com", "is_staff": true, "is_active": true, "date_joined": "2021-03-01T21:34:18Z", "groups": [], "user_permissions": []}}, {"model": "auth.user", "pk": 2, "fields": {"password": "pbkdf2_sha256$216000$7yQ7bRnTaA5w$ph/PYF1339OjGegxrU2GrXEHa4XC2Qbi0XXw13x6H1M=", "last_login": "2021-11-16T01:32:28.158Z", "is_superuser": false, "username": "BobSmith", "first_name": "Bob", "last_name": "Smith", "email": "bobsmith@abchigh.com", "is_staff": false, "is_active": true, "date_joined": "2021-03-01T22:46:15Z", "groups": [], "user_permissions": []}}, {"model": "auth.user", "pk": 3, "fields": {"password": "pbkdf2_sha256$216000$Dcbr6COF1oWd$UglCbes4/wXidG46ErZxgEfKanlRKjE/Grr798X6hyw=", "last_login": "2021-04-17T16:18:35.311Z", "is_superuser": false, "username": "TomJones", "first_name": "Tom", "last_name": "Jones", "email": "tomjones@abchigh.com", "is_staff": false, "is_active": true, "date_joined": "2021-03-01T23:06:50Z", "groups": [], "user_permissions": []}}, {"model": "auth.user", "pk": 4, "fields": {"password": "pbkdf2_sha256$216000$lNAjYxzYgnbg$VEjCxvrMiGk+B+fl8cGAlmykfMIcQ4Fxlm0A5URmObM=", "last_login": "2021-04-12T18:07:30.115Z", "is_superuser": false, "username": "DougJudy", "first_name": "Doug", "last_name": "Judy", "email": "dougjudy@abchigh.com", "is_staff": false, "is_active": true, "date_joined": "2021-03-02T21:37:20Z", "groups": [], "user_permissions": []}}, {"model": "auth.user", "pk": 5, "fields": {"password": "pbkdf2_sha256$216000$zuEFNsHpT11U$GCb7LlZ091x20uYZ29MsC3EFu/ILmkZr/zz/1pOkqns=", "last_login": "2021-04-10T12:29:41.482Z", "is_superuser": false, "username": "SarahGreene", "first_name": "Sarah", "last_name": "Greene", "email": "sarahgreene@abchigh.com", "is_staff": false, "is_active": true, "date_joined": "2021-03-13T01:09:53.662Z", "groups": [], "user_permissions": []}}, {"model": "auth.user", "pk": 34, "fields": {"password": "pbkdf2_sha256$216000$uEavBfNiMN5X$2/XBGQQH6/jMxWZSoqF0kkAOKpE2PHVqXvoQVi6D7ZE=", "last_login": "2021-04-13T21:23:44.389Z", "is_superuser": false, "username": "DaveWilliams", "first_name": "Dave", "last_name": "Williams", "email": "davewilliams@abchigh.com", "is_staff": false, "is_active": true, "date_joined": "2021-03-13T03:41:27.902Z", "groups": [], "user_permissions": []}}, {"model": "auth.user", "pk": 36, "fields": {"password": "pbkdf2_sha256$216000$1QmffmqBL8r5$C/OtzMh+KyZEBW6DtL9wic8NUFyQjoWAU7g/JeJB6gg=", "last_login": "2021-09-17T18:35:26.527Z", "is_superuser": true, "username": "TestAdmin", "first_name": "Test", "last_name": "Admin", "email": "testadmin@abchigh.com", "is_staff": true, "is_active": true, "date_joined": "2021-03-29T23:24:58Z", "groups": [], "user_permissions": []}}, {"model": "auth.user", "pk": 58, "fields": {"password": "pbkdf2_sha256$216000$FFFaWbwvpcx8$TM5gFz+1miT8ldkebNcqzn2UqZrkLezJ+g/rgKIwyrE=", "last_login": null, "is_superuser": false, "username": "TylaBean", "first_name": "Tyla", "last_name": "Bean", "email": "tylabean@abchigh.com", "is_staff": false, "is_active": true, "date_joined": "2021-04-16T22:19:25.787Z", "groups": [], "user_permissions": []}}, {"model": "auth.user", "pk": 59, "fields": {"password": "pbkdf2_sha256$216000$hSNUnLsdZLaj$Lpu1/EuITU1x8tJYn/7KssnfTFikEqylNJtNrU2uEdM=", "last_login": "2021-04-17T14:22:50.250Z", "is_superuser": false, "username": "CarlosMacgregor", "first_name": "Carlos", "last_name": "Macgregor", "email": "carlosmacgregor@abchigh.com", "is_staff": false, "is_active": true, "date_joined": "2021-04-16T22:20:36.696Z", "groups": [], "user_permissions": []}}, {"model": "auth.user", "pk": 60, "fields": {"password": "pbkdf2_sha256$216000$8N9zw8jkXwBh$ZHtFvBqy+maKJz1Jq8paC/bGGTvWfAlMMVJwdLWOaYI=", "last_login": null, "is_superuser": false, "username": "ElsaOneil", "first_name": "Elsa", "last_name": "Oneil", "email": "elsaoneil@abchigh.com", "is_staff": false, "is_active": true, "date_joined": "2021-04-16T22:21:48.953Z", "groups": [], "user_permissions": []}}, {"model": "auth.user", "pk": 61, "fields": {"password": "pbkdf2_sha256$216000$gK15aajKAq0Z$xl7EBKKMEKV1Y9z7kPicH+TpiM/9eKngMHGWe9NsoE4=", "last_login": null, "is_superuser": false, "username": "FreddieIrvine", "first_name": "Freddie", "last_name": "Irvine", "email": "freddieirvine@abchigh.com", "is_staff": false, "is_active": true, "date_joined": "2021-04-16T22:23:36.291Z", "groups": [], "user_permissions": []}}, {"model": "auth.user", "pk": 62, "fields": {"password": "pbkdf2_sha256$216000$QGkHnfho9JdV$h6db0I5gLeRa/7UM2JMSjNKM18yvpWiuhgO/eBsozVw=", "last_login": null, "is_superuser": false, "username": "SonyaAbbott", "first_name": "Sonya", "last_name": "Abbott", "email": "sonyaabbott@abchigh.com", "is_staff": false, "is_active": true, "date_joined": "2021-04-16T22:27:21.519Z", "groups": [], "user_permissions": []}}, {"model": "auth.user", "pk": 63, "fields": {"password": "pbkdf2_sha256$216000$7OvBUCxaPGlv$iFAznJhMxB2sEM7M3Oq458DSEVeEkF30pCNmKl41QOc=", "last_login": null, "is_superuser": false, "username": "PhyllisMagana", "first_name": "Phyllis", "last_name": "Magana", "email": "phyllismagana@abchigh.com", "is_staff": false, "is_active": true, "date_joined": "2021-04-16T22:33:10.115Z", "groups": [], "user_permissions": []}}, {"model": "auth.user", "pk": 64, "fields": {"password": "pbkdf2_sha256$216000$bY2FjtDWLjPs$BK2Jx5lmwLK7zCyLeN6m3BIxaMR2wTk4RGx2DeZqZ0M=", "last_login": null, "is_superuser": false, "username": "RachelReader", "first_name": "Rachel", "last_name": "Reader", "email": "rachelreader@abchigh.com", "is_staff": false, "is_active": true, "date_joined": "2021-04-16T22:38:16.869Z", "groups": [], "user_permissions": []}}, {"model": "auth.user", "pk": 65, "fields": {"password": "pbkdf2_sha256$216000$NfEHoEftuy4Z$Nv+DPlEoIYQKEmK/n7A9gOCbgEau1QGPAjO8luckp2M=", "last_login": null, "is_superuser": false, "username": "GabriellaHume", "first_name": "Gabriella", "last_name": "Hume", "email": "gabriellahume@abchigh.com", "is_staff": false, "is_active": true, "date_joined": "2021-04-16T22:51:31.260Z", "groups": [], "user_permissions": []}}, {"model": "contenttypes.contenttype", "pk": 1, "fields": {"app_label": "admin", "model": "logentry"}}, {"model": "contenttypes.contenttype", "pk": 2, "fields": {"app_label": "auth", "model": "permission"}}, {"model": "contenttypes.contenttype", "pk": 3, "fields": {"app_label": "auth", "model": "group"}}, {"model": "contenttypes.contenttype", "pk": 4, "fields": {"app_label": "auth", "model": "user"}}, {"model": "contenttypes.contenttype", "pk": 5, "fields": {"app_label": "contenttypes", "model": "contenttype"}}, {"model": "contenttypes.contenttype", "pk": 6, "fields": {"app_label": "sessions", "model": "session"}}, {"model": "contenttypes.contenttype", "pk": 7, "fields": {"app_label": "users", "model": "profile"}}, {"model": "contenttypes.contenttype", "pk": 8, "fields": {"app_label": "users", "model": "student"}}, {"model": "contenttypes.contenttype", "pk": 9, "fields": {"app_label": "users", "model": "instructor"}}, {"model": "contenttypes.contenttype", "pk": 10, "fields": {"app_label": "users", "model": "extracurricular"}}, {"model": "contenttypes.contenttype", "pk": 11, "fields": {"app_label": "school", "model": "course"}}, {"model": "contenttypes.contenttype", "pk": 12, "fields": {"app_label": "school", "model": "lecture"}}, {"model": "contenttypes.contenttype", "pk": 13, "fields": {"app_label": "school", "model": "enrolledin"}}, {"model": "contenttypes.contenttype", "pk": 14, "fields": {"app_label": "school", "model": "assistsin"}}, {"model": "contenttypes.contenttype", "pk": 15, "fields": {"app_label": "school", "model": "assignment"}}, {"model": "contenttypes.contenttype", "pk": 16, "fields": {"app_label": "school", "model": "extracurricular"}}, {"model": "contenttypes.contenttype", "pk": 17, "fields": {"app_label": "school", "model": "guardian"}}, {"model": "contenttypes.contenttype", "pk": 18, "fields": {"app_label": "school", "model": "submission"}}, {"model": "contenttypes.contenttype", "pk": 19, "fields": {"app_label": "forum", "model": "discussionthread"}}, {"model": "contenttypes.contenttype", "pk": 20, "fields": {"app_label": "forum", "model": "discussionpost"}}, {"model": "contenttypes.contenttype", "pk": 21, "fields": {"app_label": "authtoken", "model": "token"}}, {"model": "contenttypes.contenttype", "pk": 22, "fields": {"app_label": "authtoken", "model": "tokenproxy"}}, {"model": "sessions.session", "pk": "3jt7j3mfqcmlbkehdjo9n038ivdkq30o", "fields": {"session_data": ".eJxVjDsOwjAQBe_iGlks_lPScwZr12vjALKlOKkQd4dIKaB9M_NeIuK61LiOPMeJxVmAOPxuhOmR2wb4ju3WZeptmSeSmyJ3OuS1c35edvfvoOKo37oo44pjbZNXLpxcUKgKhUAMjEU71Boy50QIOhlvkLwHKjZ4S3gELd4f7xg4RA:1lXZgN:o053teDWhP25dG4dc10FgFuEFwvtHeJgKHIeiHVSF6I", "expire_date": "2021-05-01T01:23:35.121Z"}}, {"model": "sessions.session", "pk": "55ni1j4r3k08pv37wlppd00kg7l0ndb5", "fields": {"session_data": ".eJxVjEEOgjAQRe_StWnoTEutS_ecoRlmBosaSCisjHdXEha6_e-9_zKZtrXkreqSRzEX483pd-uJHzrtQO403WbL87QuY293xR602m4WfV4P9--gUC3fOkJETCEBOJYU0UXUofF4bgMMyYFXj-I0qhKLUBsCMHBAJWH02pj3B7LFN3M:1lW0yA:j0jqkD_APE1PN-TWX5S95JLnfNC1HMgKKoFMhJ-bF8s", "expire_date": "2021-04-26T18:07:30.136Z"}}, {"model": "sessions.session", "pk": "8g6n1ujy07elqpbtsf975fwdccbznped", "fields": {"session_data": ".eJxVjMsOwiAQRf-FtSEFhkdduvcbyAwMUjU0Ke3K-O_apAvd3nPOfYmI21rj1nmJUxZnocXpdyNMD247yHdst1mmua3LRHJX5EG7vM6Zn5fD_Tuo2Ou3Nl7ZRJZN4ZEzAxjvg_LjUCgbYIcqoCmJC2kNjsEG42gIIYEDh4nE-wPr8TgS:1lXYmc:HPbOUZ2mBTiOBALcpSnUxsiSiX7pxVEurFILs-87mis", "expire_date": "2021-05-01T00:25:58.196Z"}}, {"model": "sessions.session", "pk": "bc9snv9hsiiap276qe64kssuhip82uie", "fields": {"session_data": ".eJxVjMsOwiAQRf-FtSEFhkdduvcbyAwMUjU0Ke3K-O_apAvd3nPOfYmI21rj1nmJUxZnocXpdyNMD247yHdst1mmua3LRHJX5EG7vM6Zn5fD_Tuo2Ou3Nl7ZRJZN4ZEzAxjvg_LjUCgbYIcqoCmJC2kNjsEG42gIIYEDh4nE-wPr8TgS:1lMaK9:pFnWF15lBC-b4p_fJQAFGcXt063BzTM89baKui_gA88", "expire_date": "2021-03-31T17:51:13.074Z"}}, {"model": "sessions.session", "pk": "e6en81ouzb20tk2b5ffwq5c7yz5wsio4", "fields": {"session_data": ".eJxVjDsOwjAQBe_iGlmOf6wp6TmDtfaucQA5UpxUiLuTSCmgfTPz3iLiutS4dp7jSOIijDj9bgnzk9sO6IHtPsk8tWUek9wVedAubxPx63q4fwcVe91qazn75Cnj4AIguAJQyJLhjMEMShvPPnDRgAwqeNIq-0JbwGcHzorPF_pROFQ:1lXCID:04Yp8nBjhwOVqNpHCoCo-2s_8wOKu7SWbJrpkPEsnIk", "expire_date": "2021-04-30T00:25:05.080Z"}}, {"model": "sessions.session", "pk": "gn19bpd2l1njalzoozl8q48hob1ziy17", "fields": {"session_data": ".eJxVjMsOwiAQRf-FtSEFhkdduvcbyAwMUjU0Ke3K-O_apAvd3nPOfYmI21rj1nmJUxZnocXpdyNMD247yHdst1mmua3LRHJX5EG7vM6Zn5fD_Tuo2Ou3Nl7ZRJZN4ZEzAxjvg_LjUCgbYIcqoCmJC2kNjsEG42gIIYEDh4nE-wPr8TgS:1mRIje:EircuE_DTKG4-dpeZcnFE9_ib_SUBSvwbkMCjuiBwBU", "expire_date": "2021-10-01T18:37:18.837Z"}}, {"model": "sessions.session", "pk": "hu7rksd1yi5sy1gtcejslcv1wkdebpzv", "fields": {"session_data": ".eJxVjDsOwjAQBe_iGlks_lPScwZr12vjALKlOKkQd4dIKaB9M_NeIuK61LiOPMeJxVmAOPxuhOmR2wb4ju3WZeptmSeSmyJ3OuS1c35edvfvoOKo37oo44pjbZNXLpxcUKgKhUAMjEU71Boy50QIOhlvkLwHKjZ4S3gELd4f7xg4RA:1lOtVs:TefsYLQ9CRE-yufY33mYEXQXPuAb7VBFYiRyS7-Mplo", "expire_date": "2021-04-07T02:44:52.536Z"}}, {"model": "sessions.session", "pk": "oyekzmcpp7phzuzb59y4nstikxkp21mh", "fields": {"session_data": ".eJxVjDsOwjAQBe_iGlnrX7ympOcM1vqHA8iW4qRC3B0ipYD2zcx7MU_bWv028uLnxM5MstPvFig-cttBulO7dR57W5c58F3hBx382lN-Xg7376DSqN8atIlSRBGk0aKgKzQ5ItATOgoIiCoJsM5lqYoCCMKKqKw0kCymQoa9P7ysNto:1mmnKm:bihWr8gG_pwkn7utoATqBN0tll1ihLvbri9uQhHJD0o", "expire_date": "2021-11-30T01:32:28.166Z"}}, {"model": "sessions.session", "pk": "v669onz1ig26pf2utvq588bfmlv39n5t", "fields": {"session_data": ".eJxVjMsOwiAQRf-FtSGUNy7d-w2EGQapGkhKuzL-uzbpQrf3nHNfLKZtrXEbtMQ5szNTlp1-R0j4oLaTfE_t1jn2ti4z8F3hBx382jM9L4f7d1DTqN_aWU8GjJElCJm90LoogkKOLJLU5B0ABo9-clpPqIXyTlrjCkiTAyJ7fwAGUzf5:1lXSKH:rj5CujjkUfgQ42lXUr1nCUBhMytw4DVQsdLn-acZHmM", "expire_date": "2021-04-30T17:32:17.271Z"}}, {"model": "sessions.session", "pk": "y2jj176ntt0k2043y4kib2coj6iakm6n", "fields": {"session_data": ".eJxVjMsOwiAQRf-FtSEFhkdduvcbyAwMUjU0Ke3K-O_apAvd3nPOfYmI21rj1nmJUxZnocXpdyNMD247yHdst1mmua3LRHJX5EG7vM6Zn5fD_Tuo2Ou3Nl7ZRJZN4ZEzAxjvg_LjUCgbYIcqoCmJC2kNjsEG42gIIYEDh4nE-wPr8TgS:1lYFlQ:zXZoXXc-Yv5U1w0ScCzmNa5PpggT813syG3_RR3UHxg", "expire_date": "2021-05-02T22:19:36.877Z"}}, {"model": "authtoken.token", "pk": "0331df003f8192076e6a9001943571ce0fbd0b88", "fields": {"user": 64, "created": "2021-04-16T22:38:16.875Z"}}, {"model": "authtoken.token", "pk": "0f1c9de477ff98e86522fb9f1a4baed8c11e70c0", "fields": {"user": 2, "created": "2021-03-29T22:54:27.666Z"}}, {"model": "authtoken.token", "pk": "2d1b5328656b335a2e159f3651d0bf9258e46121", "fields": {"user": 36, "created": "2021-03-29T23:24:58.624Z"}}, {"model": "authtoken.token", "pk": "38e1b0ad8f8c017696cf24a1b648496abb3c9b84", "fields": {"user": 59, "created": "2021-04-16T22:20:36.698Z"}}, {"model": "authtoken.token", "pk": "40f233128a3d5c9dc5f02945f3d24add424ad96f", "fields": {"user": 65, "created": "2021-04-16T22:51:31.268Z"}}, {"model": "authtoken.token", "pk": "435d11a6eb977ce47923bbc1935482ca25c7b98e", "fields": {"user": 63, "created": "2021-04-16T22:33:10.119Z"}}, {"model": "authtoken.token", "pk": "43ba11dbf054d58ab2e28d7c7071f20669481be1", "fields": {"user": 61, "created": "2021-04-16T22:23:36.298Z"}}, {"model": "authtoken.token", "pk": "4d46c7006a09bbcbaba0fdcbf5ebf058a4df2aec", "fields": {"user": 58, "created": "2021-04-16T22:19:25.794Z"}}, {"model": "authtoken.token", "pk": "7464e2a010131999da782014711f5caa69eb12e5", "fields": {"user": 1, "created": "2021-03-29T22:54:27.663Z"}}, {"model": "authtoken.token", "pk": "76d8e233baf464a239d570aff20992b1bdd85a8b", "fields": {"user": 4, "created": "2021-03-29T22:54:27.673Z"}}, {"model": "authtoken.token", "pk": "84d63090714e988b63f10cb0ec02ac25c5aecfbe", "fields": {"user": 5, "created": "2021-03-29T22:54:27.676Z"}}, {"model": "authtoken.token", "pk": "cb4c5a37392ec2504070d065b763ec363eb5b577", "fields": {"user": 34, "created": "2021-03-29T22:54:27.683Z"}}, {"model": "authtoken.token", "pk": "e83251f6a9b62f880b75c7a9f7c352dd83a2dabf", "fields": {"user": 60, "created": "2021-04-16T22:21:48.963Z"}}, {"model": "authtoken.token", "pk": "ee0c371a3c18ba30f3fec5204eee659f3192c7da", "fields": {"user": 62, "created": "2021-04-16T22:27:21.531Z"}}, {"model": "authtoken.token", "pk": "f77387afb0d74c4d6de6d17ef1095b73377bea78", "fields": {"user": 3, "created": "2021-03-29T22:54:27.669Z"}}]
+[
+{
+    "model": "school.course",
+    "pk": 1,
+    "fields": {
+        "course_name": "Database Management",
+        "instructor": 3,
+        "time": "3",
+        "day": "WE"
+    }
+},
+{
+    "model": "school.course",
+    "pk": 2,
+    "fields": {
+        "course_name": "Django Web Development",
+        "instructor": 34,
+        "time": "6",
+        "day": "FR"
+    }
+},
+{
+    "model": "school.course",
+    "pk": 3,
+    "fields": {
+        "course_name": "Linear Algebra",
+        "instructor": 3,
+        "time": "1",
+        "day": "TU"
+    }
+},
+{
+    "model": "school.course",
+    "pk": 8,
+    "fields": {
+        "course_name": "20th Century History",
+        "instructor": 63,
+        "time": "2",
+        "day": "WE"
+    }
+},
+{
+    "model": "school.course",
+    "pk": 9,
+    "fields": {
+        "course_name": "Organic Chemistry",
+        "instructor": 64,
+        "time": "4",
+        "day": "TH"
+    }
+},
+{
+    "model": "school.course",
+    "pk": 10,
+    "fields": {
+        "course_name": "Intermediate Spanish",
+        "instructor": 65,
+        "time": "5",
+        "day": "MO"
+    }
+},
+{
+    "model": "school.enrolledin",
+    "pk": 1,
+    "fields": {
+        "student": 2,
+        "course": 1,
+        "received_grade": "A+"
+    }
+},
+{
+    "model": "school.enrolledin",
+    "pk": 2,
+    "fields": {
+        "student": 2,
+        "course": 2,
+        "received_grade": ""
+    }
+},
+{
+    "model": "school.enrolledin",
+    "pk": 7,
+    "fields": {
+        "student": 4,
+        "course": 3,
+        "received_grade": ""
+    }
+},
+{
+    "model": "school.enrolledin",
+    "pk": 13,
+    "fields": {
+        "student": 4,
+        "course": 2,
+        "received_grade": ""
+    }
+},
+{
+    "model": "school.enrolledin",
+    "pk": 14,
+    "fields": {
+        "student": 5,
+        "course": 8,
+        "received_grade": ""
+    }
+},
+{
+    "model": "school.enrolledin",
+    "pk": 15,
+    "fields": {
+        "student": 5,
+        "course": 9,
+        "received_grade": ""
+    }
+},
+{
+    "model": "school.enrolledin",
+    "pk": 16,
+    "fields": {
+        "student": 58,
+        "course": 10,
+        "received_grade": ""
+    }
+},
+{
+    "model": "school.enrolledin",
+    "pk": 17,
+    "fields": {
+        "student": 58,
+        "course": 9,
+        "received_grade": ""
+    }
+},
+{
+    "model": "school.enrolledin",
+    "pk": 18,
+    "fields": {
+        "student": 59,
+        "course": 2,
+        "received_grade": ""
+    }
+},
+{
+    "model": "school.enrolledin",
+    "pk": 19,
+    "fields": {
+        "student": 59,
+        "course": 1,
+        "received_grade": "A"
+    }
+},
+{
+    "model": "school.enrolledin",
+    "pk": 20,
+    "fields": {
+        "student": 60,
+        "course": 3,
+        "received_grade": ""
+    }
+},
+{
+    "model": "school.enrolledin",
+    "pk": 21,
+    "fields": {
+        "student": 60,
+        "course": 8,
+        "received_grade": ""
+    }
+},
+{
+    "model": "school.enrolledin",
+    "pk": 22,
+    "fields": {
+        "student": 61,
+        "course": 9,
+        "received_grade": ""
+    }
+},
+{
+    "model": "school.enrolledin",
+    "pk": 23,
+    "fields": {
+        "student": 61,
+        "course": 8,
+        "received_grade": ""
+    }
+},
+{
+    "model": "school.enrolledin",
+    "pk": 24,
+    "fields": {
+        "student": 62,
+        "course": 10,
+        "received_grade": ""
+    }
+},
+{
+    "model": "school.enrolledin",
+    "pk": 25,
+    "fields": {
+        "student": 62,
+        "course": 2,
+        "received_grade": ""
+    }
+},
+{
+    "model": "school.assistsin",
+    "pk": 1,
+    "fields": {
+        "student": 4,
+        "course": 1
+    }
+},
+{
+    "model": "school.assistsin",
+    "pk": 2,
+    "fields": {
+        "student": 2,
+        "course": 3
+    }
+},
+{
+    "model": "school.assistsin",
+    "pk": 5,
+    "fields": {
+        "student": 5,
+        "course": 10
+    }
+},
+{
+    "model": "school.assistsin",
+    "pk": 6,
+    "fields": {
+        "student": 58,
+        "course": 2
+    }
+},
+{
+    "model": "school.assistsin",
+    "pk": 7,
+    "fields": {
+        "student": 62,
+        "course": 8
+    }
+},
+{
+    "model": "school.assistsin",
+    "pk": 8,
+    "fields": {
+        "student": 60,
+        "course": 9
+    }
+},
+{
+    "model": "school.assistsin",
+    "pk": 9,
+    "fields": {
+        "student": 59,
+        "course": 8
+    }
+},
+{
+    "model": "school.assistsin",
+    "pk": 10,
+    "fields": {
+        "student": 61,
+        "course": 10
+    }
+},
+{
+    "model": "school.lecture",
+    "pk": 1,
+    "fields": {
+        "lecture_title": "Relational Calculus",
+        "course": 1,
+        "due_date": "2021-03-05T18:00:00Z",
+        "lecture_number": 1,
+        "content": "file_uploads/471-W21-Q2-sample.pdf"
+    }
+},
+{
+    "model": "school.lecture",
+    "pk": 2,
+    "fields": {
+        "lecture_title": "ER Model",
+        "course": 1,
+        "due_date": "2021-03-23T14:30:00Z",
+        "lecture_number": 2,
+        "content": "file_uploads/L3_Topic_-__Documenting_Software_Architecture_-_Module_Views.pdf"
+    }
+},
+{
+    "model": "school.lecture",
+    "pk": 4,
+    "fields": {
+        "lecture_title": "Relational Calculus",
+        "course": 1,
+        "due_date": "2021-03-29T16:30:00Z",
+        "lecture_number": 3,
+        "content": "file_uploads/471_W21-exam-10-30_bDMh5XX.pdf"
+    }
+},
+{
+    "model": "school.lecture",
+    "pk": 5,
+    "fields": {
+        "lecture_title": "Matrix Multiplication",
+        "course": 3,
+        "due_date": "2021-03-22T14:30:00Z",
+        "lecture_number": 1,
+        "content": "file_uploads/471_W21-exam-10-30.pdf"
+    }
+},
+{
+    "model": "school.lecture",
+    "pk": 6,
+    "fields": {
+        "lecture_title": "Class Based Views",
+        "course": 2,
+        "due_date": "2021-05-02T23:59:59Z",
+        "lecture_number": 1,
+        "content": "file_uploads/lorem-ipsum.pdf"
+    }
+},
+{
+    "model": "school.lecture",
+    "pk": 7,
+    "fields": {
+        "lecture_title": "World War II",
+        "course": 8,
+        "due_date": "2021-04-23T18:00:00Z",
+        "lecture_number": 1,
+        "content": "file_uploads/lorem-ipsum_bSqrnOT.pdf"
+    }
+},
+{
+    "model": "school.lecture",
+    "pk": 8,
+    "fields": {
+        "lecture_title": "The Periodic Table",
+        "course": 9,
+        "due_date": "2021-04-28T12:00:00Z",
+        "lecture_number": 1,
+        "content": "file_uploads/lorem-ipsum_HnJKaKZ.pdf"
+    }
+},
+{
+    "model": "school.lecture",
+    "pk": 9,
+    "fields": {
+        "lecture_title": "Past Participle",
+        "course": 10,
+        "due_date": "2021-04-20T00:00:00Z",
+        "lecture_number": 1,
+        "content": "file_uploads/lorem-ipsum_yXS3jQc.pdf"
+    }
+},
+{
+    "model": "school.assignment",
+    "pk": 1,
+    "fields": {
+        "course": 1,
+        "due_date": "2021-03-20T23:59:59Z",
+        "assignment_number": 1,
+        "content": "file_uploads/471-W21-Q2-sample_YCjX27B.pdf"
+    }
+},
+{
+    "model": "school.assignment",
+    "pk": 3,
+    "fields": {
+        "course": 1,
+        "due_date": "2021-04-25T14:30:00Z",
+        "assignment_number": 2,
+        "content": "file_uploads/471_W21-exam-10-30_0ON4fnR.pdf"
+    }
+},
+{
+    "model": "school.assignment",
+    "pk": 4,
+    "fields": {
+        "course": 3,
+        "due_date": "2021-04-15T14:30:00Z",
+        "assignment_number": 1,
+        "content": "file_uploads/Relation_Model.pdf"
+    }
+},
+{
+    "model": "school.assignment",
+    "pk": 5,
+    "fields": {
+        "course": 2,
+        "due_date": "2021-04-17T18:00:00Z",
+        "assignment_number": 1,
+        "content": "file_uploads/lorem-ipsum_RjFknMo.pdf"
+    }
+},
+{
+    "model": "school.assignment",
+    "pk": 6,
+    "fields": {
+        "course": 8,
+        "due_date": "2021-04-29T00:00:00Z",
+        "assignment_number": 1,
+        "content": "file_uploads/lorem-ipsum_shCWVDG.pdf"
+    }
+},
+{
+    "model": "school.assignment",
+    "pk": 7,
+    "fields": {
+        "course": 9,
+        "due_date": "2021-05-12T00:00:00Z",
+        "assignment_number": 1,
+        "content": "file_uploads/lorem-ipsum_O8ZEhJt.pdf"
+    }
+},
+{
+    "model": "school.assignment",
+    "pk": 8,
+    "fields": {
+        "course": 10,
+        "due_date": "2021-04-11T18:00:00Z",
+        "assignment_number": 1,
+        "content": "file_uploads/lorem-ipsum_EYHmzdY.pdf"
+    }
+},
+{
+    "model": "school.submission",
+    "pk": 8,
+    "fields": {
+        "student": 4,
+        "assignment": 4,
+        "grade_report": "",
+        "feedback": "",
+        "submission_time": "2021-04-10T12:32:28.453Z",
+        "content": "submissions/L6_Topic_-__Documenting_Software_Architecture_-_CC_Views.pdf"
+    }
+},
+{
+    "model": "school.submission",
+    "pk": 9,
+    "fields": {
+        "student": 2,
+        "assignment": 1,
+        "grade_report": "A+",
+        "feedback": "Awesome!",
+        "submission_time": "2021-04-12T19:25:08.631Z",
+        "content": "submissions/471W21-SampleQ3_1.pdf"
+    }
+},
+{
+    "model": "school.submission",
+    "pk": 15,
+    "fields": {
+        "student": 59,
+        "assignment": 3,
+        "grade_report": "A",
+        "feedback": "Test",
+        "submission_time": "2021-04-17T14:23:05.006Z",
+        "content": "submissions/lorem-ipsum.pdf"
+    }
+},
+{
+    "model": "school.submission",
+    "pk": 16,
+    "fields": {
+        "student": 2,
+        "assignment": 3,
+        "grade_report": "",
+        "feedback": "",
+        "submission_time": "2021-04-17T16:12:23.455Z",
+        "content": "submissions/lorem-ipsum_yDEcIPA.pdf"
+    }
+},
+{
+    "model": "school.extracurricular",
+    "pk": 3,
+    "fields": {
+        "student": 4,
+        "activity_name": "Football"
+    }
+},
+{
+    "model": "school.extracurricular",
+    "pk": 5,
+    "fields": {
+        "student": 2,
+        "activity_name": "Football"
+    }
+},
+{
+    "model": "school.extracurricular",
+    "pk": 6,
+    "fields": {
+        "student": 2,
+        "activity_name": "Guitar"
+    }
+},
+{
+    "model": "school.extracurricular",
+    "pk": 9,
+    "fields": {
+        "student": 2,
+        "activity_name": "Basketball"
+    }
+},
+{
+    "model": "school.extracurricular",
+    "pk": 13,
+    "fields": {
+        "student": 5,
+        "activity_name": "Piano"
+    }
+},
+{
+    "model": "school.extracurricular",
+    "pk": 14,
+    "fields": {
+        "student": 58,
+        "activity_name": "Running"
+    }
+},
+{
+    "model": "school.extracurricular",
+    "pk": 15,
+    "fields": {
+        "student": 59,
+        "activity_name": "Karate"
+    }
+},
+{
+    "model": "school.extracurricular",
+    "pk": 16,
+    "fields": {
+        "student": 60,
+        "activity_name": "Swimming"
+    }
+},
+{
+    "model": "school.extracurricular",
+    "pk": 17,
+    "fields": {
+        "student": 61,
+        "activity_name": "Choir"
+    }
+},
+{
+    "model": "school.extracurricular",
+    "pk": 18,
+    "fields": {
+        "student": 62,
+        "activity_name": "Soccer"
+    }
+},
+{
+    "model": "school.guardian",
+    "pk": 4,
+    "fields": {
+        "student": 2,
+        "first_name": "Jessica",
+        "last_name": "Smith",
+        "phone_number": "5553455665",
+        "address": "33 Real Street NW",
+        "relation": "Mother"
+    }
+},
+{
+    "model": "school.guardian",
+    "pk": 5,
+    "fields": {
+        "student": 4,
+        "first_name": "Diana",
+        "last_name": "Judy",
+        "phone_number": "4038498729",
+        "address": "28 Road NW",
+        "relation": "Mother"
+    }
+},
+{
+    "model": "school.guardian",
+    "pk": 6,
+    "fields": {
+        "student": 5,
+        "first_name": "Tom",
+        "last_name": "Greene",
+        "phone_number": "4035559812",
+        "address": "100 Another Street SW",
+        "relation": "Father"
+    }
+},
+{
+    "model": "school.guardian",
+    "pk": 7,
+    "fields": {
+        "student": 58,
+        "first_name": "Terrance",
+        "last_name": "Bean",
+        "phone_number": "4032890934",
+        "address": "300 3rd Avenue NW",
+        "relation": "Brother"
+    }
+},
+{
+    "model": "school.guardian",
+    "pk": 8,
+    "fields": {
+        "student": 59,
+        "first_name": "Fernando",
+        "last_name": "Macgregor",
+        "phone_number": "4039082846",
+        "address": "89 Harvest Way NE",
+        "relation": "Father"
+    }
+},
+{
+    "model": "school.guardian",
+    "pk": 9,
+    "fields": {
+        "student": 60,
+        "first_name": "Emily",
+        "last_name": "Oneal",
+        "phone_number": "4035820372",
+        "address": "64 1st Street NW",
+        "relation": "Mother"
+    }
+},
+{
+    "model": "school.guardian",
+    "pk": 10,
+    "fields": {
+        "student": 61,
+        "first_name": "Francia",
+        "last_name": "Irvine",
+        "phone_number": "5879832018",
+        "address": "44 Elizabeth Way SW",
+        "relation": "Mother"
+    }
+},
+{
+    "model": "school.guardian",
+    "pk": 11,
+    "fields": {
+        "student": 62,
+        "first_name": "Sam",
+        "last_name": "Abbott",
+        "phone_number": "5876380912",
+        "address": "108 Rainbow Road SE",
+        "relation": "Father"
+    }
+},
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$216000$hxKg2B53z6yB$AKbNo21l6A6Uof2zUlR1/psexoXW/nhOQsASsx2YR3w=",
+        "last_login": "2021-11-15T23:41:27.418Z",
+        "is_superuser": true,
+        "username": "JacobCuke",
+        "first_name": "Jacob",
+        "last_name": "Cuke",
+        "email": "jacobcuke@gmail.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2021-03-01T21:34:18Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$216000$7yQ7bRnTaA5w$ph/PYF1339OjGegxrU2GrXEHa4XC2Qbi0XXw13x6H1M=",
+        "last_login": "2021-11-16T01:32:28.158Z",
+        "is_superuser": false,
+        "username": "BobSmith",
+        "first_name": "Bob",
+        "last_name": "Smith",
+        "email": "bobsmith@abchigh.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2021-03-01T22:46:15Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$216000$Dcbr6COF1oWd$UglCbes4/wXidG46ErZxgEfKanlRKjE/Grr798X6hyw=",
+        "last_login": "2021-04-17T16:18:35.311Z",
+        "is_superuser": false,
+        "username": "TomJones",
+        "first_name": "Tom",
+        "last_name": "Jones",
+        "email": "tomjones@abchigh.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2021-03-01T23:06:50Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$216000$lNAjYxzYgnbg$VEjCxvrMiGk+B+fl8cGAlmykfMIcQ4Fxlm0A5URmObM=",
+        "last_login": "2021-04-12T18:07:30.115Z",
+        "is_superuser": false,
+        "username": "DougJudy",
+        "first_name": "Doug",
+        "last_name": "Judy",
+        "email": "dougjudy@abchigh.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2021-03-02T21:37:20Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$216000$zuEFNsHpT11U$GCb7LlZ091x20uYZ29MsC3EFu/ILmkZr/zz/1pOkqns=",
+        "last_login": "2021-04-10T12:29:41.482Z",
+        "is_superuser": false,
+        "username": "SarahGreene",
+        "first_name": "Sarah",
+        "last_name": "Greene",
+        "email": "sarahgreene@abchigh.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2021-03-13T01:09:53.662Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$216000$uEavBfNiMN5X$2/XBGQQH6/jMxWZSoqF0kkAOKpE2PHVqXvoQVi6D7ZE=",
+        "last_login": "2021-04-13T21:23:44.389Z",
+        "is_superuser": false,
+        "username": "DaveWilliams",
+        "first_name": "Dave",
+        "last_name": "Williams",
+        "email": "davewilliams@abchigh.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2021-03-13T03:41:27.902Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$216000$1QmffmqBL8r5$C/OtzMh+KyZEBW6DtL9wic8NUFyQjoWAU7g/JeJB6gg=",
+        "last_login": "2021-09-17T18:35:26.527Z",
+        "is_superuser": true,
+        "username": "TestAdmin",
+        "first_name": "Test",
+        "last_name": "Admin",
+        "email": "testadmin@abchigh.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2021-03-29T23:24:58Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$216000$FFFaWbwvpcx8$TM5gFz+1miT8ldkebNcqzn2UqZrkLezJ+g/rgKIwyrE=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "TylaBean",
+        "first_name": "Tyla",
+        "last_name": "Bean",
+        "email": "tylabean@abchigh.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2021-04-16T22:19:25.787Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$216000$hSNUnLsdZLaj$Lpu1/EuITU1x8tJYn/7KssnfTFikEqylNJtNrU2uEdM=",
+        "last_login": "2021-04-17T14:22:50.250Z",
+        "is_superuser": false,
+        "username": "CarlosMacgregor",
+        "first_name": "Carlos",
+        "last_name": "Macgregor",
+        "email": "carlosmacgregor@abchigh.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2021-04-16T22:20:36.696Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$216000$8N9zw8jkXwBh$ZHtFvBqy+maKJz1Jq8paC/bGGTvWfAlMMVJwdLWOaYI=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "ElsaOneil",
+        "first_name": "Elsa",
+        "last_name": "Oneil",
+        "email": "elsaoneil@abchigh.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2021-04-16T22:21:48.953Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$216000$gK15aajKAq0Z$xl7EBKKMEKV1Y9z7kPicH+TpiM/9eKngMHGWe9NsoE4=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "FreddieIrvine",
+        "first_name": "Freddie",
+        "last_name": "Irvine",
+        "email": "freddieirvine@abchigh.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2021-04-16T22:23:36.291Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$216000$QGkHnfho9JdV$h6db0I5gLeRa/7UM2JMSjNKM18yvpWiuhgO/eBsozVw=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "SonyaAbbott",
+        "first_name": "Sonya",
+        "last_name": "Abbott",
+        "email": "sonyaabbott@abchigh.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2021-04-16T22:27:21.519Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$216000$7OvBUCxaPGlv$iFAznJhMxB2sEM7M3Oq458DSEVeEkF30pCNmKl41QOc=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "PhyllisMagana",
+        "first_name": "Phyllis",
+        "last_name": "Magana",
+        "email": "phyllismagana@abchigh.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2021-04-16T22:33:10.115Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$216000$bY2FjtDWLjPs$BK2Jx5lmwLK7zCyLeN6m3BIxaMR2wTk4RGx2DeZqZ0M=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "RachelReader",
+        "first_name": "Rachel",
+        "last_name": "Reader",
+        "email": "rachelreader@abchigh.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2021-04-16T22:38:16.869Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$216000$NfEHoEftuy4Z$Nv+DPlEoIYQKEmK/n7A9gOCbgEau1QGPAjO8luckp2M=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "GabriellaHume",
+        "first_name": "Gabriella",
+        "last_name": "Hume",
+        "email": "gabriellahume@abchigh.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2021-04-16T22:51:31.260Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "3jt7j3mfqcmlbkehdjo9n038ivdkq30o",
+    "fields": {
+        "session_data": ".eJxVjDsOwjAQBe_iGlks_lPScwZr12vjALKlOKkQd4dIKaB9M_NeIuK61LiOPMeJxVmAOPxuhOmR2wb4ju3WZeptmSeSmyJ3OuS1c35edvfvoOKo37oo44pjbZNXLpxcUKgKhUAMjEU71Boy50QIOhlvkLwHKjZ4S3gELd4f7xg4RA:1lXZgN:o053teDWhP25dG4dc10FgFuEFwvtHeJgKHIeiHVSF6I",
+        "expire_date": "2021-05-01T01:23:35.121Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "55ni1j4r3k08pv37wlppd00kg7l0ndb5",
+    "fields": {
+        "session_data": ".eJxVjEEOgjAQRe_StWnoTEutS_ecoRlmBosaSCisjHdXEha6_e-9_zKZtrXkreqSRzEX483pd-uJHzrtQO403WbL87QuY293xR602m4WfV4P9--gUC3fOkJETCEBOJYU0UXUofF4bgMMyYFXj-I0qhKLUBsCMHBAJWH02pj3B7LFN3M:1lW0yA:j0jqkD_APE1PN-TWX5S95JLnfNC1HMgKKoFMhJ-bF8s",
+        "expire_date": "2021-04-26T18:07:30.136Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "8g6n1ujy07elqpbtsf975fwdccbznped",
+    "fields": {
+        "session_data": ".eJxVjMsOwiAQRf-FtSEFhkdduvcbyAwMUjU0Ke3K-O_apAvd3nPOfYmI21rj1nmJUxZnocXpdyNMD247yHdst1mmua3LRHJX5EG7vM6Zn5fD_Tuo2Ou3Nl7ZRJZN4ZEzAxjvg_LjUCgbYIcqoCmJC2kNjsEG42gIIYEDh4nE-wPr8TgS:1lXYmc:HPbOUZ2mBTiOBALcpSnUxsiSiX7pxVEurFILs-87mis",
+        "expire_date": "2021-05-01T00:25:58.196Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "bc9snv9hsiiap276qe64kssuhip82uie",
+    "fields": {
+        "session_data": ".eJxVjMsOwiAQRf-FtSEFhkdduvcbyAwMUjU0Ke3K-O_apAvd3nPOfYmI21rj1nmJUxZnocXpdyNMD247yHdst1mmua3LRHJX5EG7vM6Zn5fD_Tuo2Ou3Nl7ZRJZN4ZEzAxjvg_LjUCgbYIcqoCmJC2kNjsEG42gIIYEDh4nE-wPr8TgS:1lMaK9:pFnWF15lBC-b4p_fJQAFGcXt063BzTM89baKui_gA88",
+        "expire_date": "2021-03-31T17:51:13.074Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "e6en81ouzb20tk2b5ffwq5c7yz5wsio4",
+    "fields": {
+        "session_data": ".eJxVjDsOwjAQBe_iGlmOf6wp6TmDtfaucQA5UpxUiLuTSCmgfTPz3iLiutS4dp7jSOIijDj9bgnzk9sO6IHtPsk8tWUek9wVedAubxPx63q4fwcVe91qazn75Cnj4AIguAJQyJLhjMEMShvPPnDRgAwqeNIq-0JbwGcHzorPF_pROFQ:1lXCID:04Yp8nBjhwOVqNpHCoCo-2s_8wOKu7SWbJrpkPEsnIk",
+        "expire_date": "2021-04-30T00:25:05.080Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "gn19bpd2l1njalzoozl8q48hob1ziy17",
+    "fields": {
+        "session_data": ".eJxVjMsOwiAQRf-FtSEFhkdduvcbyAwMUjU0Ke3K-O_apAvd3nPOfYmI21rj1nmJUxZnocXpdyNMD247yHdst1mmua3LRHJX5EG7vM6Zn5fD_Tuo2Ou3Nl7ZRJZN4ZEzAxjvg_LjUCgbYIcqoCmJC2kNjsEG42gIIYEDh4nE-wPr8TgS:1mRIje:EircuE_DTKG4-dpeZcnFE9_ib_SUBSvwbkMCjuiBwBU",
+        "expire_date": "2021-10-01T18:37:18.837Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "hu7rksd1yi5sy1gtcejslcv1wkdebpzv",
+    "fields": {
+        "session_data": ".eJxVjDsOwjAQBe_iGlks_lPScwZr12vjALKlOKkQd4dIKaB9M_NeIuK61LiOPMeJxVmAOPxuhOmR2wb4ju3WZeptmSeSmyJ3OuS1c35edvfvoOKo37oo44pjbZNXLpxcUKgKhUAMjEU71Boy50QIOhlvkLwHKjZ4S3gELd4f7xg4RA:1lOtVs:TefsYLQ9CRE-yufY33mYEXQXPuAb7VBFYiRyS7-Mplo",
+        "expire_date": "2021-04-07T02:44:52.536Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "oyekzmcpp7phzuzb59y4nstikxkp21mh",
+    "fields": {
+        "session_data": ".eJxVjDsOwjAQBe_iGlnrX7ympOcM1vqHA8iW4qRC3B0ipYD2zcx7MU_bWv028uLnxM5MstPvFig-cttBulO7dR57W5c58F3hBx382lN-Xg7376DSqN8atIlSRBGk0aKgKzQ5ItATOgoIiCoJsM5lqYoCCMKKqKw0kCymQoa9P7ysNto:1mmnKm:bihWr8gG_pwkn7utoATqBN0tll1ihLvbri9uQhHJD0o",
+        "expire_date": "2021-11-30T01:32:28.166Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "v669onz1ig26pf2utvq588bfmlv39n5t",
+    "fields": {
+        "session_data": ".eJxVjMsOwiAQRf-FtSGUNy7d-w2EGQapGkhKuzL-uzbpQrf3nHNfLKZtrXEbtMQ5szNTlp1-R0j4oLaTfE_t1jn2ti4z8F3hBx382jM9L4f7d1DTqN_aWU8GjJElCJm90LoogkKOLJLU5B0ABo9-clpPqIXyTlrjCkiTAyJ7fwAGUzf5:1lXSKH:rj5CujjkUfgQ42lXUr1nCUBhMytw4DVQsdLn-acZHmM",
+        "expire_date": "2021-04-30T17:32:17.271Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "y2jj176ntt0k2043y4kib2coj6iakm6n",
+    "fields": {
+        "session_data": ".eJxVjMsOwiAQRf-FtSEFhkdduvcbyAwMUjU0Ke3K-O_apAvd3nPOfYmI21rj1nmJUxZnocXpdyNMD247yHdst1mmua3LRHJX5EG7vM6Zn5fD_Tuo2Ou3Nl7ZRJZN4ZEzAxjvg_LjUCgbYIcqoCmJC2kNjsEG42gIIYEDh4nE-wPr8TgS:1lYFlQ:zXZoXXc-Yv5U1w0ScCzmNa5PpggT813syG3_RR3UHxg",
+        "expire_date": "2021-05-02T22:19:36.877Z"
+    }
+},
+{
+    "model": "authtoken.token",
+    "pk": "0331df003f8192076e6a9001943571ce0fbd0b88",
+    "fields": {
+        "user": [
+            "RachelReader"
+        ],
+        "created": "2021-04-16T22:38:16.875Z"
+    }
+},
+{
+    "model": "authtoken.token",
+    "pk": "0f1c9de477ff98e86522fb9f1a4baed8c11e70c0",
+    "fields": {
+        "user": [
+            "BobSmith"
+        ],
+        "created": "2021-03-29T22:54:27.666Z"
+    }
+},
+{
+    "model": "authtoken.token",
+    "pk": "2d1b5328656b335a2e159f3651d0bf9258e46121",
+    "fields": {
+        "user": [
+            "TestAdmin"
+        ],
+        "created": "2021-03-29T23:24:58.624Z"
+    }
+},
+{
+    "model": "authtoken.token",
+    "pk": "38e1b0ad8f8c017696cf24a1b648496abb3c9b84",
+    "fields": {
+        "user": [
+            "CarlosMacgregor"
+        ],
+        "created": "2021-04-16T22:20:36.698Z"
+    }
+},
+{
+    "model": "authtoken.token",
+    "pk": "40f233128a3d5c9dc5f02945f3d24add424ad96f",
+    "fields": {
+        "user": [
+            "GabriellaHume"
+        ],
+        "created": "2021-04-16T22:51:31.268Z"
+    }
+},
+{
+    "model": "authtoken.token",
+    "pk": "435d11a6eb977ce47923bbc1935482ca25c7b98e",
+    "fields": {
+        "user": [
+            "PhyllisMagana"
+        ],
+        "created": "2021-04-16T22:33:10.119Z"
+    }
+},
+{
+    "model": "authtoken.token",
+    "pk": "43ba11dbf054d58ab2e28d7c7071f20669481be1",
+    "fields": {
+        "user": [
+            "FreddieIrvine"
+        ],
+        "created": "2021-04-16T22:23:36.298Z"
+    }
+},
+{
+    "model": "authtoken.token",
+    "pk": "4d46c7006a09bbcbaba0fdcbf5ebf058a4df2aec",
+    "fields": {
+        "user": [
+            "TylaBean"
+        ],
+        "created": "2021-04-16T22:19:25.794Z"
+    }
+},
+{
+    "model": "authtoken.token",
+    "pk": "7464e2a010131999da782014711f5caa69eb12e5",
+    "fields": {
+        "user": [
+            "JacobCuke"
+        ],
+        "created": "2021-03-29T22:54:27.663Z"
+    }
+},
+{
+    "model": "authtoken.token",
+    "pk": "76d8e233baf464a239d570aff20992b1bdd85a8b",
+    "fields": {
+        "user": [
+            "DougJudy"
+        ],
+        "created": "2021-03-29T22:54:27.673Z"
+    }
+},
+{
+    "model": "authtoken.token",
+    "pk": "84d63090714e988b63f10cb0ec02ac25c5aecfbe",
+    "fields": {
+        "user": [
+            "SarahGreene"
+        ],
+        "created": "2021-03-29T22:54:27.676Z"
+    }
+},
+{
+    "model": "authtoken.token",
+    "pk": "cb4c5a37392ec2504070d065b763ec363eb5b577",
+    "fields": {
+        "user": [
+            "DaveWilliams"
+        ],
+        "created": "2021-03-29T22:54:27.683Z"
+    }
+},
+{
+    "model": "authtoken.token",
+    "pk": "e83251f6a9b62f880b75c7a9f7c352dd83a2dabf",
+    "fields": {
+        "user": [
+            "ElsaOneil"
+        ],
+        "created": "2021-04-16T22:21:48.963Z"
+    }
+},
+{
+    "model": "authtoken.token",
+    "pk": "ee0c371a3c18ba30f3fec5204eee659f3192c7da",
+    "fields": {
+        "user": [
+            "SonyaAbbott"
+        ],
+        "created": "2021-04-16T22:27:21.531Z"
+    }
+},
+{
+    "model": "authtoken.token",
+    "pk": "f77387afb0d74c4d6de6d17ef1095b73377bea78",
+    "fields": {
+        "user": [
+            "TomJones"
+        ],
+        "created": "2021-03-29T22:54:27.669Z"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+        "action_time": "2021-03-01T22:12:01.169Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "users",
+            "profile"
+        ],
+        "object_id": "1",
+        "object_repr": "Profile object (1)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+        "action_time": "2021-03-01T22:12:42.929Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "1",
+        "object_repr": "JacobCuke",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+        "action_time": "2021-03-01T22:46:15.985Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "2",
+        "object_repr": "BobSmith",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+        "action_time": "2021-03-01T22:46:45.162Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "2",
+        "object_repr": "BobSmith",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\", \"Email address\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+        "action_time": "2021-03-01T22:47:31.250Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "users",
+            "profile"
+        ],
+        "object_id": "2",
+        "object_repr": "BobSmith Profile",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Birth date\", \"Address\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+        "action_time": "2021-03-01T23:01:29.457Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "users",
+            "student"
+        ],
+        "object_id": "2",
+        "object_repr": "Bob Smith (12345678)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+        "action_time": "2021-03-01T23:06:51.037Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "3",
+        "object_repr": "TomJones",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+        "action_time": "2021-03-01T23:07:12.620Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "3",
+        "object_repr": "TomJones",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\", \"Email address\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+        "action_time": "2021-03-01T23:07:56.524Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "users",
+            "profile"
+        ],
+        "object_id": "3",
+        "object_repr": "TomJones Profile",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Birth date\", \"Address\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+        "action_time": "2021-03-01T23:08:35.813Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "users",
+            "instructor"
+        ],
+        "object_id": "3",
+        "object_repr": "Tom Jones",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+        "action_time": "2021-03-01T23:22:53.748Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "users",
+            "extracurricular"
+        ],
+        "object_id": "1",
+        "object_repr": "ExtraCurricular object (1)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+        "action_time": "2021-03-01T23:23:05.172Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "users",
+            "extracurricular"
+        ],
+        "object_id": "2",
+        "object_repr": "ExtraCurricular object (2)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+        "action_time": "2021-03-02T20:57:44.951Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "course"
+        ],
+        "object_id": "1",
+        "object_repr": "Database Management at 3 on WE",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+        "action_time": "2021-03-02T21:04:18.147Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "lecture"
+        ],
+        "object_id": "1",
+        "object_repr": "Lecture 1 of Database Management(ID:1)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+        "action_time": "2021-03-02T21:13:57.535Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "lecture"
+        ],
+        "object_id": "1",
+        "object_repr": "Lecture 1 of Database Management(ID:1)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Lecture title\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 16,
+    "fields": {
+        "action_time": "2021-03-02T21:29:37.897Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "enrolledin"
+        ],
+        "object_id": "1",
+        "object_repr": "Bob Smith (12345678) in Database Management(ID:1)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 17,
+    "fields": {
+        "action_time": "2021-03-02T21:37:20.668Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "4",
+        "object_repr": "DougJudy",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 18,
+    "fields": {
+        "action_time": "2021-03-02T21:37:44.404Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "4",
+        "object_repr": "DougJudy",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\", \"Email address\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 19,
+    "fields": {
+        "action_time": "2021-03-02T21:38:39.777Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "users",
+            "profile"
+        ],
+        "object_id": "4",
+        "object_repr": "DougJudy Profile",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Birth date\", \"Address\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 20,
+    "fields": {
+        "action_time": "2021-03-02T21:39:04.717Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "users",
+            "student"
+        ],
+        "object_id": "4",
+        "object_repr": "Doug Judy (87654321)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 21,
+    "fields": {
+        "action_time": "2021-03-02T21:39:16.446Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "assistsin"
+        ],
+        "object_id": "1",
+        "object_repr": "Doug Judy (87654321) in Database Management(ID:1)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 22,
+    "fields": {
+        "action_time": "2021-03-02T21:47:56.817Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "assignment"
+        ],
+        "object_id": "1",
+        "object_repr": "Assignment 1 of Database Management(ID:1)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 23,
+    "fields": {
+        "action_time": "2021-03-03T20:18:54.706Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "assignment"
+        ],
+        "object_id": "1",
+        "object_repr": "Assignment 1 of Database Management(ID:1)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 24,
+    "fields": {
+        "action_time": "2021-03-03T20:18:59.946Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "lecture"
+        ],
+        "object_id": "1",
+        "object_repr": "Lecture 1 of Database Management(ID:1)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 25,
+    "fields": {
+        "action_time": "2021-03-03T20:23:19.388Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "lecture"
+        ],
+        "object_id": "1",
+        "object_repr": "Lecture 1 of Database Management(ID:1)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 26,
+    "fields": {
+        "action_time": "2021-03-03T20:23:59.175Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "assignment"
+        ],
+        "object_id": "1",
+        "object_repr": "Assignment 1 of Database Management(ID:1)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 27,
+    "fields": {
+        "action_time": "2021-03-03T23:30:26.559Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "extracurricular"
+        ],
+        "object_id": "1",
+        "object_repr": "Basketball",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 28,
+    "fields": {
+        "action_time": "2021-03-03T23:30:31.962Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "extracurricular"
+        ],
+        "object_id": "2",
+        "object_repr": "Hockey",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 29,
+    "fields": {
+        "action_time": "2021-03-03T23:30:44.403Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "extracurricular"
+        ],
+        "object_id": "3",
+        "object_repr": "Football",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 30,
+    "fields": {
+        "action_time": "2021-03-03T23:47:35.195Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "guardian"
+        ],
+        "object_id": "1",
+        "object_repr": "Jane Smith guardian of Bob Smith (12345678)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 31,
+    "fields": {
+        "action_time": "2021-03-04T00:24:55.161Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "submission"
+        ],
+        "object_id": "1",
+        "object_repr": "Bob Smith (12345678) submission for Assignment 1 of Database Management(ID:1)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 32,
+    "fields": {
+        "action_time": "2021-03-04T00:55:35.555Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "forum",
+            "discussionthread"
+        ],
+        "object_id": "1",
+        "object_repr": "What is SQL?",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 33,
+    "fields": {
+        "action_time": "2021-03-04T00:56:10.268Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "forum",
+            "discussionpost"
+        ],
+        "object_id": "1",
+        "object_repr": "Post ID: 1 in What is SQL?",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 34,
+    "fields": {
+        "action_time": "2021-03-13T01:33:25.136Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "6",
+        "object_repr": "TestUser",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 35,
+    "fields": {
+        "action_time": "2021-03-13T01:36:03.192Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "7",
+        "object_repr": "TestUser",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 36,
+    "fields": {
+        "action_time": "2021-03-13T01:43:01.724Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "8",
+        "object_repr": "TestUser",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 37,
+    "fields": {
+        "action_time": "2021-03-13T01:45:29.750Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "9",
+        "object_repr": "TestUser",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 38,
+    "fields": {
+        "action_time": "2021-03-13T01:51:46.213Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "10",
+        "object_repr": "TestUser",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 39,
+    "fields": {
+        "action_time": "2021-03-13T01:53:46.765Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "11",
+        "object_repr": "TestUser",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 40,
+    "fields": {
+        "action_time": "2021-03-13T01:57:53.293Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "12",
+        "object_repr": "TestUser",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 41,
+    "fields": {
+        "action_time": "2021-03-13T01:59:13.954Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "13",
+        "object_repr": "TestUser",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 42,
+    "fields": {
+        "action_time": "2021-03-13T02:01:29.219Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "14",
+        "object_repr": "TestUser",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 43,
+    "fields": {
+        "action_time": "2021-03-13T02:02:35.967Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "15",
+        "object_repr": "TestUser",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 44,
+    "fields": {
+        "action_time": "2021-03-13T02:03:55.843Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "16",
+        "object_repr": "TestUser",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 45,
+    "fields": {
+        "action_time": "2021-03-13T02:04:54.407Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "17",
+        "object_repr": "TestUser",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 46,
+    "fields": {
+        "action_time": "2021-03-13T02:10:24.630Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "18",
+        "object_repr": "TestUser",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 47,
+    "fields": {
+        "action_time": "2021-03-13T02:12:00.990Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "19",
+        "object_repr": "TestUser",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 48,
+    "fields": {
+        "action_time": "2021-03-13T02:13:39.501Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "20",
+        "object_repr": "TestUser",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 49,
+    "fields": {
+        "action_time": "2021-03-13T02:14:57.151Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "21",
+        "object_repr": "TestUser",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 50,
+    "fields": {
+        "action_time": "2021-03-13T02:16:46.695Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "22",
+        "object_repr": "TestUser",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 51,
+    "fields": {
+        "action_time": "2021-03-13T02:17:34.835Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "23",
+        "object_repr": "TestUser",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 52,
+    "fields": {
+        "action_time": "2021-03-13T02:19:42.201Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "24",
+        "object_repr": "TestUser",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 53,
+    "fields": {
+        "action_time": "2021-03-13T02:21:47.415Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "25",
+        "object_repr": "TestUser",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 54,
+    "fields": {
+        "action_time": "2021-03-13T02:35:15.659Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "26",
+        "object_repr": "TestUser",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 55,
+    "fields": {
+        "action_time": "2021-03-13T02:36:46.064Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "27",
+        "object_repr": "TestUser",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 56,
+    "fields": {
+        "action_time": "2021-03-13T02:39:58.583Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "28",
+        "object_repr": "TestUser",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 57,
+    "fields": {
+        "action_time": "2021-03-13T02:46:25.911Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "29",
+        "object_repr": "TestUser",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 58,
+    "fields": {
+        "action_time": "2021-03-13T02:47:41.042Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "30",
+        "object_repr": "TestUser",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 59,
+    "fields": {
+        "action_time": "2021-03-13T02:48:17.669Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "31",
+        "object_repr": "TestUser",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 60,
+    "fields": {
+        "action_time": "2021-03-13T02:51:26.633Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "32",
+        "object_repr": "TestUser",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 61,
+    "fields": {
+        "action_time": "2021-03-13T03:42:27.004Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "users",
+            "profile"
+        ],
+        "object_id": "5",
+        "object_repr": "SarahGreene Profile",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Birth date\", \"Address\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 62,
+    "fields": {
+        "action_time": "2021-03-15T17:46:41.696Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "course"
+        ],
+        "object_id": "2",
+        "object_repr": "Django Web Development (ID:2)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 63,
+    "fields": {
+        "action_time": "2021-03-15T17:47:02.081Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "enrolledin"
+        ],
+        "object_id": "2",
+        "object_repr": "Bob Smith (12345678) in Django Web Development (ID:2)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 64,
+    "fields": {
+        "action_time": "2021-03-15T18:15:10.186Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "2",
+        "object_repr": "BobSmith",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 65,
+    "fields": {
+        "action_time": "2021-03-15T18:39:07.800Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "course"
+        ],
+        "object_id": "3",
+        "object_repr": "Linear Algebra (ID:3)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 66,
+    "fields": {
+        "action_time": "2021-03-15T18:39:27.685Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "assistsin"
+        ],
+        "object_id": "2",
+        "object_repr": "Bob Smith (12345678) in Linear Algebra (ID:3)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 67,
+    "fields": {
+        "action_time": "2021-03-18T00:41:25.225Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "extracurricular"
+        ],
+        "object_id": "8",
+        "object_repr": "Tennis",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 68,
+    "fields": {
+        "action_time": "2021-03-18T00:41:25.233Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "extracurricular"
+        ],
+        "object_id": "7",
+        "object_repr": "Baseball",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 69,
+    "fields": {
+        "action_time": "2021-03-29T23:25:23.828Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "36",
+        "object_repr": "TestAdmin",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 70,
+    "fields": {
+        "action_time": "2021-03-30T17:23:00.987Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "37",
+        "object_repr": "CreateInst",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 71,
+    "fields": {
+        "action_time": "2021-03-30T17:31:18.044Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "38",
+        "object_repr": "CreateInst",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 72,
+    "fields": {
+        "action_time": "2021-03-30T17:47:28.529Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "41",
+        "object_repr": "BadCreate",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 73,
+    "fields": {
+        "action_time": "2021-03-30T17:48:23.785Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "42",
+        "object_repr": "BadCreate",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 74,
+    "fields": {
+        "action_time": "2021-03-30T17:50:23.437Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "43",
+        "object_repr": "BadCreate",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 75,
+    "fields": {
+        "action_time": "2021-03-30T18:25:45.941Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "course"
+        ],
+        "object_id": "4",
+        "object_repr": "Database Management (ID:4)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 76,
+    "fields": {
+        "action_time": "2021-03-30T18:26:39.583Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "course"
+        ],
+        "object_id": "5",
+        "object_repr": "The History of Cheese (ID:5)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 77,
+    "fields": {
+        "action_time": "2021-04-01T17:56:39.591Z",
+        "user": [
+            "TestAdmin"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "46",
+        "object_repr": "kenUser",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 78,
+    "fields": {
+        "action_time": "2021-04-01T17:57:34.500Z",
+        "user": [
+            "TestAdmin"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "46",
+        "object_repr": "kenUser",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\", \"Email address\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 79,
+    "fields": {
+        "action_time": "2021-04-01T18:00:15.066Z",
+        "user": [
+            "TestAdmin"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "46",
+        "object_repr": "kenUser",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"User permissions\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 80,
+    "fields": {
+        "action_time": "2021-04-01T18:01:40.551Z",
+        "user": [
+            "TestAdmin"
+        ],
+        "content_type": [
+            "users",
+            "student"
+        ],
+        "object_id": "46",
+        "object_repr": "Ken User (123444)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 81,
+    "fields": {
+        "action_time": "2021-04-01T18:02:24.741Z",
+        "user": [
+            "TestAdmin"
+        ],
+        "content_type": [
+            "users",
+            "student"
+        ],
+        "object_id": "46",
+        "object_repr": "Ken User (12342244)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Student id no\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 82,
+    "fields": {
+        "action_time": "2021-04-01T18:02:50.185Z",
+        "user": [
+            "TestAdmin"
+        ],
+        "content_type": [
+            "school",
+            "enrolledin"
+        ],
+        "object_id": "3",
+        "object_repr": "Ken User (12342244) in Django Web Development (ID:2)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 83,
+    "fields": {
+        "action_time": "2021-04-01T18:03:04.229Z",
+        "user": [
+            "TestAdmin"
+        ],
+        "content_type": [
+            "school",
+            "enrolledin"
+        ],
+        "object_id": "4",
+        "object_repr": "Ken User (12342244) in Database Management (ID:1)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 84,
+    "fields": {
+        "action_time": "2021-04-01T18:03:10.889Z",
+        "user": [
+            "TestAdmin"
+        ],
+        "content_type": [
+            "school",
+            "enrolledin"
+        ],
+        "object_id": "5",
+        "object_repr": "Ken User (12342244) in Linear Algebra (ID:3)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 85,
+    "fields": {
+        "action_time": "2021-04-01T18:03:29.324Z",
+        "user": [
+            "TestAdmin"
+        ],
+        "content_type": [
+            "school",
+            "assistsin"
+        ],
+        "object_id": "3",
+        "object_repr": "Ken User (12342244) in Django Web Development (ID:2)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 86,
+    "fields": {
+        "action_time": "2021-04-07T04:13:40.125Z",
+        "user": [
+            "TestAdmin"
+        ],
+        "content_type": [
+            "school",
+            "submission"
+        ],
+        "object_id": "2",
+        "object_repr": "Ken User (12342244) submission for Assignment 1",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 87,
+    "fields": {
+        "action_time": "2021-04-07T04:16:25.243Z",
+        "user": [
+            "TestAdmin"
+        ],
+        "content_type": [
+            "school",
+            "enrolledin"
+        ],
+        "object_id": "6",
+        "object_repr": "Doug Judy (87654321) in Database Management (ID:1)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 88,
+    "fields": {
+        "action_time": "2021-04-10T12:31:55.629Z",
+        "user": [
+            "TestAdmin"
+        ],
+        "content_type": [
+            "school",
+            "enrolledin"
+        ],
+        "object_id": "7",
+        "object_repr": "Doug Judy (87654321) in Linear Algebra (ID:3)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 89,
+    "fields": {
+        "action_time": "2021-04-13T21:21:34.061Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "enrolledin"
+        ],
+        "object_id": "3",
+        "object_repr": "Ken User (12342244) in Django Web Development (ID:2)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 90,
+    "fields": {
+        "action_time": "2021-04-13T21:22:03.386Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "enrolledin"
+        ],
+        "object_id": "6",
+        "object_repr": "Doug Judy (87654321) in Database Management (ID:1)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 91,
+    "fields": {
+        "action_time": "2021-04-13T21:24:26.565Z",
+        "user": [
+            "TestAdmin"
+        ],
+        "content_type": [
+            "school",
+            "assistsin"
+        ],
+        "object_id": "3",
+        "object_repr": "Ken User (12342244) in Django Web Development (ID:2)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 92,
+    "fields": {
+        "action_time": "2021-04-14T17:34:59.935Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "47",
+        "object_repr": "CreateStud2",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 93,
+    "fields": {
+        "action_time": "2021-04-14T17:39:46.431Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "48",
+        "object_repr": "CreateStud2",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 94,
+    "fields": {
+        "action_time": "2021-04-14T17:43:04.584Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "49",
+        "object_repr": "CreateStud2",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 95,
+    "fields": {
+        "action_time": "2021-04-14T17:43:59.260Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "50",
+        "object_repr": "CreateStud2",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 96,
+    "fields": {
+        "action_time": "2021-04-14T17:46:15.599Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "51",
+        "object_repr": "CreateStud2",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 97,
+    "fields": {
+        "action_time": "2021-04-14T17:47:18.955Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "52",
+        "object_repr": "CreateStud2",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 98,
+    "fields": {
+        "action_time": "2021-04-14T17:50:36.333Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "53",
+        "object_repr": "CreateStud2",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 99,
+    "fields": {
+        "action_time": "2021-04-14T17:51:18.844Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "54",
+        "object_repr": "CreateStud2",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 100,
+    "fields": {
+        "action_time": "2021-04-14T17:52:18.245Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "55",
+        "object_repr": "CreateStud2",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 101,
+    "fields": {
+        "action_time": "2021-04-16T05:57:40.239Z",
+        "user": [
+            "TestAdmin"
+        ],
+        "content_type": [
+            "school",
+            "enrolledin"
+        ],
+        "object_id": "8",
+        "object_repr": "Bob Smith (12345678) in Linear Algebra (ID:3)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 102,
+    "fields": {
+        "action_time": "2021-04-16T05:59:25.775Z",
+        "user": [
+            "TestAdmin"
+        ],
+        "content_type": [
+            "school",
+            "enrolledin"
+        ],
+        "object_id": "9",
+        "object_repr": "Bob Smith (12345678) in Linear Algebra (ID:3)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 103,
+    "fields": {
+        "action_time": "2021-04-16T06:08:29.615Z",
+        "user": [
+            "TestAdmin"
+        ],
+        "content_type": [
+            "school",
+            "enrolledin"
+        ],
+        "object_id": "10",
+        "object_repr": "Bob Smith (12345678) in Linear Algebra (ID:3)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 104,
+    "fields": {
+        "action_time": "2021-04-16T22:15:57.756Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "39",
+        "object_repr": "CreateInst",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 105,
+    "fields": {
+        "action_time": "2021-04-16T22:15:57.760Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "40",
+        "object_repr": "CreateStud",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 106,
+    "fields": {
+        "action_time": "2021-04-16T22:15:57.762Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "57",
+        "object_repr": "NewInstructor",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 107,
+    "fields": {
+        "action_time": "2021-04-16T22:15:57.763Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "56",
+        "object_repr": "NewStudent",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 108,
+    "fields": {
+        "action_time": "2021-04-16T22:15:57.764Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "33",
+        "object_repr": "TestUser",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 109,
+    "fields": {
+        "action_time": "2021-04-16T22:15:57.766Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "46",
+        "object_repr": "kenUser",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 110,
+    "fields": {
+        "action_time": "2021-04-16T22:17:28.997Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "35",
+        "object_repr": "AuthTest",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 111,
+    "fields": {
+        "action_time": "2021-04-16T22:41:05.161Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "course"
+        ],
+        "object_id": "8",
+        "object_repr": "20th Century History (ID:8)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 112,
+    "fields": {
+        "action_time": "2021-04-16T22:47:42.797Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "course"
+        ],
+        "object_id": "9",
+        "object_repr": "Organic Chemistry (ID:9)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 113,
+    "fields": {
+        "action_time": "2021-04-16T22:51:47.162Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "course"
+        ],
+        "object_id": "10",
+        "object_repr": "Intermediate Spanish (ID:10)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 114,
+    "fields": {
+        "action_time": "2021-04-16T22:54:20.338Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "course"
+        ],
+        "object_id": "10",
+        "object_repr": "Intermediate Spanish (ID:10)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Time\", \"Day\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 115,
+    "fields": {
+        "action_time": "2021-04-16T22:54:29.093Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "course"
+        ],
+        "object_id": "10",
+        "object_repr": "Intermediate Spanish (ID:10)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Time\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 116,
+    "fields": {
+        "action_time": "2021-04-16T23:02:39.522Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "enrolledin"
+        ],
+        "object_id": "12",
+        "object_repr": "Doug Judy (87654321) in Database Management (ID:1)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 117,
+    "fields": {
+        "action_time": "2021-04-16T23:03:51.622Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "enrolledin"
+        ],
+        "object_id": "14",
+        "object_repr": "Sarah Greene (55555555) in 20th Century History (ID:8)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 118,
+    "fields": {
+        "action_time": "2021-04-16T23:03:57.988Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "enrolledin"
+        ],
+        "object_id": "15",
+        "object_repr": "Sarah Greene (55555555) in Organic Chemistry (ID:9)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 119,
+    "fields": {
+        "action_time": "2021-04-16T23:04:05.998Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "enrolledin"
+        ],
+        "object_id": "16",
+        "object_repr": "Tyla Bean (10034567) in Intermediate Spanish (ID:10)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 120,
+    "fields": {
+        "action_time": "2021-04-16T23:04:13.595Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "enrolledin"
+        ],
+        "object_id": "17",
+        "object_repr": "Tyla Bean (10034567) in Organic Chemistry (ID:9)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 121,
+    "fields": {
+        "action_time": "2021-04-16T23:04:23.445Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "enrolledin"
+        ],
+        "object_id": "18",
+        "object_repr": "Carlos Macgregor (80896572) in Django Web Development (ID:2)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 122,
+    "fields": {
+        "action_time": "2021-04-16T23:04:35.550Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "enrolledin"
+        ],
+        "object_id": "19",
+        "object_repr": "Carlos Macgregor (80896572) in Database Management (ID:1)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 123,
+    "fields": {
+        "action_time": "2021-04-16T23:04:47.630Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "enrolledin"
+        ],
+        "object_id": "20",
+        "object_repr": "Elsa Oneil (67852344) in Linear Algebra (ID:3)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 124,
+    "fields": {
+        "action_time": "2021-04-16T23:04:55.369Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "enrolledin"
+        ],
+        "object_id": "21",
+        "object_repr": "Elsa Oneil (67852344) in 20th Century History (ID:8)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 125,
+    "fields": {
+        "action_time": "2021-04-16T23:05:05.336Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "enrolledin"
+        ],
+        "object_id": "22",
+        "object_repr": "Freddie Irvine (55638211) in Organic Chemistry (ID:9)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 126,
+    "fields": {
+        "action_time": "2021-04-16T23:05:12.864Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "enrolledin"
+        ],
+        "object_id": "23",
+        "object_repr": "Freddie Irvine (55638211) in 20th Century History (ID:8)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 127,
+    "fields": {
+        "action_time": "2021-04-16T23:05:22.173Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "enrolledin"
+        ],
+        "object_id": "24",
+        "object_repr": "Sonya Abbott (91283567) in Intermediate Spanish (ID:10)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 128,
+    "fields": {
+        "action_time": "2021-04-16T23:05:31.947Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "enrolledin"
+        ],
+        "object_id": "25",
+        "object_repr": "Sonya Abbott (91283567) in Django Web Development (ID:2)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 129,
+    "fields": {
+        "action_time": "2021-04-16T23:06:36.442Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "assistsin"
+        ],
+        "object_id": "5",
+        "object_repr": "Sarah Greene (55555555) in Linear Algebra (ID:3)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 130,
+    "fields": {
+        "action_time": "2021-04-16T23:06:43.758Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "assistsin"
+        ],
+        "object_id": "5",
+        "object_repr": "Sarah Greene (55555555) in Intermediate Spanish (ID:10)",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Course\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 131,
+    "fields": {
+        "action_time": "2021-04-16T23:07:34.401Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "assistsin"
+        ],
+        "object_id": "6",
+        "object_repr": "Tyla Bean (10034567) in Django Web Development (ID:2)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 132,
+    "fields": {
+        "action_time": "2021-04-16T23:07:56.966Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "assistsin"
+        ],
+        "object_id": "7",
+        "object_repr": "Sonya Abbott (91283567) in 20th Century History (ID:8)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 133,
+    "fields": {
+        "action_time": "2021-04-16T23:09:08.610Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "assistsin"
+        ],
+        "object_id": "8",
+        "object_repr": "Elsa Oneil (67852344) in Organic Chemistry (ID:9)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 134,
+    "fields": {
+        "action_time": "2021-04-16T23:10:21.765Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "assistsin"
+        ],
+        "object_id": "9",
+        "object_repr": "Carlos Macgregor (80896572) in 20th Century History (ID:8)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 135,
+    "fields": {
+        "action_time": "2021-04-16T23:10:45.967Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "assistsin"
+        ],
+        "object_id": "10",
+        "object_repr": "Freddie Irvine (55638211) in Intermediate Spanish (ID:10)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 136,
+    "fields": {
+        "action_time": "2021-04-16T23:11:53.107Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "extracurricular"
+        ],
+        "object_id": "13",
+        "object_repr": "Piano",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 137,
+    "fields": {
+        "action_time": "2021-04-16T23:12:01.005Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "extracurricular"
+        ],
+        "object_id": "14",
+        "object_repr": "Running",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 138,
+    "fields": {
+        "action_time": "2021-04-16T23:12:15.018Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "extracurricular"
+        ],
+        "object_id": "15",
+        "object_repr": "Karate",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 139,
+    "fields": {
+        "action_time": "2021-04-16T23:12:33.706Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "extracurricular"
+        ],
+        "object_id": "16",
+        "object_repr": "Swimming",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 140,
+    "fields": {
+        "action_time": "2021-04-16T23:12:48.634Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "extracurricular"
+        ],
+        "object_id": "17",
+        "object_repr": "Choir",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 141,
+    "fields": {
+        "action_time": "2021-04-16T23:13:04.465Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "extracurricular"
+        ],
+        "object_id": "18",
+        "object_repr": "Soccer",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 142,
+    "fields": {
+        "action_time": "2021-04-16T23:13:22.904Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "guardian"
+        ],
+        "object_id": "4",
+        "object_repr": "Jonathon Smith",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 143,
+    "fields": {
+        "action_time": "2021-04-16T23:13:56.765Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "guardian"
+        ],
+        "object_id": "4",
+        "object_repr": "Jessica Smith",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Phone number\", \"Address\", \"Relation\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 144,
+    "fields": {
+        "action_time": "2021-04-16T23:15:18.807Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "guardian"
+        ],
+        "object_id": "5",
+        "object_repr": "Diana Judy",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 145,
+    "fields": {
+        "action_time": "2021-04-16T23:15:50.461Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "guardian"
+        ],
+        "object_id": "6",
+        "object_repr": "Tom Greene",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 146,
+    "fields": {
+        "action_time": "2021-04-16T23:16:24.425Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "guardian"
+        ],
+        "object_id": "7",
+        "object_repr": "Terrance Bean",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 147,
+    "fields": {
+        "action_time": "2021-04-16T23:17:15.770Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "guardian"
+        ],
+        "object_id": "8",
+        "object_repr": "Fernando Macgregor",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 148,
+    "fields": {
+        "action_time": "2021-04-16T23:17:55.231Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "guardian"
+        ],
+        "object_id": "9",
+        "object_repr": "Emily Oneal",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 149,
+    "fields": {
+        "action_time": "2021-04-16T23:18:02.748Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "guardian"
+        ],
+        "object_id": "9",
+        "object_repr": "Emily Oneal",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Address\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 150,
+    "fields": {
+        "action_time": "2021-04-16T23:19:30.067Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "guardian"
+        ],
+        "object_id": "10",
+        "object_repr": "Francia Irvine",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 151,
+    "fields": {
+        "action_time": "2021-04-16T23:20:59.637Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "guardian"
+        ],
+        "object_id": "11",
+        "object_repr": "Sam Abbott",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 152,
+    "fields": {
+        "action_time": "2021-04-16T23:23:31.989Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "lecture"
+        ],
+        "object_id": "6",
+        "object_repr": "Class Based Views",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 153,
+    "fields": {
+        "action_time": "2021-04-16T23:23:59.688Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "lecture"
+        ],
+        "object_id": "2",
+        "object_repr": "ER Model",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Due date\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 154,
+    "fields": {
+        "action_time": "2021-04-17T00:05:10.261Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "lecture"
+        ],
+        "object_id": "7",
+        "object_repr": "World War II",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 155,
+    "fields": {
+        "action_time": "2021-04-17T00:05:38.655Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "lecture"
+        ],
+        "object_id": "8",
+        "object_repr": "The Periodic Table",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 156,
+    "fields": {
+        "action_time": "2021-04-17T00:06:28.977Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "lecture"
+        ],
+        "object_id": "9",
+        "object_repr": "Past Participle",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 157,
+    "fields": {
+        "action_time": "2021-04-17T00:08:45.275Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "assignment"
+        ],
+        "object_id": "5",
+        "object_repr": "Django Web Development (ID:2) Assignment 1",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 158,
+    "fields": {
+        "action_time": "2021-04-17T00:09:04.521Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "assignment"
+        ],
+        "object_id": "6",
+        "object_repr": "20th Century History (ID:8) Assignment 1",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 159,
+    "fields": {
+        "action_time": "2021-04-17T00:09:26.275Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "assignment"
+        ],
+        "object_id": "7",
+        "object_repr": "Organic Chemistry (ID:9) Assignment 1",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 160,
+    "fields": {
+        "action_time": "2021-04-17T00:10:08.551Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "assignment"
+        ],
+        "object_id": "8",
+        "object_repr": "Intermediate Spanish (ID:10) Assignment 1",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 161,
+    "fields": {
+        "action_time": "2021-04-17T00:10:58.333Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "forum",
+            "discussionthread"
+        ],
+        "object_id": "2",
+        "object_repr": "test",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 162,
+    "fields": {
+        "action_time": "2021-04-17T01:46:12.107Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "forum",
+            "discussionpost"
+        ],
+        "object_id": "8",
+        "object_repr": "Post ID: 8 in What is SQL?",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 163,
+    "fields": {
+        "action_time": "2021-04-17T02:06:11.675Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "enrolledin"
+        ],
+        "object_id": "27",
+        "object_repr": "Bob Smith (12345678) in Linear Algebra (ID:3)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 164,
+    "fields": {
+        "action_time": "2021-04-17T02:06:25.870Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "forum",
+            "discussionpost"
+        ],
+        "object_id": "9",
+        "object_repr": "Post ID: 9 in What is SQL?",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 165,
+    "fields": {
+        "action_time": "2021-04-17T14:22:40.639Z",
+        "user": [
+            "JacobCuke"
+        ],
+        "content_type": [
+            "school",
+            "submission"
+        ],
+        "object_id": "3",
+        "object_repr": "Doug Judy (87654321) submission for Database Management (ID:1) Assignment 1",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "forum.discussionpost",
+    "pk": 1,
+    "fields": {
+        "thread": 1,
+        "creation_date_time": "2021-03-04T00:55:41Z",
+        "author": [
+            "BobSmith"
+        ],
+        "content": "Someone help me please"
+    }
+},
+{
+    "model": "forum.discussionpost",
+    "pk": 2,
+    "fields": {
+        "thread": 1,
+        "creation_date_time": "2021-04-17T00:12:24.147Z",
+        "author": [
+            "TomJones"
+        ],
+        "content": "SQL is a language. Hope this helps"
+    }
+},
+{
+    "model": "forum.discussionpost",
+    "pk": 3,
+    "fields": {
+        "thread": 1,
+        "creation_date_time": "2021-04-17T00:13:34.214Z",
+        "author": [
+            "BobSmith"
+        ],
+        "content": "Thank you! Everything is clear now"
+    }
+},
+{
+    "model": "forum.discussionpost",
+    "pk": 4,
+    "fields": {
+        "thread": 3,
+        "creation_date_time": "2021-04-17T00:15:03.314Z",
+        "author": [
+            "CarlosMacgregor"
+        ],
+        "content": "The concept is just so foreign to me"
+    }
+},
+{
+    "model": "forum.discussionpost",
+    "pk": 5,
+    "fields": {
+        "thread": 3,
+        "creation_date_time": "2021-04-17T00:17:18.992Z",
+        "author": [
+            "BobSmith"
+        ],
+        "content": "I also don't understand"
+    }
+},
+{
+    "model": "forum.discussionpost",
+    "pk": 6,
+    "fields": {
+        "thread": 3,
+        "creation_date_time": "2021-04-17T00:17:58.323Z",
+        "author": [
+            "TomJones"
+        ],
+        "content": "It's like a primary key, but foreign"
+    }
+},
+{
+    "model": "forum.discussionpost",
+    "pk": 7,
+    "fields": {
+        "thread": 3,
+        "creation_date_time": "2021-04-17T00:18:33.174Z",
+        "author": [
+            "CarlosMacgregor"
+        ],
+        "content": "Ah yes of course! It all makes sense now. Thanks sir"
+    }
+},
+{
+    "model": "forum.discussionpost",
+    "pk": 10,
+    "fields": {
+        "thread": 4,
+        "creation_date_time": "2021-04-17T16:12:56.291Z",
+        "author": [
+            "BobSmith"
+        ],
+        "content": "Testing"
+    }
+},
+{
+    "model": "forum.discussionpost",
+    "pk": 11,
+    "fields": {
+        "thread": 4,
+        "creation_date_time": "2021-04-17T16:13:08.931Z",
+        "author": [
+            "BobSmith"
+        ],
+        "content": "I shall help you"
+    }
+},
+{
+    "model": "forum.discussionpost",
+    "pk": 12,
+    "fields": {
+        "thread": 4,
+        "creation_date_time": "2021-04-17T16:18:46.918Z",
+        "author": [
+            "TomJones"
+        ],
+        "content": "Here is how you do it"
+    }
+},
+{
+    "model": "forum.discussionthread",
+    "pk": 1,
+    "fields": {
+        "title": "What is SQL?",
+        "course": 1,
+        "creation_date_time": "2021-03-04T00:55:08Z",
+        "author": [
+            "BobSmith"
+        ]
+    }
+},
+{
+    "model": "forum.discussionthread",
+    "pk": 3,
+    "fields": {
+        "title": "How do foreign keys work?",
+        "course": 1,
+        "creation_date_time": "2021-04-17T00:15:03.314Z",
+        "author": [
+            "CarlosMacgregor"
+        ]
+    }
+},
+{
+    "model": "forum.discussionthread",
+    "pk": 4,
+    "fields": {
+        "title": "HELP",
+        "course": 1,
+        "creation_date_time": "2021-04-17T16:12:56.290Z",
+        "author": [
+            "BobSmith"
+        ]
+    }
+},
+{
+    "model": "users.instructor",
+    "pk": 3,
+    "fields": {
+        "start_date": "2021-03-01",
+        "office_number": "100A",
+        "office_phone_number": "4035551234"
+    }
+},
+{
+    "model": "users.instructor",
+    "pk": 34,
+    "fields": {
+        "start_date": "2021-01-07",
+        "office_number": "104B",
+        "office_phone_number": "4035559804"
+    }
+},
+{
+    "model": "users.instructor",
+    "pk": 63,
+    "fields": {
+        "start_date": "2020-03-30",
+        "office_number": "110A",
+        "office_phone_number": "4035559932"
+    }
+},
+{
+    "model": "users.instructor",
+    "pk": 64,
+    "fields": {
+        "start_date": "2010-05-30",
+        "office_number": "112C",
+        "office_phone_number": "4035552017"
+    }
+},
+{
+    "model": "users.instructor",
+    "pk": 65,
+    "fields": {
+        "start_date": "2002-08-01",
+        "office_number": "122C",
+        "office_phone_number": "4035551988"
+    }
+},
+{
+    "model": "users.student",
+    "pk": 2,
+    "fields": {
+        "year": "12",
+        "student_id_no": 12345678
+    }
+},
+{
+    "model": "users.student",
+    "pk": 4,
+    "fields": {
+        "year": "12",
+        "student_id_no": 87654321
+    }
+},
+{
+    "model": "users.student",
+    "pk": 5,
+    "fields": {
+        "year": "11",
+        "student_id_no": 55555555
+    }
+},
+{
+    "model": "users.student",
+    "pk": 58,
+    "fields": {
+        "year": "10",
+        "student_id_no": 10034567
+    }
+},
+{
+    "model": "users.student",
+    "pk": 59,
+    "fields": {
+        "year": "11",
+        "student_id_no": 80896572
+    }
+},
+{
+    "model": "users.student",
+    "pk": 60,
+    "fields": {
+        "year": "12",
+        "student_id_no": 67852344
+    }
+},
+{
+    "model": "users.student",
+    "pk": 61,
+    "fields": {
+        "year": "10",
+        "student_id_no": 55638211
+    }
+},
+{
+    "model": "users.student",
+    "pk": 62,
+    "fields": {
+        "year": "10",
+        "student_id_no": 91283567
+    }
+},
+{
+    "model": "users.profile",
+    "pk": 1,
+    "fields": {
+        "user": [
+            "JacobCuke"
+        ],
+        "birth_date": "1997-08-06",
+        "address": "123 House Street NW"
+    }
+},
+{
+    "model": "users.profile",
+    "pk": 2,
+    "fields": {
+        "user": [
+            "BobSmith"
+        ],
+        "birth_date": "2004-04-30",
+        "address": "100 Real Street NW"
+    }
+},
+{
+    "model": "users.profile",
+    "pk": 3,
+    "fields": {
+        "user": [
+            "TomJones"
+        ],
+        "birth_date": "1970-04-20",
+        "address": "101 Another Street SW"
+    }
+},
+{
+    "model": "users.profile",
+    "pk": 4,
+    "fields": {
+        "user": [
+            "DougJudy"
+        ],
+        "birth_date": "2002-03-02",
+        "address": "999 Address Lane NE"
+    }
+},
+{
+    "model": "users.profile",
+    "pk": 5,
+    "fields": {
+        "user": [
+            "SarahGreene"
+        ],
+        "birth_date": "2000-08-21",
+        "address": "54 Town Link NW"
+    }
+},
+{
+    "model": "users.profile",
+    "pk": 34,
+    "fields": {
+        "user": [
+            "DaveWilliams"
+        ],
+        "birth_date": "1984-07-21",
+        "address": "190 Living Way SW"
+    }
+},
+{
+    "model": "users.profile",
+    "pk": 36,
+    "fields": {
+        "user": [
+            "TestAdmin"
+        ],
+        "birth_date": null,
+        "address": ""
+    }
+},
+{
+    "model": "users.profile",
+    "pk": 58,
+    "fields": {
+        "user": [
+            "TylaBean"
+        ],
+        "birth_date": "2002-03-04",
+        "address": "100 5th Ave SE"
+    }
+},
+{
+    "model": "users.profile",
+    "pk": 59,
+    "fields": {
+        "user": [
+            "CarlosMacgregor"
+        ],
+        "birth_date": "2002-12-10",
+        "address": "104 8th Ave NE"
+    }
+},
+{
+    "model": "users.profile",
+    "pk": 60,
+    "fields": {
+        "user": [
+            "ElsaOneil"
+        ],
+        "birth_date": "2001-01-20",
+        "address": "34 Harvest Street NE"
+    }
+},
+{
+    "model": "users.profile",
+    "pk": 61,
+    "fields": {
+        "user": [
+            "FreddieIrvine"
+        ],
+        "birth_date": "2003-07-23",
+        "address": "29 Coventry Way NE"
+    }
+},
+{
+    "model": "users.profile",
+    "pk": 62,
+    "fields": {
+        "user": [
+            "SonyaAbbott"
+        ],
+        "birth_date": "2003-09-07",
+        "address": "77 Panamount Link NE"
+    }
+},
+{
+    "model": "users.profile",
+    "pk": 63,
+    "fields": {
+        "user": [
+            "PhyllisMagana"
+        ],
+        "birth_date": "1985-04-23",
+        "address": "28 Sunset Drive SE"
+    }
+},
+{
+    "model": "users.profile",
+    "pk": 64,
+    "fields": {
+        "user": [
+            "RachelReader"
+        ],
+        "birth_date": "1970-11-11",
+        "address": "22 Acacia Ave SW"
+    }
+},
+{
+    "model": "users.profile",
+    "pk": 65,
+    "fields": {
+        "user": [
+            "GabriellaHume"
+        ],
+        "birth_date": "1978-10-10",
+        "address": "87 Woodland Drive NW"
+    }
+}
+]
