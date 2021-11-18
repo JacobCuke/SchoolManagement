@@ -45,8 +45,12 @@ body {
   color: #333333;
 }
 
+.content-section:hover .content-title .title-link {
+  color: #3f92eb;
+}
+
 .title-link:hover {
-  color: #007bff;
+  color: #007bff !important;
 }
 
 .profile-title {
@@ -132,4 +136,3 @@ body {
   color: #ffffff;
   background-color: #6d0000;
 }
-
