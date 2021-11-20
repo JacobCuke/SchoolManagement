@@ -6,6 +6,12 @@ Web Application and API for the management of a school database. Originally a gr
 
 View the full API documentation here: [Postman Documentation](https://documenter.getpostman.com/view/15328019/TzJrBeLq)
 
+## Relational Model
+<img src="https://raw.githubusercontent.com/JacobCuke/SchoolManagement/master/schema/relational_model.png"></img>
+
+## Database Schema
+<img src="https://raw.githubusercontent.com/JacobCuke/SchoolManagement/master/schema/database_schema.png"></img>
+
 ## Fork Instructions
 
 [Video tutorial](https://www.youtube.com/watch?v=HbSjyU2vf6Y&ab_channel=TheNetNinja)
