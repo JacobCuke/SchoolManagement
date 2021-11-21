@@ -1,6 +1,6 @@
 # SchoolManagement
 
-Web Application and API for the management of a school database. Originally a group project for a Relational Database course at the U of C.
+Web Application and API for the management of a high school database.
 
 ## API Documentation
 
